@@ -1,5 +1,5 @@
 package data;
 
-public class DayDAOImpl {
+public class DayDAOImpl{
 
 }

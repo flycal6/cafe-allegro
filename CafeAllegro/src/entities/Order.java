@@ -1,12 +1,16 @@
 package entities;
 
 import java.sql.Date;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
@@ -24,6 +28,13 @@ private Date time;
 @ManyToOne
 @JoinColumn(name="user_id")
 private User user;
+
+@ManyToMany(cascade={CascadeType.PERSIST, CascadeType.REMOVE})
+@JoinTable(name="order_item",
+joinColumns=@JoinColumn(name="order_id"),
+inverseJoinColumns=@JoinColumn(name="menu_item_id")
+)
+private List<MenuItem> menuItems;
 
 public int getId() {
 	return id;
@@ -47,6 +58,14 @@ public User getUser() {
 
 public void setUser(User user) {
 	this.user = user;
+}
+
+public List<MenuItem> getMenuItems() {
+	return menuItems;
+}
+
+public void setMenuItems(List<MenuItem> menuItems) {
+	this.menuItems = menuItems;
 }
 
 @Override

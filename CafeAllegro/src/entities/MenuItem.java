@@ -7,6 +7,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -40,7 +41,11 @@ public class MenuItem {
 	@ManyToOne
 	@JoinColumn(name = "menu_id")
 	private Menu menu;
+	
+	@ManyToMany(mappedBy="menuItems")
+	private List<Order> orders;
 
+	
 	// GETTERS AND SETTERS
 	public int getId() {
 		return id;
@@ -104,6 +109,15 @@ public class MenuItem {
 
 	public void setMenu(Menu menu) {
 		this.menu = menu;
+	}
+
+
+	public List<Order> getOrders() {
+		return orders;
+	}
+
+	public void setOrders(List<Order> orders) {
+		this.orders = orders;
 	}
 
 	@Override
