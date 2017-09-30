@@ -319,8 +319,8 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `cafe`;
-INSERT INTO `user` (`id`, `first_name`, `last_name`, `username`, `password`, `user_role_id`, `rewards_id`, `email_address`, `phone_number`) VALUES (1, 'Brian', 'Thomas', 'admin', 'admin', 1, NULL, NULL, NULL);
-INSERT INTO `user` (`id`, `first_name`, `last_name`, `username`, `password`, `user_role_id`, `rewards_id`, `email_address`, `phone_number`) VALUES (2, 'Stan', 'V', 'customer', 'customer', 2, NULL, NULL, NULL);
+INSERT INTO `user` (`id`, `first_name`, `last_name`, `username`, `password`, `user_role_id`, `rewards_id`, `email_address`, `phone_number`) VALUES (1, 'Brian', 'Thomas', 'admin', 'admin', 1, 1, 'brian.thomas@gmail.com', 123456789);
+INSERT INTO `user` (`id`, `first_name`, `last_name`, `username`, `password`, `user_role_id`, `rewards_id`, `email_address`, `phone_number`) VALUES (2, 'Stan', 'V', 'customer', 'customer', 2, 2, 'stan.v@gmail.com', 123456789);
 
 COMMIT;
 
