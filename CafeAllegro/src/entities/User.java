@@ -10,6 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -37,7 +38,7 @@ public class User {
 	private int phoneNumber;
 
 	// ADD USER_ROLE_ID RELATIONSHIP
-	@ManyToOne
+	@OneToOne
 	@JoinColumn(name = "user_role_id")
 	private UserRole userRole;
 

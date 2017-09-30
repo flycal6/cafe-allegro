@@ -1,14 +1,11 @@
 package entities;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -25,7 +22,7 @@ public class Menu {
 
 	//THERE IS A RELATIONSHIP BETWEEN MENU AND MENU_ITEM
 	@OneToMany(mappedBy="menu")
-	private MenuItem menuItem;
+	private List<MenuItem> menuItems;
 	
 	
 	//GETTERS AND SETTERS
@@ -44,20 +41,26 @@ public class Menu {
 	public void setName(String name) {
 		this.name = name;
 	}
-	
 
-	public MenuItem getMenuItem() {
-		return menuItem;
+	public List<MenuItem> getMenuItems() {
+		return menuItems;
 	}
 
-	public void setMenuItem(MenuItem menuItem) {
-		this.menuItem = menuItem;
+	public void setMenuItems(List<MenuItem> menuItems) {
+		this.menuItems = menuItems;
 	}
 
 	@Override
 	public String toString() {
-		return "Menu id=" + id + ", name=" + name + ", menuItem=" + menuItem;
+		StringBuilder builder = new StringBuilder();
+		builder.append("Menu [id=");
+		builder.append(id);
+		builder.append(", name=");
+		builder.append(name);
+		builder.append("]");
+		return builder.toString();
 	}
+
 
 
 	

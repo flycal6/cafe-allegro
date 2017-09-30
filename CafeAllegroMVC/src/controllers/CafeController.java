@@ -4,13 +4,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import data.MenuDAO;
+import data.MenuItemDAO;
 
 @Controller
 public class CafeController {
 
 	@Autowired
-	private MenuDAO MenuDao;
+	private MenuItemDAO MenuDao;
 	
 	@RequestMapping(path="Cafe.do")
 	public String showHomePage() {
