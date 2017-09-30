@@ -8,6 +8,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+	${user.firstName}
+	${user.lasstName}
+	${user.username}
 </body>
 </html>
