@@ -19,13 +19,6 @@ public class MenuItemDAOImpl implements MenuItemDAO {
 
 	@Override
 	public MenuItem adminCreateMenuItem(MenuItem menuItem) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public MenuItem readMenuItem() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
