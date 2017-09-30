@@ -1,57 +1,56 @@
 package entities;
 
-import javax.persistence.CascadeType;
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="User")
+@Table(name = "User")
 public class User {
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private int id; 
-	
-	@Column(name="first_name")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int id;
+
+	@Column(name = "first_name")
 	private String firstName;
-	
-	@Column(name="last_name")
-	private String lastName; 
-	
+
+	@Column(name = "last_name")
+	private String lastName;
+
 	private String username;
-	
+
 	private String password;
-	
-	@Column(name="email_address")
+
+	@Column(name = "email_address")
 	private String email;
-	
-	@Column(name="phone_number")
+
+	@Column(name = "phone_number")
 	private int phoneNumber;
-	
-	//ADD USER_ROLE_ID RELATIONSHIP
+
+	// ADD USER_ROLE_ID RELATIONSHIP
 	@ManyToOne
-	@JoinColumn(name="user_role_id")
+	@JoinColumn(name = "user_role_id")
 	private UserRole userRole;
-	
-	//ADD REWARDS_ID RELATIONSHIP
+
+	// ADD REWARDS_ID RELATIONSHIP
 	@ManyToOne
-	@JoinColumn(name="rewards_id")
+	@JoinColumn(name = "rewards_id")
 	private Rewards rewards;
-	
-	 //ADD USER TO ORDER RELATIONSHIP
-	@OneToMany(mappedBy="user")
-	private Order order;
-	
-	//GETTERS AND SETTERS
+
+	// ADD USER TO ORDER RELATIONSHIP
+	@OneToMany(mappedBy = "user")
+	private List<Order> orders;
+
+	// GETTERS AND SETTERS
 	public int getId() {
 		return id;
 	}
@@ -75,7 +74,6 @@ public class User {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	
 
 	public String getFirstName() {
 		return firstName;
@@ -117,7 +115,6 @@ public class User {
 		this.userRole = userRole;
 	}
 
-	
 	public Rewards getRewards() {
 		return rewards;
 	}
@@ -126,20 +123,37 @@ public class User {
 		this.rewards = rewards;
 	}
 
-	public Order getOrder() {
-		return order;
+	public List<Order> getOrders() {
+		return orders;
 	}
 
-	public void setOrder(Order order) {
-		this.order = order;
+	public void setOrders(List<Order> orders) {
+		this.orders = orders;
 	}
 
 	@Override
 	public String toString() {
-		return "User id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", username=" + username
-				+ ", password=" + password + ", email=" + email + ", phoneNumber=" + phoneNumber + ", userRole="
-				+ userRole + ", rewards=" + rewards + ", order=" + order;
+		StringBuilder builder = new StringBuilder();
+		builder.append("User [id=");
+		builder.append(id);
+		builder.append(", firstName=");
+		builder.append(firstName);
+		builder.append(", lastName=");
+		builder.append(lastName);
+		builder.append(", username=");
+		builder.append(username);
+		builder.append(", password=");
+		builder.append(password);
+		builder.append(", email=");
+		builder.append(email);
+		builder.append(", phoneNumber=");
+		builder.append(phoneNumber);
+		builder.append(", userRole=");
+		builder.append(userRole);
+		builder.append(", rewards=");
+		builder.append(rewards);
+		builder.append("]");
+		return builder.toString();
 	}
-
 
 }

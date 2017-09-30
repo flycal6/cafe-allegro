@@ -1,5 +1,7 @@
 package data;
 
-public class UserRoleDAO {
+public interface UserRoleDAO {
+	
+	public Object selectPermission(int id);
 
 }

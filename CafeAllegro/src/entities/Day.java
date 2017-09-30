@@ -2,15 +2,10 @@ package entities;
 
 import java.util.List;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -27,12 +22,20 @@ public class Day {
 	
 	//THERE IS A RELATIONSHIP HERE BETWEEN DAY AND MENU_ITEM
 	@OneToMany(mappedBy="day")
-	private MenuItem menuItem; 
+	private List<MenuItem> menuItems; 
 	
 	
 //GETTERS AND SETTERS
 	public int getId() {
 		return id;
+	}
+
+	public List<MenuItem> getMenuItems() {
+		return menuItems;
+	}
+
+	public void setMenuItems(List<MenuItem> menuItems) {
+		this.menuItems = menuItems;
 	}
 
 	public void setId(int id) {
@@ -47,18 +50,19 @@ public class Day {
 		this.name = name;
 	}
 
-	public MenuItem getMenuItem() {
-		return menuItem;
-	}
-
-	public void setMenuItem(MenuItem menuItem) {
-		this.menuItem = menuItem;
-	}
-
 	@Override
 	public String toString() {
-		return "Day id=" + id + ", name=" + name + ", menuItem=" + menuItem;
+		StringBuilder builder = new StringBuilder();
+		builder.append("Day [id=");
+		builder.append(id);
+		builder.append(", name=");
+		builder.append(name);
+		builder.append("]");
+		return builder.toString();
 	}
+	
+
+
 
 
 
