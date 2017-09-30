@@ -5,22 +5,20 @@ import entities.User;
 public interface UserDAO {
 	
 	//CUSTOMER METHODS
-	public User customerCreateProfile();
+	public User customerCreateProfile(User user);
 	
-	public User customerReadProfile();
+	User customerUpdateProfile(int id, User user);
 	
-	public User customerUpdateProfile();
+	public boolean customerDeleteProfile(int id);
+
+	User customerLogin(User loginUser);
 	
-	public User customerDeleteProfile();
 	
-	//ADMIN
-	public User adminCreateProfile();
 	
-	public User adminReadProfile();
+
 	
-	public User adminUpdateProfile();
+
 	
-	public User adminDeleteProfile();
 	
 
 
