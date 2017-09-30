@@ -34,7 +34,7 @@ public class UserDAOImpl implements UserDAO {
 		List<User> userGotBack = em.createQuery(query, User.class)
 				.setParameter("username", loginUser.getUsername())
 		        .setParameter("password", loginUser.getPassword()).getResultList();
-		   if( userGotBack != null ) {
+		   if( userGotBack.size() > 0 ) {
 			  u = userGotBack.get(0);
 		   }
 	
