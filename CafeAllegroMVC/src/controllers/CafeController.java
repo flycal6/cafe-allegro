@@ -19,4 +19,12 @@ public class CafeController {
 		model.addAttribute("items", menuItemDao.getAllItemsforIndexPage());
 		return "views/index.jsp";
 	}
+
+	@RequestMapping(path="Login.do", method=RequestMethod.GET)
+	public String showLoginPage(Model model) {
+		return "views/login.jsp";
+	}
+	
+	
+	
 }
