@@ -9,8 +9,8 @@ import data.MenuItemDAO;
 @Controller
 public class CafeController {
 
-	@Autowired
-	private MenuItemDAO MenuDao;
+//	@Autowired
+//	private MenuItemDAO MenuDao;
 	
 	@RequestMapping(path="Cafe.do")
 	public String showHomePage() {

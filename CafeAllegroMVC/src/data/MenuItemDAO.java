@@ -1,5 +1,7 @@
 package data;
 
+import org.springframework.stereotype.Component;
+
 import entities.MenuItem;
 
 public interface MenuItemDAO {
