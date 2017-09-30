@@ -109,10 +109,14 @@ DROP TABLE IF EXISTS `user` ;
 
 CREATE TABLE IF NOT EXISTS `user` (
   `id` INT NOT NULL AUTO_INCREMENT,
+  `first_name` VARCHAR(45) NOT NULL,
+  `last_name` VARCHAR(45) NOT NULL,
   `username` VARCHAR(45) NOT NULL,
   `password` VARCHAR(45) NOT NULL,
   `user_role_id` INT NULL,
   `rewards_id` INT NULL,
+  `email_address` VARCHAR(80) NULL,
+  `phone_number` INT NULL,
   PRIMARY KEY (`id`),
   CONSTRAINT `fk_user_to_user_role_id`
     FOREIGN KEY (`user_role_id`)
@@ -169,9 +173,9 @@ CREATE TABLE IF NOT EXISTS `order_item` (
     REFERENCES `order` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
-  CONSTRAINT `fk_orer_to_menu_item`
+  CONSTRAINT `fk_order_to_menu_item`
     FOREIGN KEY (`menu_item_id`)
-    REFERENCES `menu_item` (`day_id`)
+    REFERENCES `menu_item` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
@@ -303,8 +307,8 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `cafeallegro`;
-INSERT INTO `user` (`id`, `username`, `password`, `user_role_id`, `rewards_id`) VALUES (1, 'admin', 'admin', 1, NULL);
-INSERT INTO `user` (`id`, `username`, `password`, `user_role_id`, `rewards_id`) VALUES (2, 'customer', 'customer', 2, NULL);
+INSERT INTO `user` (`id`, `first_name`, `last_name`, `username`, `password`, `user_role_id`, `rewards_id`, `email_address`, `phone_number`) VALUES (1, DEFAULT, DEFAULT, 'admin', 'admin', 1, NULL, NULL, NULL);
+INSERT INTO `user` (`id`, `first_name`, `last_name`, `username`, `password`, `user_role_id`, `rewards_id`, `email_address`, `phone_number`) VALUES (2, DEFAULT, DEFAULT, 'customer', 'customer', 2, NULL, NULL, NULL);
 
 COMMIT;
 
