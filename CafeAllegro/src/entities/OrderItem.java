@@ -13,6 +13,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 public class OrderItem {
@@ -23,10 +24,12 @@ public class OrderItem {
 	
 	private int quantity;
 	
-	//ADD ORDER ID RELATIONSHIP
+	//ADD MENU_ITEM_ID RELATIONSHIP
+	@ManyToOne
+	@JoinColumn(name="menu_item_id")
+	private MenuItem menuItem;
 	
-	//ADD MENU ITEM ID RELATIONSHIP
-	
+	//GETTERS AND SETTERS
 	public int getId() {
 		return id;
 	}
@@ -43,11 +46,19 @@ public class OrderItem {
 		this.quantity = quantity;
 	}
 
+	public MenuItem getMenuItem() {
+		return menuItem;
+	}
+
+	public void setMenuItem(MenuItem menuItem) {
+		this.menuItem = menuItem;
+	}
+
 	@Override
 	public String toString() {
-		return "Order id=" + id + ", quantity=" + quantity;
-	} 
-	
-	
+		return "OrderItem id=" + id + ", quantity=" + quantity + ", menuItem=" + menuItem;
+	}
+
+
 	
 }

@@ -9,6 +9,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -20,6 +21,20 @@ public class Rewards {
 	private int id; 
 	
 	private int points;
+	
+	//ADD RELATIONSHIP BETWEEN REWARDS TO USER
+	@OneToMany(mappedBy="rewards")
+	private User user;
+
+	
+	//GETTERS AND SETTERS
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
 
 	public int getId() {
 		return id;
@@ -39,10 +54,9 @@ public class Rewards {
 
 	@Override
 	public String toString() {
-		return "Rewards id=" + id + ", points=" + points;
-	} 
-	
-	
+		return "Rewards id=" + id + ", points=" + points + ", user=" + user;
+	}
+
 	
 
 }

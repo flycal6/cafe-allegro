@@ -9,6 +9,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 
@@ -23,6 +24,9 @@ public class Menu {
 	private String name;
 
 	//THERE IS A RELATIONSHIP BETWEEN MENU AND MENU_ITEM
+	@OneToMany(mappedBy="menu")
+	private MenuItem menuItem;
+	
 	
 	//GETTERS AND SETTERS
 	public int getId() {
@@ -40,12 +44,21 @@ public class Menu {
 	public void setName(String name) {
 		this.name = name;
 	}
+	
+
+	public MenuItem getMenuItem() {
+		return menuItem;
+	}
+
+	public void setMenuItem(MenuItem menuItem) {
+		this.menuItem = menuItem;
+	}
 
 	@Override
 	public String toString() {
-		return "Menu id=" + id + ", name=" + name;
+		return "Menu id=" + id + ", name=" + name + ", menuItem=" + menuItem;
 	}
-	
+
 
 	
 

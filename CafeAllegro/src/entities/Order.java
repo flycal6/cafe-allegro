@@ -11,6 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -24,6 +25,9 @@ private int id;
 private Date time;
 
 //ADD USER_ID RELATIONSHIP
+@ManyToOne
+@JoinColumn(name="user_id")
+private User user;
 
 public int getId() {
 	return id;
@@ -41,10 +45,17 @@ public void setTime(Date time) {
 	this.time = time;
 }
 
+public User getUser() {
+	return user;
+}
+
+public void setUser(User user) {
+	this.user = user;
+}
+
 @Override
 public String toString() {
-	return "Order id=" + id + ", time=" + time;
-} 
-
+	return "Order id=" + id + ", time=" + time + ", user=" + user;
+}
 
 }
