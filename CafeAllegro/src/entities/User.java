@@ -1,5 +1,7 @@
 package entities;
 
+import java.util.List;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -49,7 +51,7 @@ public class User {
 	
 	 //ADD USER TO ORDER RELATIONSHIP
 	@OneToMany(mappedBy="user")
-	private Order order;
+	private List<Order> orders;
 	
 	//GETTERS AND SETTERS
 	public int getId() {
