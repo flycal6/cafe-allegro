@@ -9,7 +9,7 @@
 </head>
 <body>
 	${user.firstName}
-	${user.lasstName}
+	${user.lastName}
 	${user.username}
 </body>
 </html>
