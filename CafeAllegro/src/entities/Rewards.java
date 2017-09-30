@@ -1,9 +1,5 @@
 package entities;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -15,18 +11,16 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
-public class OrderItem {
-
+@Entity
+@Table(name="Rewards")
+public class Rewards {
+	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id; 
 	
-	private int quantity;
-	
-	//ADD ORDER ID RELATIONSHIP
-	
-	//ADD MENU ITEM ID RELATIONSHIP
-	
+	private int points;
+
 	public int getId() {
 		return id;
 	}
@@ -35,19 +29,20 @@ public class OrderItem {
 		this.id = id;
 	}
 
-	public int getQuantity() {
-		return quantity;
+	public int getPoints() {
+		return points;
 	}
 
-	public void setQuantity(int quantity) {
-		this.quantity = quantity;
+	public void setPoints(int points) {
+		this.points = points;
 	}
 
 	@Override
 	public String toString() {
-		return "Order id=" + id + ", quantity=" + quantity;
+		return "Rewards id=" + id + ", points=" + points;
 	} 
 	
 	
 	
+
 }
