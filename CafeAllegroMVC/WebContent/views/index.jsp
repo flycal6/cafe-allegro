@@ -19,7 +19,6 @@
   </head>
 
   <body>
-
     <div class="collapse bg-dark" id="navbarHeader">
       <div class="container">
         <div class="row">
@@ -57,7 +56,9 @@
         </p>
       </div>
     </section>
-
+    <c:forEach var="item" items="${items}">
+		<p>${item.name}: ${item.price}</p>
+	</c:forEach>
     <div class="album text-muted">
       <div class="container">
 

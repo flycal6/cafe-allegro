@@ -1,10 +1,12 @@
 package data;
 
-import org.springframework.stereotype.Component;
+import java.util.List;
 
 import entities.MenuItem;
 
 public interface MenuItemDAO {
+	
+	public List<MenuItem> getAllItemsforIndexPage();
 
 	public MenuItem adminCreateMenuItem(MenuItem menuItem);
 	

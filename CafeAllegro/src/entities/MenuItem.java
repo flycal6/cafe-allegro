@@ -25,7 +25,7 @@ public class MenuItem {
 
 	private String description;
 
-	private boolean special;
+	private Boolean special;
 
 	// THERE IS A RELATIONSHIP BETWEEN MENU_ITEM AND DAY (MANY TO ONE)
 	@ManyToOne
@@ -74,11 +74,11 @@ public class MenuItem {
 		this.description = description;
 	}
 
-	public boolean getSpecial() {
+	public Boolean getSpecial() {
 		return special;
 	}
 
-	public void setSpecial(boolean special) {
+	public void setSpecial(Boolean special) {
 		this.special = special;
 	}
 
