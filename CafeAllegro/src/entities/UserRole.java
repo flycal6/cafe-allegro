@@ -1,15 +1,9 @@
 package entities;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -21,11 +15,6 @@ public class UserRole {
 	private int id; 
 	
 	private String permission;
-
-	//RELATIONSHIP BETWEEN USER_ROLE TO USER
-	@OneToMany(mappedBy="userRole")
-	private User user;
-	
 	
 	//GETTERS AND SETTERS
 	public int getId() {
@@ -44,17 +33,9 @@ public class UserRole {
 		this.permission = permission;
 	}
 
-	public User getUser() {
-		return user;
-	}
-
-	public void setUser(User user) {
-		this.user = user;
-	}
-
 	@Override
 	public String toString() {
-		return "UserRole id=" + id + ", permission=" + permission + ", user=" + user;
+		return "UserRole id=" + id + ", permission=" + permission;
 	}
 
 	

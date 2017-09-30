@@ -16,20 +16,22 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+
+@Entity
 public class OrderItem {
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private int id; 
-	
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int id;
+
 	private int quantity;
-	
-	//ADD MENU_ITEM_ID RELATIONSHIP
+
+	// ADD MENU_ITEM_ID RELATIONSHIP
 	@ManyToOne
-	@JoinColumn(name="menu_item_id")
+	@JoinColumn(name = "menu_item_id")
 	private MenuItem menuItem;
-	
-	//GETTERS AND SETTERS
+
+	// GETTERS AND SETTERS
 	public int getId() {
 		return id;
 	}
@@ -59,6 +61,4 @@ public class OrderItem {
 		return "OrderItem id=" + id + ", quantity=" + quantity + ", menuItem=" + menuItem;
 	}
 
-
-	
 }
