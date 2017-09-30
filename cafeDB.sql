@@ -5,15 +5,15 @@ SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
 
 -- -----------------------------------------------------
--- Schema cafeallegro
+-- Schema cafe
 -- -----------------------------------------------------
-DROP SCHEMA IF EXISTS `cafeallegro` ;
+DROP SCHEMA IF EXISTS `cafe` ;
 
 -- -----------------------------------------------------
--- Schema cafeallegro
+-- Schema cafe
 -- -----------------------------------------------------
-CREATE SCHEMA IF NOT EXISTS `cafeallegro` DEFAULT CHARACTER SET utf8 ;
-USE `cafeallegro` ;
+CREATE SCHEMA IF NOT EXISTS `cafe` DEFAULT CHARACTER SET utf8 ;
+USE `cafe` ;
 
 -- -----------------------------------------------------
 -- Table `menu`
@@ -207,7 +207,7 @@ SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 -- Data for table `menu`
 -- -----------------------------------------------------
 START TRANSACTION;
-USE `cafeallegro`;
+USE `cafe`;
 INSERT INTO `menu` (`id`, `name`) VALUES (1, 'Monday');
 INSERT INTO `menu` (`id`, `name`) VALUES (2, 'Tuesday');
 INSERT INTO `menu` (`id`, `name`) VALUES (3, 'Wednesday');
@@ -221,7 +221,7 @@ COMMIT;
 -- Data for table `day`
 -- -----------------------------------------------------
 START TRANSACTION;
-USE `cafeallegro`;
+USE `cafe`;
 INSERT INTO `day` (`id`, `name`) VALUES (1, 'breakfast');
 INSERT INTO `day` (`id`, `name`) VALUES (2, 'lunch');
 
@@ -232,7 +232,7 @@ COMMIT;
 -- Data for table `menu_item`
 -- -----------------------------------------------------
 START TRANSACTION;
-USE `cafeallegro`;
+USE `cafe`;
 INSERT INTO `menu_item` (`id`, `name`, `price`, `description`, `day_id`, `menu_id`, `special`) VALUES (1, 'Croissant Breakfast', 4.25, 'Egg, Cheese, and Choice of Meat', 1, NULL, NULL);
 INSERT INTO `menu_item` (`id`, `name`, `price`, `description`, `day_id`, `menu_id`, `special`) VALUES (2, 'English Muffin Breakfast', 3.99, 'Egg, Cheese, and Choice of Meat', 1, NULL, NULL);
 INSERT INTO `menu_item` (`id`, `name`, `price`, `description`, `day_id`, `menu_id`, `special`) VALUES (3, 'Bagel Breakfast', 4.25, 'Egg, Cheese, and Choice of Meat', 1, NULL, NULL);
@@ -295,7 +295,7 @@ COMMIT;
 -- Data for table `user_role`
 -- -----------------------------------------------------
 START TRANSACTION;
-USE `cafeallegro`;
+USE `cafe`;
 INSERT INTO `user_role` (`id`, `permission`) VALUES (1, 'admin');
 INSERT INTO `user_role` (`id`, `permission`) VALUES (2, 'customer');
 
@@ -306,7 +306,7 @@ COMMIT;
 -- Data for table `user`
 -- -----------------------------------------------------
 START TRANSACTION;
-USE `cafeallegro`;
+USE `cafe`;
 INSERT INTO `user` (`id`, `first_name`, `last_name`, `username`, `password`, `user_role_id`, `rewards_id`, `email_address`, `phone_number`) VALUES (1, DEFAULT, DEFAULT, 'admin', 'admin', 1, NULL, NULL, NULL);
 INSERT INTO `user` (`id`, `first_name`, `last_name`, `username`, `password`, `user_role_id`, `rewards_id`, `email_address`, `phone_number`) VALUES (2, DEFAULT, DEFAULT, 'customer', 'customer', 2, NULL, NULL, NULL);
 
@@ -317,7 +317,7 @@ COMMIT;
 -- Data for table `order`
 -- -----------------------------------------------------
 START TRANSACTION;
-USE `cafeallegro`;
+USE `cafe`;
 INSERT INTO `order` (`id`, `time`, `user_id`) VALUES (1, NULL, NULL);
 
 COMMIT;
