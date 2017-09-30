@@ -138,11 +138,11 @@ CREATE INDEX `fk_user_to_rewards_id_idx` ON `user` (`rewards_id` ASC);
 
 
 -- -----------------------------------------------------
--- Table `order`
+-- Table `takeout_order`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `order` ;
+DROP TABLE IF EXISTS `takeout_order` ;
 
-CREATE TABLE IF NOT EXISTS `order` (
+CREATE TABLE IF NOT EXISTS `takeout_order` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `time` DATETIME NULL,
   `user_id` INT NULL,
@@ -154,7 +154,7 @@ CREATE TABLE IF NOT EXISTS `order` (
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
-CREATE INDEX `fk_order_to_user_id_idx` ON `order` (`user_id` ASC);
+CREATE INDEX `fk_order_to_user` ON `takeout_order` (`user_id` ASC);
 
 
 -- -----------------------------------------------------
@@ -170,7 +170,7 @@ CREATE TABLE IF NOT EXISTS `order_item` (
   PRIMARY KEY (`id`),
   CONSTRAINT `fk_order_item_to_order`
     FOREIGN KEY (`order_id`)
-    REFERENCES `order` (`id`)
+    REFERENCES `takeout_order` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_order_to_menu_item`
@@ -326,12 +326,12 @@ COMMIT;
 
 
 -- -----------------------------------------------------
--- Data for table `order`
+-- Data for table `takeout_order`
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `cafe`;
-INSERT INTO `order` (`id`, `time`, `user_id`) VALUES (1, '12:00', 1);
-INSERT INTO `order` (`id`, `time`, `user_id`) VALUES (2, '14:00', 2);
+INSERT INTO `takeout_order` (`id`, `time`, `user_id`) VALUES (1, '12:00', 1);
+INSERT INTO `takeout_order` (`id`, `time`, `user_id`) VALUES (2, '14:00', 2);
 
 COMMIT;
 
