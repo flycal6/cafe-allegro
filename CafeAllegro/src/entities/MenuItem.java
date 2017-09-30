@@ -11,6 +11,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -35,11 +36,16 @@ public class MenuItem {
 	private Day day; 
 	
 	//THERE IS A RELATIONSHIP BETWEEN MENU_ITEM AND ORDER_ITEM (ONE TO MANY)
+	@OneToMany(mappedBy="menuItem")
+	private OrderItem orderItem;
 	
+	//THERE IS A RELATIONSHIP BETWEEN MENU_ITEM AND MENU
+	@ManyToOne
+	@JoinColumn(name="menu_id")
+	private Menu menu;
 	
-	
-	//GETTERS AND SETTERS
 
+	//GETTERS AND SETTERS
 	public int getId() {
 		return id;
 	}
@@ -80,12 +86,36 @@ public class MenuItem {
 		this.special = special;
 	}
 
+	public Day getDay() {
+		return day;
+	}
+
+	public void setDay(Day day) {
+		this.day = day;
+	}
+
+	public OrderItem getOrderItem() {
+		return orderItem;
+	}
+
+	public void setOrderItem(OrderItem orderItem) {
+		this.orderItem = orderItem;
+	}
+
+
+	public Menu getMenu() {
+		return menu;
+	}
+
+	public void setMenu(Menu menu) {
+		this.menu = menu;
+	}
+
 	@Override
 	public String toString() {
 		return "MenuItem id=" + id + ", name=" + name + ", price=" + price + ", description=" + description
-				+ ", special=" + special;
+				+ ", special=" + special + ", day=" + day + ", orderItem=" + orderItem + ", menu=" + menu;
 	}
-	
-	
+
 	
 }

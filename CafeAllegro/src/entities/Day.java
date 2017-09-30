@@ -25,10 +25,10 @@ public class Day {
 	
 	private String name;
 	
+	//THERE IS A RELATIONSHIP HERE BETWEEN DAY AND MENU_ITEM
 	@OneToMany(mappedBy="day")
 	private MenuItem menuItem; 
 	
-	//THERE IS A RELATIONSHIP HERE BETWEEN DAY AND MENU_ITEM
 	
 //GETTERS AND SETTERS
 	public int getId() {
@@ -47,11 +47,20 @@ public class Day {
 		this.name = name;
 	}
 
+	public MenuItem getMenuItem() {
+		return menuItem;
+	}
+
+	public void setMenuItem(MenuItem menuItem) {
+		this.menuItem = menuItem;
+	}
+
 	@Override
 	public String toString() {
-		return "Day id=" + id + ", name=" + name;
+		return "Day id=" + id + ", name=" + name + ", menuItem=" + menuItem;
 	}
-	
+
+
 
 	
 }
