@@ -12,14 +12,15 @@
 		<class>entity.MenuItem</class>
 		<class>entity.Order</class>
 		<class>entity.OrderItem</class>
+		<class>entity.Rewards</class>
 		<class>entity.User</class>
 		<class>entity.UserRole</class>
 
 
 		<properties>
 			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/cafe" />
-			<property name="javax.persistence.jdbc.user" value="admin" />
-			<property name="javax.persistence.jdbc.password" value="admin" />
+			<property name="javax.persistence.jdbc.user" value="root" />
+			<property name="javax.persistence.jdbc.password" value="root" />
 			<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
 			<property name="hibernate.connection.zeroDateTimeBehavior"
 				value="convertToNull"></property>
