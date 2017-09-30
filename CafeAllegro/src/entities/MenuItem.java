@@ -74,7 +74,7 @@ public class MenuItem {
 		this.description = description;
 	}
 
-	public boolean isSpecial() {
+	public boolean getSpecial() {
 		return special;
 	}
 
