@@ -15,10 +15,6 @@ public class UserRole {
 	private int id; 
 	
 	private String permission;
-
-	//RELATIONSHIP BETWEEN USER_ROLE TO USER
-	private User user;
-	
 	
 	//GETTERS AND SETTERS
 	public int getId() {
@@ -37,17 +33,9 @@ public class UserRole {
 		this.permission = permission;
 	}
 
-	public User getUser() {
-		return user;
-	}
-
-	public void setUser(User user) {
-		this.user = user;
-	}
-
 	@Override
 	public String toString() {
-		return "UserRole id=" + id + ", permission=" + permission + ", user=" + user;
+		return "UserRole id=" + id + ", permission=" + permission;
 	}
 
 	
