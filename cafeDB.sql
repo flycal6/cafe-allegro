@@ -303,12 +303,24 @@ COMMIT;
 
 
 -- -----------------------------------------------------
+-- Data for table `rewards`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `cafe`;
+INSERT INTO `rewards` (`id`, `points`) VALUES (1, 10);
+INSERT INTO `rewards` (`id`, `points`) VALUES (2, 10);
+INSERT INTO `rewards` (`id`, `points`) VALUES (3, 10);
+
+COMMIT;
+
+
+-- -----------------------------------------------------
 -- Data for table `user`
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `cafe`;
-INSERT INTO `user` (`id`, `first_name`, `last_name`, `username`, `password`, `user_role_id`, `rewards_id`, `email_address`, `phone_number`) VALUES (1, DEFAULT, DEFAULT, 'admin', 'admin', 1, NULL, NULL, NULL);
-INSERT INTO `user` (`id`, `first_name`, `last_name`, `username`, `password`, `user_role_id`, `rewards_id`, `email_address`, `phone_number`) VALUES (2, DEFAULT, DEFAULT, 'customer', 'customer', 2, NULL, NULL, NULL);
+INSERT INTO `user` (`id`, `first_name`, `last_name`, `username`, `password`, `user_role_id`, `rewards_id`, `email_address`, `phone_number`) VALUES (1, 'Brian', 'Thomas', 'admin', 'admin', 1, NULL, NULL, NULL);
+INSERT INTO `user` (`id`, `first_name`, `last_name`, `username`, `password`, `user_role_id`, `rewards_id`, `email_address`, `phone_number`) VALUES (2, 'Stan', 'V', 'customer', 'customer', 2, NULL, NULL, NULL);
 
 COMMIT;
 
@@ -318,7 +330,19 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `cafe`;
-INSERT INTO `order` (`id`, `time`, `user_id`) VALUES (1, NULL, NULL);
+INSERT INTO `order` (`id`, `time`, `user_id`) VALUES (1, '12:00', 1);
+INSERT INTO `order` (`id`, `time`, `user_id`) VALUES (2, '14:00', 2);
+
+COMMIT;
+
+
+-- -----------------------------------------------------
+-- Data for table `order_item`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `cafe`;
+INSERT INTO `order_item` (`id`, `order_id`, `menu_item_id`, `quantity`) VALUES (2, 2, 1, 1);
+INSERT INTO `order_item` (`id`, `order_id`, `menu_item_id`, `quantity`) VALUES (1, 1, 2, 1);
 
 COMMIT;
 
