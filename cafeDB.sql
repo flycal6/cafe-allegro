@@ -48,9 +48,9 @@ DROP TABLE IF EXISTS `menu_item` ;
 
 CREATE TABLE IF NOT EXISTS `menu_item` (
   `id` INT NOT NULL AUTO_INCREMENT,
-  `name` VARCHAR(45) NOT NULL,
+  `name` VARCHAR(100) NOT NULL,
   `price` DECIMAL(4,2) NOT NULL DEFAULT 5.99,
-  `description` VARCHAR(45) NOT NULL,
+  `description` VARCHAR(100) NOT NULL,
   `day_id` INT NULL,
   `menu_id` INT NULL,
   `special` TINYINT(1) NULL DEFAULT 0,
