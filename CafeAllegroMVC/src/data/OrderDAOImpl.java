@@ -43,5 +43,10 @@ public class OrderDAOImpl implements OrderDAO {
 		List<Order> order =em.createQuery(query, Order.class).getResultList();
 		return order;
 	}
+
+	@Override
+	public MenuItem getMenuItemById(int id) {
+		return em.find(MenuItem.class, id);
+	}
 }
 	
