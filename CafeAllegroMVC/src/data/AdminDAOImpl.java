@@ -26,4 +26,11 @@ public class AdminDAOImpl implements AdminDAO {
 		return mi;
 	}
 
+	@Override
+	public MenuItem addNewItem(MenuItem item) {
+		em.persist(item);
+		em.flush();
+		return item;
+	}
+
 }

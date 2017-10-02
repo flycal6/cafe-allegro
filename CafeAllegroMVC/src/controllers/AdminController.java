@@ -33,5 +33,15 @@ public class AdminController {
 		return "views/adminItemUpdate.jsp";
 	}
 	
+	@RequestMapping(path="GetNewItemView.do", method=RequestMethod.GET)
+	public String getNewItemView() {
+		return "views/newItem.jsp";
+	}
 	
+	@RequestMapping(path="AddMenuItem.do", method=RequestMethod.POST)
+	public String AddMenuItem(MenuItem item, Model model) {
+		model.addAttribute("item", adminDao.addNewItem(item));
+		model.addAttribute("items", menuDao.getAllItemsforIndexPage());
+		return "views/adminItemUpdate.jsp";
+	}
 }
