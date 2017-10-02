@@ -1,5 +1,6 @@
 package data;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -13,6 +14,7 @@ import entities.MenuItem;
 @Repository
 @Transactional
 public class MenuItemDAOImpl implements MenuItemDAO {
+	private List<MenuItem> menuItems = new ArrayList<>();
 	
 	@PersistenceContext
 	EntityManager em;
@@ -22,16 +24,17 @@ public class MenuItemDAOImpl implements MenuItemDAO {
 		return null;
 	}
 
-	@Override
-	public MenuItem adminUpdateMenuItem() {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 	@Override
-	public MenuItem adminDeleteMenuItem() {
-		// TODO Auto-generated method stub
-		return null;
+	public void adminDeleteMenuItem(int id) {
+		MenuItem item = null;
+		for (MenuItem menuItem : menuItems) {
+			if (item.getId() == id) {
+				item = menuItem;
+				break;
+			}
+		}
+		menuItems.remove(item.getId());
 	}
 
 	@Override

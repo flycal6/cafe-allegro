@@ -54,63 +54,32 @@
 		</div>
 	</div>
 
-	<div class="album text-muted">
-		<div class="container">
-
-			<div class="row">
-			<c:if test="${empty user}"><h3>User not found</h3></c:if>
-			<c:if test="${not empty user}">
-				<form action="UpdateUser.do" method="POST">
+		<div class="container text-muted">
+			<c:forEach var="item" items="${items}">
+				<form action="UpdateMenuItem.do" method="POST">
 					<div class="form-row">
-						<div class="form-group col-md-6">
-							<label for="inputFirstName" class="col-form-label">First Name</label> 
-							<input type="text" class="form-control" id="inputFirstName" name="firstName" value="${user.firstName}">
+						<div class="form-group col-md-9">
+							<label for="inputName" class="col-form-label">Name</label> 
+							<input type="text" class="form-control" id="inputName" name="name" value="${item.name}">
 						</div>
-						<div class="form-group col-md-6">
-							<label for="inputLastName" class="col-form-label">Last Name</label>
-							<input type="text" class="form-control" id="inputLastName" name="lastName" value="${user.lastName}">
+						<div class="form-group col-md-3">
+							<label for="inputLast" class="col-form-label">Price</label>
+							<input type="text" class="form-control" id="inputLast" name="price" value="${item.price}">
 						</div>
 					</div>
 					<div class="form-row">
-						<div class="form-group col-md-6">
-							<label for="inputUsername" class="col-form-label">Username</label> 
-							<input type="text" class="form-control" id="inputAddress" name="username" value="${user.username}">
-						</div>
-						<div class="form-group col-md-6">
-							<label for="inputPassword4" class="col-form-label">Password</label>
-							<input type="password" class="form-control" id="inputPassword4" name="password" value="${user.password}">
+						<div class="form-group col-md-12">
+							<label for="inputDesc" class="col-form-label">Description</label> 
+							<input type="text" class="form-control" id="inputDesc" name="description" value="${item.description}">
 						</div>
 					</div>
-						<div class="form-group">
-							<label for="inputEmail4" class="col-form-label">Email</label> 
-							<input type="email" class="form-control" id="inputEmail4" name="email" value="${user.email}">
-						</div>
-						<div class="form-group">
-							<label for="inputPhone" class="col-form-label">Phone Number</label> 
-							<input type="number" class="form-control" id="inputPhone" name="phoneNumber" value="${user.phoneNumber}">
-							<input type="hidden" name="id" value="${user.id}">
-						</div>
-					<button type="submit" name="submit" id="submit" class="btn btn-primary">Update Profile</button>
+					<input type="hidden" name="id" value="${item.id}">
+					<button type="submit" name="submit" id="submit" class="btn btn-primary">Update</button>
 				</form>
-				</c:if>
-			</div>
-			<br>
-			<div class="row">
-				<c:if test="${user.userRole.permission == 'admin'}">
-					<form action="UpdateMenuItemsView.do">
-						<button type="submit" class="btn btn-primary">Update Menu Items</button>
-					</form>
-				</c:if>
-			</div>
-			<hr>
-			<div class="row">
-				<h4>You have ${user.rewards.points} Reward Points.</h4>
-			</div>
-			<!-- <div class="parent">
-				
-			</div> -->
+				<hr>
+
+			</c:forEach>
 		</div>
-	</div>
 
 	<footer class="text-muted">
 		<div class="container">
@@ -138,11 +107,6 @@
 	</script>
 
 	<script src="js/holder.js"></script>
-<!-- 	<script>$(document).ready(function () {
-	    $('#submit').click(function () {
-            $('.parent').append("<div class='alert alert-success alert-dismissable'><button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>Success! message sent successfully.</div>")
-	    })
-	});</script> -->
 	<script src="js/bootstrap.min.js"></script>
 	<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
 </body>
