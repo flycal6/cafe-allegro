@@ -13,4 +13,6 @@ public interface OrderDAO {
 
 	public Order viewOrder(Order order, int id);
 	
+	public MenuItem getMenuItemById(int id);
+	
 }
