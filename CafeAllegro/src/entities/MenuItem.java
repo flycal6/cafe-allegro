@@ -13,7 +13,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "Menu_Item")
+@Table(name="Menu_Item")
 public class MenuItem {
 
 	@Id
@@ -27,6 +27,8 @@ public class MenuItem {
 	private String description;
 
 	private Boolean special;
+	
+	private String category; 
 
 	// THERE IS A RELATIONSHIP BETWEEN MENU_ITEM AND DAY (MANY TO ONE)
 	@ManyToOne
@@ -120,10 +122,18 @@ public class MenuItem {
 		this.orders = orders;
 	}
 
+	public String getCategory() {
+		return category;
+	}
+
+	public void setCategory(String category) {
+		this.category = category;
+	}
+
 	@Override
 	public String toString() {
 		return "MenuItem id=" + id + ", name=" + name + ", price=" + price + ", description=" + description
-				+ ", special=" + special + ", day=" + day + ", menu=" + menu;
+				+ ", special=" + special + ", day=" + day + ", menu=" + menu + ", category " + category;
 	}
 
 }
