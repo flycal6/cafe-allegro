@@ -11,7 +11,7 @@
 <meta name="author" content="">
 <link rel="icon" href="../../../../favicon.ico">
 
-<title>${user.firstName} ${user.lastName} - Profile</title>
+<title>Adding New Menu Item</title>
 
 <!-- Bootstrap core CSS -->
 <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -46,7 +46,6 @@
 	<div class="navbar navbar-dark bg-dark">
 		<div class="container d-flex justify-content-between">
 			<a href="Cafe.do" class="navbar-brand">Home</a>
-			<a href="GetNewItemView.do" class="navbar-brand">Add New Item</a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse"
 				data-target="#navbarHeader" aria-controls="navbarHeader"
 				aria-expanded="false" aria-label="Toggle navigation">
@@ -56,34 +55,30 @@
 	</div>
 
 		<div class="container text-muted">
-			<c:forEach var="item" items="${items}">
-				<form action="UpdateMenuItem.do" method="POST">
+			
+				<form action="AddMenuItem.do" method="POST">
 					<div class="form-row">
 						<div class="form-group col-md-9">
 							<label for="inputName" class="col-form-label">Name</label> 
-							<input type="text" class="form-control" id="inputName" name="name" value="${item.name}">
+							<input type="text" class="form-control" id="inputName" name="name" placeholder="Item Name">
 						</div>
 						<div class="form-group col-md-3">
 							<label for="inputLast" class="col-form-label">Price</label>
-							<input type="text" class="form-control" id="inputLast" name="price" value="${item.price}">
+							<input type="text" class="form-control" id="inputLast" name="price" placeholder="Price">
 						</div>
 					</div>
 					<div class="form-row">
 						<div class="form-group col-md-12">
 							<label for="inputDesc" class="col-form-label">Description</label> 
-							<input type="text" class="form-control" id="inputDesc" name="description" value="${item.description}">
+							<input type="text" class="form-control" id="inputDesc" name="description" placeholder="item description">
 						</div>
 					</div>
-					<input type="hidden" name="id" value="${item.id}">
-					<button type="submit" name="submit" id="submit" class="btn btn-primary">Update</button>
-				</form>
-					<form action="RemoveItem.do" method="post">
-					<input type="hidden" name="id" value="${item.id}">
-					<button type="submit" name="submit" class="btn btn-danger">Delete</button>
+					<%-- <input type="hidden" name="id" value="${item.id}"> --%>
+					<button type="submit" name="submit" id="submit" class="btn btn-primary">Create Item</button>
 				</form>
 				<hr>
 
-			</c:forEach>
+		
 		</div>
 
 	<footer class="text-muted">

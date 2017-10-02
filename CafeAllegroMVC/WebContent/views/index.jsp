@@ -67,9 +67,7 @@
 			</p>
 		</div>
 	</section>
-	<c:forEach var="item" items="${items}">
-		<p>${item.category}:${item.price}</p>
-	</c:forEach>
+	
 	<div class="album text-muted">
 		<div class="container">
 			<div class="row">
@@ -86,10 +84,10 @@
 							<form action="cart.do">
 								<div class="btn-group" data-toggle="buttons">
 									<label class="btn btn-secondary"> <input
-										type="checkbox" autocomplete="off"> ${item.name}
+										type="submit" value="${item.id}"> 
 									</label>
 								</div>
-								<input type="submit" value="Submit">
+							
 							</form>
 						</c:if>
 					</c:forEach>
@@ -276,7 +274,8 @@
 			</div>
 		</div>
 	</div>
-
+	
+<a href="views/cart.jsp">Cart</a>
 	<footer class="text-muted">
 		<div class="container">
 			<p class="float-right">

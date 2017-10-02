@@ -26,4 +26,26 @@ public class AdminDAOImpl implements AdminDAO {
 		return mi;
 	}
 
+	@Override
+	public MenuItem addNewItem(MenuItem item) {
+		em.persist(item);
+		em.flush();
+		return item;
+	}
+
+	@Override
+	public Boolean removeItem(int id) {
+		MenuItem i = em.find(MenuItem.class, id);
+		System.out.println(i);
+		em.remove(i);
+
+		//		if(em.find(MenuItem.class, id) != null) {
+//			System.err.println("Error Removing Item!");
+//			return false;
+//		} else {
+//			return true;
+//		}
+		return true;
+	}
+
 }

@@ -5,6 +5,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 
 import data.AdminDAO;
 import data.MenuItemDAO;
@@ -33,5 +35,24 @@ public class AdminController {
 		return "views/adminItemUpdate.jsp";
 	}
 	
+	@RequestMapping(path="GetNewItemView.do", method=RequestMethod.GET)
+	public String getNewItemView() {
+		return "views/newItem.jsp";
+	}
 	
+	@RequestMapping(path="AddMenuItem.do", method=RequestMethod.POST)
+	public String AddMenuItem(MenuItem item, Model model) {
+		model.addAttribute("item", adminDao.addNewItem(item));
+		model.addAttribute("items", menuDao.getAllItemsforIndexPage());
+		return "views/adminItemUpdate.jsp";
+	}
+	
+	@RequestMapping(path="RemoveItem.do", method=RequestMethod.POST)
+	public ModelAndView removeItem(@RequestParam("id") int id) {
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("views/adminItemUpdate.jsp");
+		adminDao.removeItem(id);
+		mv.addObject("items", menuDao.getAllItemsforIndexPage());
+		return mv;
+	}
 }
