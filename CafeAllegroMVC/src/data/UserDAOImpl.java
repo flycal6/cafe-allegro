@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import entities.User;
+import entities.UserRole;
 
 @Repository
 @Transactional
@@ -19,6 +20,7 @@ public class UserDAOImpl implements UserDAO {
 
 	@Override
 	public User createNewUser(User user) {
+		
 		em.persist(user);
 		em.flush();
 

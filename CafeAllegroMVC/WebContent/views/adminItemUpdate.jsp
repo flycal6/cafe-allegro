@@ -58,54 +58,33 @@
 		<div class="container">
 
 			<div class="row">
-				<form action="UpdateUser.do" method="POST">
+				<form action="UpdateMenuItems.do" method="POST">
 					<div class="form-row">
 						<div class="form-group col-md-6">
-							<label for="inputFirstName" class="col-form-label">First Name</label> 
+							<label for="inputFirstName" class="col-form-label">Name</label> 
 							<input type="text" class="form-control" id="inputFirstName" name="firstName" value="${user.firstName}">
 						</div>
 						<div class="form-group col-md-6">
-							<label for="inputLastName" class="col-form-label">Last Name</label>
+							<label for="inputLastName" class="col-form-label">Price</label>
 							<input type="text" class="form-control" id="inputLastName" name="lastName" value="${user.lastName}">
 						</div>
 					</div>
 					<div class="form-row">
 						<div class="form-group col-md-6">
-							<label for="inputUsername" class="col-form-label">Username</label> 
+							<label for="inputUsername" class="col-form-label">Description</label> 
 							<input type="text" class="form-control" id="inputAddress" name="username" value="${user.username}">
 						</div>
-						<div class="form-group col-md-6">
-							<label for="inputPassword4" class="col-form-label">Password</label>
-							<input type="password" class="form-control" id="inputPassword4" name="password" value="${user.password}">
-						</div>
 					</div>
-						<div class="form-group">
-							<label for="inputEmail4" class="col-form-label">Email</label> 
-							<input type="email" class="form-control" id="inputEmail4" name="email" value="${user.email}">
-						</div>
-						<div class="form-group">
-							<label for="inputAddress2" class="col-form-label">Phone Number</label> 
-							<input type="tel" class="form-control" id="inputAddress2" value="${user.phoneNumber}">
-							<input type="hidden" name="id" value="${user.id}">
-						</div>
-					<button type="submit" name="submit" id="submit" class="btn btn-primary">Update Profile</button>
+					<div class="form-check">
+					    <label class="form-check-label">
+					      <input type="checkbox" class="form-check-input" name="special">
+					      Today's Special? 
+					    </label>
+  					</div>
+					
+					<button type="submit" name="submit" id="submit" class="btn btn-primary">Finish Updating and Return Home</button>
 				</form>
 			</div>
-			<br>
-			<div class="row">
-				<c:if test="${user.userRole.permission == 'admin'}">
-					<form action="UpdateMenuItemsView.do">
-						<button type="submit" class="btn btn-primary">Update Menu Items</button>
-					</form>
-				</c:if>
-			</div>
-			<hr>
-			<div class="row">
-				<h4>You have ${user.rewards.points} Reward Points.</h4>
-			</div>
-			<!-- <div class="parent">
-				
-			</div> -->
 		</div>
 	</div>
 
@@ -135,11 +114,6 @@
 	</script>
 
 	<script src="js/holder.js"></script>
-<!-- 	<script>$(document).ready(function () {
-	    $('#submit').click(function () {
-            $('.parent').append("<div class='alert alert-success alert-dismissable'><button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>Success! message sent successfully.</div>")
-	    })
-	});</script> -->
 	<script src="js/bootstrap.min.js"></script>
 	<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
 </body>
