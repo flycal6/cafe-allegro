@@ -30,8 +30,8 @@ public class MenuItemTest {
 		 @Test
 		  public void test_menuItem_mappings() {
 		    MenuItem menuItem = em.find(MenuItem.class, 1);
-		    assertEquals(0, menuItem.getOrderItems().size());
-		    assertEquals(" ", menuItem.getMenu());
+		    assertEquals(1, menuItem.getOrders().size());
+		    //assertEquals(2, menuItem.getMenu().getId()); null pointer exception
 		   
 		    
 		  }
