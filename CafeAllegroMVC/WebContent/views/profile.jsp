@@ -58,6 +58,8 @@
 		<div class="container">
 
 			<div class="row">
+			<c:if test="${empty user}"><h3>User not found</h3></c:if>
+			<c:if test="${not empty user}">
 				<form action="UpdateUser.do" method="POST">
 					<div class="form-row">
 						<div class="form-group col-md-6">
@@ -84,12 +86,13 @@
 							<input type="email" class="form-control" id="inputEmail4" name="email" value="${user.email}">
 						</div>
 						<div class="form-group">
-							<label for="inputAddress2" class="col-form-label">Phone Number</label> 
-							<input type="tel" class="form-control" id="inputAddress2" value="${user.phoneNumber}">
+							<label for="inputPhone" class="col-form-label">Phone Number</label> 
+							<input type="number" class="form-control" id="inputPhone" name="phoneNumber" value="${user.phoneNumber}">
 							<input type="hidden" name="id" value="${user.id}">
 						</div>
 					<button type="submit" name="submit" id="submit" class="btn btn-primary">Update Profile</button>
 				</form>
+				</c:if>
 			</div>
 			<br>
 			<div class="row">
