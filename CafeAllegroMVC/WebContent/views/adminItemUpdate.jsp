@@ -62,25 +62,20 @@
 					<div class="form-row">
 						<div class="form-group col-md-6">
 							<label for="inputFirstName" class="col-form-label">Name</label> 
-							<input type="text" class="form-control" id="inputFirstName" name="firstName" value="${user.firstName}">
+							<input type="text" class="form-control" id="inputFirstName" name="firstName" value="${item.name}">
 						</div>
 						<div class="form-group col-md-6">
 							<label for="inputLastName" class="col-form-label">Price</label>
-							<input type="text" class="form-control" id="inputLastName" name="lastName" value="${user.lastName}">
+							<input type="text" class="form-control" id="inputLastName" name="lastName" value="${item.price}">
 						</div>
 					</div>
 					<div class="form-row">
 						<div class="form-group col-md-6">
 							<label for="inputUsername" class="col-form-label">Description</label> 
-							<input type="text" class="form-control" id="inputAddress" name="username" value="${user.username}">
+							<input type="text" class="form-control" id="inputAddress" name="username" value="${item.description}">
 						</div>
 					</div>
-					<div class="form-check">
-					    <label class="form-check-label">
-					      <input type="checkbox" class="form-check-input" name="special">
-					      Today's Special? 
-					    </label>
-  					</div>
+					
 					
 					<button type="submit" name="submit" id="submit" class="btn btn-primary">Finish Updating and Return Home</button>
 				</form>

@@ -4,5 +4,5 @@ import entities.MenuItem;
 
 public interface AdminDAO {
 
-	public MenuItem adminUpdateMenuItem();
+	public MenuItem adminUpdateMenuItem(MenuItem item);
 }

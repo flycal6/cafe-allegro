@@ -16,9 +16,14 @@ public class AdminDAOImpl implements AdminDAO {
 	private EntityManager em;
 
 	@Override
-	public MenuItem adminUpdateMenuItem() {
-		// TODO Auto-generated method stub
-		return null;
+	public MenuItem adminUpdateMenuItem(MenuItem item) {
+		MenuItem mi = em.find(MenuItem.class, item.getId());
+		
+		mi.setName(item.getName());
+		mi.setDescription(item.getDescription());
+		mi.setPrice(item.getPrice());
+		
+		return mi;
 	}
 
 }
