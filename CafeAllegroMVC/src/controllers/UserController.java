@@ -26,4 +26,11 @@ public class UserController {
 
 		return "views/profile.jsp";
 	}
+	
+	@RequestMapping(path="UpdateUser.do", method = RequestMethod.POST)
+	public String updateUser(User user, Model model) {
+		model.addAttribute("user", userDao.updateUserProfile(user));
+		
+		return"views/profile.jsp";
+	}
 }

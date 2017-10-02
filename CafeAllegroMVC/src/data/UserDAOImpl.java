@@ -44,13 +44,19 @@ public class UserDAOImpl implements UserDAO {
 
 
 	@Override
-	public User customerUpdateProfile(int id, User user) {
-		User managedUser = em.find(User.class, id);
+	public User updateUserProfile(User user) {
+		
+//		String q = "SELECT u FROM User u WHERE u.id = :id";
+		
+		User managedUser = em.find(User.class, user.getId());
+		
 		managedUser.setFirstName(user.getFirstName());
 		managedUser.setLastName(user.getLastName());
 		managedUser.setEmail(user.getEmail());
+		managedUser.setPhoneNumber(user.getPhoneNumber());
+		managedUser.setUsername(user.getUsername());
+		managedUser.setPassword(user.getPassword());
 		
-
 		return managedUser;
 	}
 	
