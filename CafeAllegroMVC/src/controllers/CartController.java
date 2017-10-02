@@ -21,13 +21,11 @@ public class CartController {
 	@Autowired
 	private OrderDAO orderDAO;
 
-	@RequestMapping(path = "Cart.do")
+	@RequestMapping(path="cart.do")
 	public ModelAndView cartSummary(MenuItem menuItem) {
 		ModelAndView mv = new ModelAndView();
-		orderDAO.addingItemtoCart(menuItem);
-		mv.addObject(orderDAO.toString());
-		mv.setViewName("cart.jsp");
-
+		mv.addObject("items",orderDAO.addingItemtoCart(menuItem));
+		mv.setViewName("views/cart.jsp");
 		return mv;
 	}
 }
