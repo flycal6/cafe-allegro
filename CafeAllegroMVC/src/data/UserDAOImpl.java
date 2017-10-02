@@ -18,7 +18,7 @@ public class UserDAOImpl implements UserDAO {
 	private EntityManager em;
 
 	@Override
-	public User customerCreateProfile(User user) {
+	public User createNewUser(User user) {
 		em.persist(user);
 		em.flush();
 

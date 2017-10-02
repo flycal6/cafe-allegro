@@ -17,7 +17,7 @@
 <link href="css/bootstrap.min.css" rel="stylesheet">
 
 <!-- Custom styles for this template -->
-<link href="css/home.css" rel="stylesheet">
+<link href="css/profile.css" rel="stylesheet">
 </head>
 
 <body>
@@ -65,7 +65,7 @@
 							<input type="text" class="form-control" id="inputFirstName" name="firstName" value="${user.firstName}">
 						</div>
 						<div class="form-group col-md-6">
-							<label for="inputLastName" class="col-form-label">Password</label>
+							<label for="inputLastName" class="col-form-label">Last Name</label>
 							<input type="text" class="form-control" id="inputLastName" name="lastName" value="${user.lastName}">
 						</div>
 					</div>
@@ -88,7 +88,7 @@
 							<input type="tel" class="form-control" id="inputAddress2" value="${user.phoneNumber}">
 							<input type="hidden" name="id" value="${user.id}">
 						</div>
-					<button type="submit" name="submit" class="btn btn-primary">Update Profile</button>
+					<button type="submit" name="submit" id="submit" class="btn btn-primary">Update Profile</button>
 				</form>
 			</div>
 			<br>
@@ -96,6 +96,9 @@
 			<div class="row">
 				<h4>You have ${user.rewards.points} Reward Points.</h4>
 			</div>
+			<!-- <div class="parent">
+				
+			</div> -->
 		</div>
 	</div>
 
@@ -123,17 +126,13 @@
 		window.jQuery
 				|| document.write('<script src="js/jquery.min.js"><\/script>')
 	</script>
-	<!-- <script src="https://cdnjs.com/libraries/popper.js"></script> -->
+
 	<script src="js/holder.js"></script>
-	<!-- <script>
-		$(function() {
-			Holder.addTheme("thumb", {
-				background : "#55595c",
-				foreground : "#eceeef",
-				text : "Thumbnail"
-			});
-		});
-	</script> -->
+<!-- 	<script>$(document).ready(function () {
+	    $('#submit').click(function () {
+            $('.parent').append("<div class='alert alert-success alert-dismissable'><button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>Success! message sent successfully.</div>")
+	    })
+	});</script> -->
 	<script src="js/bootstrap.min.js"></script>
 	<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
 </body>
