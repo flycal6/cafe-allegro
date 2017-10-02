@@ -15,8 +15,8 @@ public class CafeController {
 
 	@Autowired
 	private MenuItemDAO menuItemDao;
-	@Autowired
-	private UserDAO userDao;
+//	@Autowired
+//	private UserDAO userDao;
 	
 	@RequestMapping(path="Cafe.do", method=RequestMethod.GET)
 	public String showHomePage(Model model) {
@@ -24,16 +24,6 @@ public class CafeController {
 		return "views/index.jsp";
 	}
 
-	@RequestMapping(path="Login.do", method=RequestMethod.GET)
-	public String showLoginPage(Model model) {
-		return "views/login.jsp";
-	}
-	@RequestMapping(path="LoginUser.do", method=RequestMethod.POST)
-	public String loginUser(User user, Model model) {
-		model.addAttribute("user", userDao.customerLogin(user) );
-		
-		return "views/profile.jsp";
-	}
 	
 	
 	
