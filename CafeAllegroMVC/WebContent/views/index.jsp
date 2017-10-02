@@ -84,7 +84,7 @@
 							<form action="cart.do">
 								<div class="btn-group" data-toggle="buttons">
 									<label class="btn btn-secondary"> <input
-										type="submit" style="display: none"autocomplete="off"> ${item.name}
+										type="submit" value="${item.name}"> 
 									</label>
 								</div>
 							
