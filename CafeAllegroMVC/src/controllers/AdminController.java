@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import data.AdminDAO;
+import data.MenuItemDAO;
 import entities.MenuItem;
 import entities.User;
 
@@ -16,14 +17,19 @@ public class AdminController {
 	@Autowired
 	private AdminDAO adminDao;
 	
+	@Autowired
+	private MenuItemDAO menuDao;
+	
 	@RequestMapping(path="UpdateMenuItemsView.do", method=RequestMethod.GET)
 	public String getUpdateItemView(User user, Model model) {
+		model.addAttribute("items", menuDao.getAllItemsforIndexPage());
 		return "views/adminItemUpdate.jsp";
 	}
 	
-	@RequestMapping(path="UpdateMenuItems.do", method=RequestMethod.POST)
+	@RequestMapping(path="UpdateMenuItem.do", method=RequestMethod.POST)
 	public String updateItems(MenuItem item, Model model) {
 		model.addAttribute("item", adminDao.adminUpdateMenuItem(item));
+		model.addAttribute("items", menuDao.getAllItemsforIndexPage());
 		return "views/adminItemUpdate.jsp";
 	}
 	
