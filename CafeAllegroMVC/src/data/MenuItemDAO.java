@@ -10,8 +10,6 @@ public interface MenuItemDAO {
 
 	public MenuItem adminCreateMenuItem(MenuItem menuItem);
 	
-	public MenuItem adminUpdateMenuItem();
-	
-	public MenuItem adminDeleteMenuItem();
+	public void adminDeleteMenuItem(int id);
 	
 }

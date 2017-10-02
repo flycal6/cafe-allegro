@@ -1,17 +1,16 @@
 package data;
 
+import java.util.List;
+
+import entities.MenuItem;
 import entities.Order;
 
 public interface OrderDAO {
 
-	public Order customerCreateOrder(Order order);
+	public Order addingItemtoCart(MenuItem item);
 	
-	public Order customerReadOrder();
-	
-	public Order customerUpdateOrder(int id, Order order);
-	
-	public Order customerDeleteOrder(int id);
-	
-	public Order customerCalculateOrder();
+	public List<Order> viewAllOrders();
+
+	public Order viewOrder(Order order, int id);
 	
 }
