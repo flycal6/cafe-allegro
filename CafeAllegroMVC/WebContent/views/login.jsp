@@ -38,6 +38,11 @@
         <button class="btn btn-lg btn-primary btn-block" type="submit">Sign In</button>
       </form>
 
+		<hr>
+		<form action="SignUpPage.do" class="form-signin" method="get">
+		<h4>New User?</h4>
+			<button class="btn btn-lg btn-primary btn-block" type="submit">Sign Up</button>
+		</form>
     </div> <!-- /container -->
 
 

@@ -5,9 +5,9 @@ import entities.User;
 public interface UserDAO {
 	
 	//CUSTOMER METHODS
-	public User customerCreateProfile(User user);
+	public User createNewUser(User user);
 	
-	public User customerUpdateProfile(int id, User user);
+	public User updateUserProfile(User user);
 	
 	public boolean customerDeleteProfile(int id);
 
