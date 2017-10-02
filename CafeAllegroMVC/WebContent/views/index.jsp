@@ -83,7 +83,7 @@
 					</p>
 					<c:forEach var="item" items="${items}">
 						<c:if test="${item.category == 'Breakfast'}">
-							<form action="cafe.do">
+							<form action="cart.do">
 								<div class="btn-group" data-toggle="buttons">
 									<label class="btn btn-secondary"> <input
 										type="checkbox" autocomplete="off"> ${item.name}
