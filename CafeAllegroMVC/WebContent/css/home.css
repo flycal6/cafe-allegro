@@ -56,5 +56,8 @@ footer {
 footer p {
   margin-bottom: .25rem;
 }
-
+.img-fluid{
+    height: 50vh;
+    width: 50vh;
+}
 
