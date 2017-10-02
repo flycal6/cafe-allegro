@@ -67,40 +67,9 @@
 			</p>
 		</div>
 	</section>
-	<div class="album text-muted">
-		<div class="container">
-		<div class="row">
 	<c:forEach var="item" items="${items}">
-		<p>${item.name}:${item.price}</p>
-		<div class="card">
-					<img class="img-fluid" src="images/Breakfast.png"
-						alt="Card image cap">
-					<p class="card-text">
-						Breakfast is served 8am - 11am<br> Choice of Meat: Ham,
-						Sausage, or Bacon
-					</p>
-
-					<div class="btn-group" data-toggle="buttons">
-						<label class="btn btn-secondary"> <input type="checkbox"
-							autocomplete="off"> <p>${item.name}:${item.price}</p>
-						</label> <label class="btn btn-secondary"> <input type="checkbox"
-							autocomplete="off"> Checkbox 2
-						</label>
-					</div>
-					<br>
-					<div class="btn-group" data-toggle="buttons">
-						<label class="btn btn-secondary"> <input type="checkbox"
-							autocomplete="off"> Checkbox 1
-						</label> <label class="btn btn-secondary"> <input type="checkbox"
-							autocomplete="off"> Checkbox 2
-						</label>
-					</div>
-				</div>
-
+		<p>${item.category}:${item.price}</p>
 	</c:forEach>
-	</div>
-	</div>
-	</div>
 	<div class="album text-muted">
 		<div class="container">
 			<div class="row">
@@ -112,23 +81,20 @@
 						Breakfast is served 8am - 11am<br> Choice of Meat: Ham,
 						Sausage, or Bacon
 					</p>
-
-					<div class="btn-group" data-toggle="buttons">
-						<label class="btn btn-secondary"> <input type="checkbox"
-							autocomplete="off"> Checkbox 1
-						</label> <label class="btn btn-secondary"> <input type="checkbox"
-							autocomplete="off"> Checkbox 2
-						</label>
-					</div>
-					<br>
-					<div class="btn-group" data-toggle="buttons">
-						<label class="btn btn-secondary"> <input type="checkbox"
-							autocomplete="off"> Checkbox 1
-						</label> <label class="btn btn-secondary"> <input type="checkbox"
-							autocomplete="off"> Checkbox 2
-						</label>
-					</div>
+					<c:forEach var="item" items="${items}">
+						<c:if test="${item.category == 'Breakfast'}">
+							<form action="cafe.do">
+								<div class="btn-group" data-toggle="buttons">
+									<label class="btn btn-secondary"> <input
+										type="checkbox" autocomplete="off"> ${item.name}
+									</label>
+								</div>
+								<input type="submit" value="Submit">
+							</form>
+						</c:if>
+					</c:forEach>
 				</div>
+
 
 				<div class="card">
 					<img class="img-fluid" src="images/sandwich.png"
@@ -306,8 +272,8 @@
 						</label>
 					</div>
 				</div>
-			</div>
 
+			</div>
 		</div>
 	</div>
 

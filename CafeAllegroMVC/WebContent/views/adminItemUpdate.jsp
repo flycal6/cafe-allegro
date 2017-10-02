@@ -54,39 +54,32 @@
 		</div>
 	</div>
 
-	<div class="album text-muted">
-		<div class="container">
-
-			<div class="row">
-				<form action="UpdateMenuItems.do" method="POST">
+		<div class="container text-muted">
+			<c:forEach var="item" items="${items}">
+				<form action="UpdateMenuItem.do" method="POST">
 					<div class="form-row">
-						<div class="form-group col-md-6">
-							<label for="inputFirstName" class="col-form-label">Name</label> 
-							<input type="text" class="form-control" id="inputFirstName" name="firstName" value="${user.firstName}">
+						<div class="form-group col-md-9">
+							<label for="inputName" class="col-form-label">Name</label> 
+							<input type="text" class="form-control" id="inputName" name="name" value="${item.name}">
 						</div>
-						<div class="form-group col-md-6">
-							<label for="inputLastName" class="col-form-label">Price</label>
-							<input type="text" class="form-control" id="inputLastName" name="lastName" value="${user.lastName}">
+						<div class="form-group col-md-3">
+							<label for="inputLast" class="col-form-label">Price</label>
+							<input type="text" class="form-control" id="inputLast" name="price" value="${item.price}">
 						</div>
 					</div>
 					<div class="form-row">
-						<div class="form-group col-md-6">
-							<label for="inputUsername" class="col-form-label">Description</label> 
-							<input type="text" class="form-control" id="inputAddress" name="username" value="${user.username}">
+						<div class="form-group col-md-12">
+							<label for="inputDesc" class="col-form-label">Description</label> 
+							<input type="text" class="form-control" id="inputDesc" name="description" value="${item.description}">
 						</div>
 					</div>
-					<div class="form-check">
-					    <label class="form-check-label">
-					      <input type="checkbox" class="form-check-input" name="special">
-					      Today's Special? 
-					    </label>
-  					</div>
-					
-					<button type="submit" name="submit" id="submit" class="btn btn-primary">Finish Updating and Return Home</button>
+					<input type="hidden" name="id" value="${item.id}">
+					<button type="submit" name="submit" id="submit" class="btn btn-primary">Update</button>
 				</form>
-			</div>
+				<hr>
+
+			</c:forEach>
 		</div>
-	</div>
 
 	<footer class="text-muted">
 		<div class="container">
