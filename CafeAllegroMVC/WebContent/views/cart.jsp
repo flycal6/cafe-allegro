@@ -5,13 +5,14 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link rel="stylesheet" href="/css/cart.css">
+<link rel="stylesheet" href="css/cart.css">
 <title>Cart</title>
 </head>
 <body>
 <div class="container">
 
-	<h1>Shopping Cart</h1><hr>
+	<h1>Shopping Cart</h1>
+	<hr>
 	<table class="table table-striped table-hover table-bordered">
         <tbody>
             <tr>
@@ -21,26 +22,28 @@
                 <th>Total Price</th>
             </tr>
             <tr>
-                <td>Awesome Product</td>
-                <td>1 <a href="#">X</a></td>
-                <td>£250.00</td>
-                <td>£250.00</td>
+            <c:forEach var="item" items="${items}">
+                <td>${item.menuItems}</td>
+                </c:forEach>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
             </tr>
             <tr>
                 <th colspan="3"><span class="pull-right">Sub Total</span></th>
-                <th>£250.00</th>
+                <th>Total</th>
             </tr>
             <tr>
-                <th colspan="3"><span class="pull-right">VAT 20%</span></th>
-                <th>£50.00</th>
+                <th colspan="3"><span class="pull-right">Tax 20%</span></th>
+                <th>Tax</th>
             </tr>
             <tr>
                 <th colspan="3"><span class="pull-right">Total</span></th>
-                <th>£300.00</th>
+                <th>Total</th>
             </tr>
             <tr>
-                <td><a href="#" class="btn btn-primary">Continue Shopping</a></td>
-                <td colspan="3"><a href="#" class="pull-right btn btn-success">Checkout</a></td>
+                <td><a href="index.jsp" class="btn btn-primary">Add More Food</a></td>
+                <td colspan="3"><a href="checkout.jsp" class="pull-right btn btn-success">Checkout</a></td>
             </tr>
         </tbody>
     </table>          

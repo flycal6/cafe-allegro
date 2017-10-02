@@ -26,23 +26,4 @@ public class UserController {
 
 		return "views/profile.jsp";
 	}
-	
-	@RequestMapping(path="UpdateUser.do", method = RequestMethod.POST)
-	public String updateUser(User user, Model model) {
-		model.addAttribute("user", userDao.updateUserProfile(user));
-		
-		return"views/profile.jsp";
-	}
-	
-	@RequestMapping(path="SignUpPage.do", method=RequestMethod.GET)
-	public String userSignUpPage() {
-		return "views/signup.jsp";
-	}
-	
-	@RequestMapping(path="CreateUser.do", method=RequestMethod.POST)
-	public String signUpNewUser(User user, Model model) {
-		model.addAttribute("newUser", userDao.createNewUser(user));
-		
-		return "views/profile.jsp";
-	}
 }
