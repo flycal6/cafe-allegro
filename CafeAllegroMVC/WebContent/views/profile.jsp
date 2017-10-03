@@ -55,9 +55,10 @@
 	</div>
 
 	<div class="container text-muted">
-		<div class="row">
 			<c:if test="${empty user}">
-				<h3>User not found</h3>
+				<div class="row">
+					<h3>User not found</h3>
+				</div>
 			</c:if>
 			<c:if test="${not empty user}">
 				<form action="UpdateUser.do" method="POST">
@@ -97,18 +98,17 @@
 			</c:if>
 		</div>
 		<br>
-		<div class="row">
+		<div class="container text-muted">
 			<c:if test="${user.userRole.permission == 'admin'}">
 				<form action="UpdateMenuItemsView.do">
-					<button type="submit" class="btn btn-primary">Update Menu Items</button>
+						<button type="submit" class="btn btn-primary">Update Menu Items</button>
 				</form>
 			</c:if>
-		</div>
 		<hr>
-		<div class="row">
-			<h4>You have ${user.rewards.points} Reward Points.</h4>
+			<div >
+				<h4>You have ${user.rewards.points} Reward Points.</h4>
+			</div>
 		</div>
-	</div>
 
 	<footer class="text-muted">
 		<div class="container">
