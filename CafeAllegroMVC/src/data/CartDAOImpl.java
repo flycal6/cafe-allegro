@@ -2,9 +2,12 @@ package data;
 
 import java.util.List;
 
+import org.springframework.stereotype.Repository;
+
 import cart.Cart;
 import entities.MenuItem;
 
+@Repository
 public class CartDAOImpl implements CartDAO {
 
 	@Override
