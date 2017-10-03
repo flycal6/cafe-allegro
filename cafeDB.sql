@@ -51,10 +51,10 @@ CREATE TABLE IF NOT EXISTS `menu_item` (
   `name` VARCHAR(100) NOT NULL,
   `price` DECIMAL(4,2) NOT NULL DEFAULT 5.99,
   `description` VARCHAR(100) NOT NULL,
-  `day_id` INT NULL,
-  `menu_id` INT NULL,
+  `day_id` INT NULL DEFAULT NULL,
+  `menu_id` INT NULL DEFAULT NULL,
   `special` TINYINT(1) NULL DEFAULT 0,
-  `category` VARCHAR(45) NULL,
+  `category` VARCHAR(45) NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   CONSTRAINT `fk_menu_item_to_day`
     FOREIGN KEY (`day_id`)
@@ -97,7 +97,7 @@ DROP TABLE IF EXISTS `rewards` ;
 
 CREATE TABLE IF NOT EXISTS `rewards` (
   `id` INT NOT NULL AUTO_INCREMENT,
-  `points` INT NOT NULL DEFAULT 1,
+  `points` INT NULL DEFAULT 1,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 
@@ -115,10 +115,10 @@ CREATE TABLE IF NOT EXISTS `user` (
   `last_name` VARCHAR(45) NOT NULL,
   `username` VARCHAR(45) NOT NULL,
   `password` VARCHAR(45) NOT NULL,
-  `user_role_id` INT NULL,
-  `rewards_id` INT NULL,
-  `email_address` VARCHAR(80) NULL,
-  `phone_number` INT NULL,
+  `user_role_id` INT NULL DEFAULT NULL,
+  `rewards_id` INT NULL DEFAULT NULL,
+  `email_address` VARCHAR(80) NULL DEFAULT NULL,
+  `phone_number` INT NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   CONSTRAINT `fk_user_to_user_role_id`
     FOREIGN KEY (`user_role_id`)
@@ -146,8 +146,8 @@ DROP TABLE IF EXISTS `takeout_order` ;
 
 CREATE TABLE IF NOT EXISTS `takeout_order` (
   `id` INT NOT NULL AUTO_INCREMENT,
-  `time` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `user_id` INT NULL,
+  `time` DATETIME NULL DEFAULT CURRENT_TIMESTAMP,
+  `user_id` INT NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   CONSTRAINT `fk_order_to_user_id`
     FOREIGN KEY (`user_id`)
@@ -166,9 +166,9 @@ DROP TABLE IF EXISTS `order_item` ;
 
 CREATE TABLE IF NOT EXISTS `order_item` (
   `id` INT NOT NULL AUTO_INCREMENT,
-  `order_id` INT NULL,
-  `menu_item_id` INT NULL,
-  `quantity` INT NULL,
+  `order_id` INT NULL DEFAULT NULL,
+  `menu_item_id` INT NULL DEFAULT NULL,
+  `quantity` INT NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   CONSTRAINT `fk_order_item_to_order`
     FOREIGN KEY (`order_id`)
