@@ -84,7 +84,8 @@ CREATE TABLE IF NOT EXISTS `user_role` (
   `id` INT NOT NULL DEFAULT 2,
   `permission` VARCHAR(45) NULL DEFAULT 'customer',
   PRIMARY KEY (`id`))
-ENGINE = InnoDB;
+ENGINE = InnoDB
+PACK_KEYS = Default;
 
 CREATE UNIQUE INDEX `id_UNIQUE` ON `user_role` (`id` ASC);
 
@@ -96,7 +97,7 @@ DROP TABLE IF EXISTS `rewards` ;
 
 CREATE TABLE IF NOT EXISTS `rewards` (
   `id` INT NOT NULL AUTO_INCREMENT,
-  `points` INT NULL DEFAULT 1,
+  `points` INT NOT NULL DEFAULT 1,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 
@@ -145,7 +146,7 @@ DROP TABLE IF EXISTS `takeout_order` ;
 
 CREATE TABLE IF NOT EXISTS `takeout_order` (
   `id` INT NOT NULL AUTO_INCREMENT,
-  `time` DATETIME NULL,
+  `time` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `user_id` INT NULL,
   PRIMARY KEY (`id`),
   CONSTRAINT `fk_order_to_user_id`
