@@ -45,7 +45,12 @@
 	</div>
 	<div class="navbar navbar-dark bg-dark">
 		<div class="container d-flex justify-content-between">
-			<a href="Login.do" class="navbar-brand">Login</a>
+			<c:if test="${not empty user.username}">
+				<a href="ViewProfile.do" class="navbar-brand"> ${user.username} </a>
+			</c:if>
+			<c:if test="${empty user.username}">
+				<a href="Login.do" class="navbar-brand">Login</a>
+			</c:if>
 			<button class="navbar-toggler" type="button" data-toggle="collapse"
 				data-target="#navbarHeader" aria-controls="navbarHeader"
 				aria-expanded="false" aria-label="Toggle navigation">
