@@ -18,24 +18,16 @@
 			<tbody>
 				<tr>
 					<th>Item</th>
-					<th>QTY</th>
-					<th>Unit Price</th>
-					<th>Total Price</th>
+					<th>Quantity</th>
+				<!--	<th>Unit Price</th>
+					<th>Total Price</th> -->
 				</tr>
 				<tr>
 
 					<c:forEach var="cart" items="${cart.itemsInCart}">
-						<%-- <c:forEach var="menuItems" items="${orders}"> --%>
 						<td>${cart.name}</td>
 						<td>${cart.price}</td>
-						
-						</c:forEach>
-
-					<%-- 				<c:forEach var="orders" items="${order.menuItems}">
-						<c:forEach var="insideMenuItemList" items="${orders}">
-							<td>insideMenuItemList.name</td>
-						</c:forEach>
-					</c:forEach> --%>
+					</c:forEach>
 				</tr>
 				<tr>
 					<th colspan="3"><span class="pull-right">Sub Total</span></th>
@@ -50,10 +42,13 @@
 					<th>Total</th>
 				</tr>
 				<tr>
-					<td><a href="index.jsp" class="btn btn-primary">Add More
-							Food</a></td>
-					<td colspan="3"><a href="checkout.jsp"
-						class="pull-right btn btn-success">Checkout</a></td>
+		
+					<form action="addMoreFood.do" method="GET">
+					<button class="btn btn-lg btn-primary btn-block" type="submit">Add More Food</button>
+					</form>
+					<form action="finalizeOrder.do" method="POST">
+					<button class="btn btn-lg btn-primary btn-block" type="submit">Checkout</button>
+					</form>			
 				</tr>
 			</tbody>
 		</table>

@@ -84,57 +84,36 @@
 					<img class="img-fluid" src="images/Breakfast.png"
 						alt="Card image cap">
 					<p class="card-text">
-						Breakfast is served 8am - 11am<br> Choice of Meat: Ham,
+						Breakfast is served 8am - 11am
+						<br>
+						Choice of Meat: Ham,
 						Sausage, or Bacon
 					</p>
 					<c:forEach var="item" items="${items}">
-						<!-- <div class="btn-group" data-toggle="buttons"> -->
 						<c:if test="${item.category == 'Breakfast'}">
-
-							<form action="cart.do" method="POST">
-								<div class="btn-group" data-toggle="buttons">
-									<label class="btn btn-secondary"> <input
-										type="hidden" name="itemId" value="${item.id}"> 
-											<input type="submit" value="test">
-									</label>
-								</div>
-							</form>
-							<<%-- form action="cart.do" method="POST">
-								<input type="hidden" name="itemId" value="${item.id}">
-								<input type="submit" value="test">
-							</form> --%>
-							<!-- 	<label class="btn btn-secondary"> -->
 							<form action="addToCart.do" method="POST">
-								<%-- <input type="hidden" name="id" value="${item.id}"> --%>
 								<input type="text" name="name" value="${item.name}"> <input
 									type="text" name="price" value="${item.price}"> <input
 									type="text" name="description" value="${item.description}">
-									<input type="submit" value="Add to Cart">
-								<!-- 	</label> -->
+									<input type="submit" value="Add to Cart"><br>
 							</form>
 						</c:if>
-						<!-- 	</div>  -->
 					</c:forEach>
 				</div>
 
-				<%-- <div class="card">
-					<img class="img-fluid" src="images/sandwich.png"
-						alt="Card image cap">
+				<div class="card">
+					<img class="img-fluid" src="images/sandwich.png" alt="Card image cap">
 					<p class="card-text">
 						House Special Sandwiches <br> Choice of bread with chips (1
 						oz.)
 					</p>
 					<c:forEach var="item" items="${items}">
-						<!-- <div class="btn-group" data-toggle="buttons"> -->
 						<c:if test="${item.category == 'Sandwich'}">
-							<!-- 	<label class="btn btn-secondary"> -->
 							<form action="addToCart.do" method="get">
 								<input type="hidden" name="itemId" value="${item.id}"> <input
 									type="submit" name="name" value="${item.name}">
-								<!-- 	</label> -->
 							</form>
 						</c:if>
-						<!-- 	</div>  -->
 					</c:forEach>
 				</div>
 
@@ -142,16 +121,12 @@
 					<img class="img-fluid" src="images/wrap.png" alt="Card image cap">
 					<p class="card-text">Wraps</p>
 					<c:forEach var="item" items="${items}">
-						<!-- <div class="btn-group" data-toggle="buttons"> -->
 						<c:if test="${item.category == 'Wrap'}">
-							<!-- 	<label class="btn btn-secondary"> -->
 							<form action="addToCart.do" method="get">
 								<input type="hidden" name="itemId" value="${item.id}"> <input
 									type="submit" name="name" value="${item.name}">
-								<!-- 	</label> -->
 							</form>
 						</c:if>
-						<!-- 	</div>  -->
 					</c:forEach>
 				</div>
 
@@ -159,16 +134,12 @@
 					<img class="img-fluid" src="images/HotSub.png" alt="Card image cap">
 					<p class="card-text">Hot Subs</p>
 					<c:forEach var="item" items="${items}">
-						<!-- <div class="btn-group" data-toggle="buttons"> -->
 						<c:if test="${item.category == 'Hot Subs'}">
-							<!-- 	<label class="btn btn-secondary"> -->
 							<form action="addToCart.do" method="get">
 								<input type="hidden" name="itemId" value="${item.id}"> <input
 									type="submit" name="name" value="${item.name}">
-								<!-- 	</label> -->
 							</form>
 						</c:if>
-						<!-- 	</div>  -->
 					</c:forEach>
 				</div>
 
@@ -176,16 +147,12 @@
 					<img class="img-fluid" src="images/Taco.png" alt="Card image cap">
 					<p class="card-text">Mexican Food</p>
 					<c:forEach var="item" items="${items}">
-						<!-- <div class="btn-group" data-toggle="buttons"> -->
 						<c:if test="${item.category == 'Mexican'}">
-							<!-- 	<label class="btn btn-secondary"> -->
 							<form action="addToCart.do" method="get">
 								<input type="hidden" name="itemId" value="${item.id}"> <input
 									type="submit" name="name" value="${item.name}">
-								<!-- 	</label> -->
 							</form>
 						</c:if>
-						<!-- 	</div>  -->
 					</c:forEach>
 				</div>
 
@@ -194,16 +161,12 @@
 						alt="Card image cap">
 					<p class="card-text">Rice Bowls</p>
 					<c:forEach var="item" items="${items}">
-						<!-- <div class="btn-group" data-toggle="buttons"> -->
 						<c:if test="${item.category == 'Rice Bowl'}">
-							<!-- 	<label class="btn btn-secondary"> -->
 							<form action="addToCart.do" method="get">
 								<input type="hidden" name="itemId" value="${item.id}"> <input
 									type="submit" name="name" value="${item.name}">
-								<!-- 	</label> -->
 							</form>
 						</c:if>
-						<!-- 	</div>  -->
 					</c:forEach>
 				</div>
 
@@ -211,16 +174,12 @@
 					<img class="img-fluid" src="images/salad.png" alt="Card image cap">
 					<p class="card-text">Salad</p>
 					<c:forEach var="item" items="${items}">
-						<!-- <div class="btn-group" data-toggle="buttons"> -->
 						<c:if test="${item.category == 'Salad'}">
-							<!-- 	<label class="btn btn-secondary"> -->
 							<form action="addToCart.do" method="get">
 								<input type="hidden" name="itemId" value="${item.id}"> <input
 									type="submit" name="name" value="${item.name}">
-								<!-- 	</label> -->
 							</form>
 						</c:if>
-						<!-- 	</div>  -->
 					</c:forEach>
 				</div>
 
@@ -228,16 +187,12 @@
 					<img class="img-fluid" src="images/burger.png" alt="Card image cap">
 					<p class="card-text">Burgers</p>
 					<c:forEach var="item" items="${items}">
-						<!-- <div class="btn-group" data-toggle="buttons"> -->
 						<c:if test="${item.category == 'Burgers'}">
-							<!-- 	<label class="btn btn-secondary"> -->
 							<form action="addToCart.do" method="get">
 								<input type="hidden" name="itemId" value="${item.id}"> <input
 									type="submit" name="name" value="${item.name}">
-								<!-- 	</label> -->
 							</form>
 						</c:if>
-						<!-- 	</div>  -->
 					</c:forEach>
 				</div>
 
@@ -245,16 +200,12 @@
 					<img class="img-fluid" src="images/soup.png" alt="Card image cap">
 					<p class="card-text">Soups</p>
 					<c:forEach var="item" items="${items}">
-						<!-- <div class="btn-group" data-toggle="buttons"> -->
 						<c:if test="${item.category == 'Soups'}">
-							<!-- 	<label class="btn btn-secondary"> -->
 							<form action="addToCart.do" method="get">
 								<input type="hidden" name="itemId" value="${item.id}"> <input
 									type="submit" name="name" value="${item.name}">
-								<!-- 	</label> -->
 							</form>
 						</c:if>
-						<!-- 	</div>  -->
 					</c:forEach>
 				</div>
 
@@ -262,19 +213,14 @@
 					<img class="img-fluid" src="images/drinks.png" alt="Card image cap">
 					<p class="card-text">Drinks</p>
 					<c:forEach var="item" items="${items}">
-						<!-- <div class="btn-group" data-toggle="buttons"> -->
 						<c:if test="${item.category == 'Drinks'}">
-							<!-- 	<label class="btn btn-secondary"> -->
 							<form action="addToCart.do" method="get">
 								<input type="hidden" name="itemId" value="${item.id}"> <input
 									type="submit" name="name" value="${item.name}">
-								<!-- 	</label> -->
 							</form>
 						</c:if>
-						<!-- 	</div>  -->
 					</c:forEach>
 				</div>
-
 			</div>
 		</div>
 	</div>
@@ -292,7 +238,7 @@
 				New to Bootstrap? <a href="../../">Visit the homepage</a> or read
 				our <a href="../../getting-started/">getting started guide</a>.
 			</p> -->
-		</div> --%>
+		</div>
 				</footer>
 
 				<!-- Bootstrap core JavaScript

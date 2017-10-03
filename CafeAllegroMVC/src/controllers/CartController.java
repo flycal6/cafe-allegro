@@ -1,6 +1,7 @@
 package controllers;
 
 import javax.servlet.http.HttpSession;
+
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -41,7 +42,7 @@ public class CartController {
 	}
 	
 	@RequestMapping(path = "AddedToCart.do", method = RequestMethod.GET) // Coming from the INDEX.JSP
-	public String addedItemById(RedirectAttributes redir, MenuItem item, HttpSession session) { // index.jsp
+	public String addedItemById(MenuItem item, HttpSession session) { // index.jsp
 		return "views/cart.jsp";
 	}
 

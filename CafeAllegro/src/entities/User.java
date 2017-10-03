@@ -39,8 +39,8 @@ public class User {
 
 	@Column(name = "phone_number")
 	private int phoneNumber;
-	
-	@Transient 
+
+	@Transient
 	private Cart usercart;
 
 	public Cart getUsercart() {
@@ -52,17 +52,17 @@ public class User {
 	}
 
 	// ADD USER_ROLE_ID RELATIONSHIP
-	@ManyToOne(cascade=CascadeType.PERSIST)
+	@ManyToOne(cascade = CascadeType.PERSIST)
 	@JoinColumn(name = "user_role_id")
 	private UserRole userRole;
 
 	// ADD REWARDS_ID RELATIONSHIP
-	@ManyToOne(cascade=CascadeType.PERSIST)
+	@ManyToOne(cascade = CascadeType.PERSIST)
 	@JoinColumn(name = "rewards_id")
 	private Rewards rewards;
 
 	// ADD USER TO ORDER RELATIONSHIP
-	@OneToMany(mappedBy = "user")
+	@OneToMany(mappedBy = "user", cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
 	private List<Order> orders;
 
 	// GETTERS AND SETTERS

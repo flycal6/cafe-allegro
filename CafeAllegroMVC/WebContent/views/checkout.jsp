@@ -9,5 +9,7 @@
 </head>
 <body>
 
+<h1>THIS IS THE CHECKOUT PAGE</h1>
+
 </body>
 </html>

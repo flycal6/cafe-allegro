@@ -15,64 +15,59 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="takeout_order")
+@Table(name = "takeout_order")
 public class Order {
-	
-@Id
-@GeneratedValue(strategy=GenerationType.IDENTITY)
-private int id; 
 
-private Date time;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int id;
 
-//ADD USER_ID RELATIONSHIP
-@ManyToOne
-@JoinColumn(name="user_id")
-private User user;
+	private Date time;
 
-@ManyToMany(cascade={CascadeType.PERSIST, CascadeType.REMOVE})
-@JoinTable(name="order_item",
-joinColumns=@JoinColumn(name="order_id"),
-inverseJoinColumns=@JoinColumn(name="menu_item_id")
-)
-private List<MenuItem> menuItems;
+	// ADD USER_ID RELATIONSHIP
+	@ManyToOne
+	@JoinColumn(name = "user_id")
+	private User user;
 
-public int getId() {
-	return id;
-}
+	@ManyToMany(cascade = { CascadeType.PERSIST, CascadeType.REMOVE })
+	@JoinTable(name = "order_item", joinColumns = @JoinColumn(name = "order_id"), inverseJoinColumns = @JoinColumn(name = "menu_item_id"))
+	private List<MenuItem> menuItems;
 
-public void setId(int id) {
-	this.id = id;
-}
+	public int getId() {
+		return id;
+	}
 
-public Date getTime() {
-	return time;
-}
+	public void setId(int id) {
+		this.id = id;
+	}
 
-public void setTime(Date time) {
-	this.time = time;
-}
+	public Date getTime() {
+		return time;
+	}
 
-public User getUser() {
-	return user;
-}
+	public void setTime(Date time) {
+		this.time = time;
+	}
 
-public void setUser(User user) {
-	this.user = user;
-}
+	public User getUser() {
+		return user;
+	}
 
-public List<MenuItem> getMenuItems() {
-	return menuItems;
-}
+	public void setUser(User user) {
+		this.user = user;
+	}
 
-public void setMenuItems(List<MenuItem> menuItems) {
-	this.menuItems = menuItems;
-}
+	public List<MenuItem> getMenuItems() {
+		return menuItems;
+	}
 
-@Override
-public String toString() {
-	return "Order id=" + id + ", time=" + time + ", user=" + user;
-}
+	public void setMenuItems(List<MenuItem> menuItems) {
+		this.menuItems = menuItems;
+	}
 
-
+	@Override
+	public String toString() {
+		return "Order id=" + id + ", time=" + time + ", user=" + user;
+	}
 
 }
