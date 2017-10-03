@@ -37,7 +37,9 @@
 					<ul class="list-unstyled">
 						<li><a href="#" class="text-white">Follow on Twitter</a></li>
 						<li><a href="#" class="text-white">Like on Facebook</a></li>
-						<li><a href="Logout.do" class="text-white">Logout</a></li>
+						<c:if test="${not empty user.username}">
+							<li><a href="Logout.do" class="text-white">Logout</a></li>
+						</c:if>
 					</ul>
 				</div>
 			</div>
@@ -46,7 +48,8 @@
 	<div class="navbar navbar-dark bg-dark">
 		<div class="container d-flex justify-content-between">
 			<c:if test="${not empty user.username}">
-				<a href="ViewProfile.do" class="navbar-brand"> ${user.username} </a>
+				<a href="ViewProfile.do" class="navbar-brand"> ${user.username}
+				</a>
 			</c:if>
 			<c:if test="${empty user.username}">
 				<a href="Login.do" class="navbar-brand">Login</a>
@@ -72,11 +75,11 @@
 			</p>
 		</div>
 	</section>
-	
+
+
 	<div class="album text-muted">
 		<div class="container">
 			<div class="row">
-
 				<div class="card">
 					<img class="img-fluid" src="images/Breakfast.png"
 						alt="Card image cap">
@@ -85,7 +88,9 @@
 						Sausage, or Bacon
 					</p>
 					<c:forEach var="item" items="${items}">
+						<!-- <div class="btn-group" data-toggle="buttons"> -->
 						<c:if test="${item.category == 'Breakfast'}">
+<<<<<<< HEAD
 							<form action="cart.do" method="POST">
 								<div class="btn-group" data-toggle="buttons">
 									<label class="btn btn-secondary"> <input
@@ -98,204 +103,193 @@
 								<input type="hidden" name="itemId" value="${item.id}">
 								<input type="submit" value="test">
 							</form> --%>
+=======
+							<!-- 	<label class="btn btn-secondary"> -->
+							<form action="addToCart.do" method="get">
+								<input type="hidden" name="itemId" value="${item.id}"> <input
+									type="submit" name="name" value="${item.name}">
+								<!-- 	</label> -->
+							</form>
+>>>>>>> 7116ebad934045bfb02df4fb1a54f7fd967c33dc
 						</c:if>
+						<!-- 	</div>  -->
 					</c:forEach>
 				</div>
-
 
 				<div class="card">
 					<img class="img-fluid" src="images/sandwich.png"
 						alt="Card image cap">
 					<p class="card-text">
-						House Special Sandwiches<br> Choice of bread with chips (1
+						House Special Sandwiches <br> Choice of bread with chips (1
 						oz.)
 					</p>
-					<div class="btn-group" data-toggle="buttons">
-						<label class="btn btn-secondary"> <input type="checkbox"
-							autocomplete="off"> Checkbox 1
-						</label> <label class="btn btn-secondary"> <input type="checkbox"
-							autocomplete="off"> Checkbox 2
-						</label>
-					</div>
-					<br>
-					<div class="btn-group" data-toggle="buttons">
-						<label class="btn btn-secondary"> <input type="checkbox"
-							autocomplete="off"> Checkbox 1
-						</label> <label class="btn btn-secondary"> <input type="checkbox"
-							autocomplete="off"> Checkbox 2
-						</label>
-					</div>
+					<c:forEach var="item" items="${items}">
+						<!-- <div class="btn-group" data-toggle="buttons"> -->
+						<c:if test="${item.category == 'Sandwich'}">
+							<!-- 	<label class="btn btn-secondary"> -->
+							<form action="addToCart.do" method="get">
+								<input type="hidden" name="itemId" value="${item.id}"> <input
+									type="submit" name="name" value="${item.name}">
+								<!-- 	</label> -->
+							</form>
+						</c:if>
+						<!-- 	</div>  -->
+					</c:forEach>
 				</div>
+
 				<div class="card">
 					<img class="img-fluid" src="images/wrap.png" alt="Card image cap">
 					<p class="card-text">Wraps</p>
-					<div class="btn-group" data-toggle="buttons">
-						<label class="btn btn-secondary"> <input type="checkbox"
-							autocomplete="off"> Checkbox 1
-						</label> <label class="btn btn-secondary"> <input type="checkbox"
-							autocomplete="off"> Checkbox 2
-						</label>
-					</div>
-					<br>
-					<div class="btn-group" data-toggle="buttons">
-						<label class="btn btn-secondary"> <input type="checkbox"
-							autocomplete="off"> Checkbox 1
-						</label> <label class="btn btn-secondary"> <input type="checkbox"
-							autocomplete="off"> Checkbox 2
-						</label>
-					</div>
+					<c:forEach var="item" items="${items}">
+						<!-- <div class="btn-group" data-toggle="buttons"> -->
+						<c:if test="${item.category == 'Wrap'}">
+							<!-- 	<label class="btn btn-secondary"> -->
+							<form action="addToCart.do" method="get">
+								<input type="hidden" name="itemId" value="${item.id}"> <input
+									type="submit" name="name" value="${item.name}">
+								<!-- 	</label> -->
+							</form>
+						</c:if>
+						<!-- 	</div>  -->
+					</c:forEach>
 				</div>
+
 				<div class="card">
 					<img class="img-fluid" src="images/HotSub.png" alt="Card image cap">
 					<p class="card-text">Hot Subs</p>
-					<div class="btn-group" data-toggle="buttons">
-						<label class="btn btn-secondary"> <input type="checkbox"
-							autocomplete="off"> Checkbox 1
-						</label> <label class="btn btn-secondary"> <input type="checkbox"
-							autocomplete="off"> Checkbox 2
-						</label>
-					</div>
-					<br>
-					<div class="btn-group" data-toggle="buttons">
-						<label class="btn btn-secondary"> <input type="checkbox"
-							autocomplete="off"> Checkbox 1
-						</label> <label class="btn btn-secondary"> <input type="checkbox"
-							autocomplete="off"> Checkbox 2
-						</label>
-					</div>
+					<c:forEach var="item" items="${items}">
+						<!-- <div class="btn-group" data-toggle="buttons"> -->
+						<c:if test="${item.category == 'Hot Subs'}">
+							<!-- 	<label class="btn btn-secondary"> -->
+							<form action="addToCart.do" method="get">
+								<input type="hidden" name="itemId" value="${item.id}"> <input
+									type="submit" name="name" value="${item.name}">
+								<!-- 	</label> -->
+							</form>
+						</c:if>
+						<!-- 	</div>  -->
+					</c:forEach>
 				</div>
+
 				<div class="card">
 					<img class="img-fluid" src="images/Taco.png" alt="Card image cap">
 					<p class="card-text">Mexican Food</p>
-					<div class="btn-group" data-toggle="buttons">
-						<label class="btn btn-secondary"> <input type="checkbox"
-							autocomplete="off"> Checkbox 1
-						</label> <label class="btn btn-secondary"> <input type="checkbox"
-							autocomplete="off"> Checkbox 2
-						</label>
-					</div>
-					<br>
-					<div class="btn-group" data-toggle="buttons">
-						<label class="btn btn-secondary"> <input type="checkbox"
-							autocomplete="off"> Checkbox 1
-						</label> <label class="btn btn-secondary"> <input type="checkbox"
-							autocomplete="off"> Checkbox 2
-						</label>
-					</div>
+					<c:forEach var="item" items="${items}">
+						<!-- <div class="btn-group" data-toggle="buttons"> -->
+						<c:if test="${item.category == 'Mexican'}">
+							<!-- 	<label class="btn btn-secondary"> -->
+							<form action="addToCart.do" method="get">
+								<input type="hidden" name="itemId" value="${item.id}"> <input
+									type="submit" name="name" value="${item.name}">
+								<!-- 	</label> -->
+							</form>
+						</c:if>
+						<!-- 	</div>  -->
+					</c:forEach>
 				</div>
+
 				<div class="card">
 					<img class="img-fluid" src="images/riceBowl.png"
 						alt="Card image cap">
 					<p class="card-text">Rice Bowls</p>
-					<div class="btn-group" data-toggle="buttons">
-						<label class="btn btn-secondary"> <input type="checkbox"
-							autocomplete="off"> Checkbox 1
-						</label> <label class="btn btn-secondary"> <input type="checkbox"
-							autocomplete="off"> Checkbox 2
-						</label>
-					</div>
-					<br>
-					<div class="btn-group" data-toggle="buttons">
-						<label class="btn btn-secondary"> <input type="checkbox"
-							autocomplete="off"> Checkbox 1
-						</label> <label class="btn btn-secondary"> <input type="checkbox"
-							autocomplete="off"> Checkbox 2
-						</label>
-					</div>
+					<c:forEach var="item" items="${items}">
+						<!-- <div class="btn-group" data-toggle="buttons"> -->
+						<c:if test="${item.category == 'Rice Bowl'}">
+							<!-- 	<label class="btn btn-secondary"> -->
+							<form action="addToCart.do" method="get">
+								<input type="hidden" name="itemId" value="${item.id}"> <input
+									type="submit" name="name" value="${item.name}">
+								<!-- 	</label> -->
+							</form>
+						</c:if>
+						<!-- 	</div>  -->
+					</c:forEach>
 				</div>
+
 				<div class="card">
 					<img class="img-fluid" src="images/salad.png" alt="Card image cap">
 					<p class="card-text">Salad</p>
-					<div class="btn-group" data-toggle="buttons">
-						<label class="btn btn-secondary"> <input type="checkbox"
-							autocomplete="off"> Checkbox 1
-						</label> <label class="btn btn-secondary"> <input type="checkbox"
-							autocomplete="off"> Checkbox 2
-						</label>
-					</div>
-					<br>
-					<div class="btn-group" data-toggle="buttons">
-						<label class="btn btn-secondary"> <input type="checkbox"
-							autocomplete="off"> Checkbox 1
-						</label> <label class="btn btn-secondary"> <input type="checkbox"
-							autocomplete="off"> Checkbox 2
-						</label>
-					</div>
+					<c:forEach var="item" items="${items}">
+						<!-- <div class="btn-group" data-toggle="buttons"> -->
+						<c:if test="${item.category == 'Salad'}">
+							<!-- 	<label class="btn btn-secondary"> -->
+							<form action="addToCart.do" method="get">
+								<input type="hidden" name="itemId" value="${item.id}"> <input
+									type="submit" name="name" value="${item.name}">
+								<!-- 	</label> -->
+							</form>
+						</c:if>
+						<!-- 	</div>  -->
+					</c:forEach>
 				</div>
+
 				<div class="card">
 					<img class="img-fluid" src="images/burger.png" alt="Card image cap">
 					<p class="card-text">Burgers</p>
-					<div class="btn-group" data-toggle="buttons">
-						<label class="btn btn-secondary"> <input type="checkbox"
-							autocomplete="off"> Checkbox 1
-						</label> <label class="btn btn-secondary"> <input type="checkbox"
-							autocomplete="off"> Checkbox 2
-						</label>
-					</div>
-					<br>
-					<div class="btn-group" data-toggle="buttons">
-						<label class="btn btn-secondary"> <input type="checkbox"
-							autocomplete="off"> Checkbox 1
-						</label> <label class="btn btn-secondary"> <input type="checkbox"
-							autocomplete="off"> Checkbox 2
-						</label>
-					</div>
+					<c:forEach var="item" items="${items}">
+						<!-- <div class="btn-group" data-toggle="buttons"> -->
+						<c:if test="${item.category == 'Burgers'}">
+							<!-- 	<label class="btn btn-secondary"> -->
+							<form action="addToCart.do" method="get">
+								<input type="hidden" name="itemId" value="${item.id}"> <input
+									type="submit" name="name" value="${item.name}">
+								<!-- 	</label> -->
+							</form>
+						</c:if>
+						<!-- 	</div>  -->
+					</c:forEach>
 				</div>
+
 				<div class="card">
 					<img class="img-fluid" src="images/soup.png" alt="Card image cap">
 					<p class="card-text">Soups</p>
-					<div class="btn-group" data-toggle="buttons">
-						<label class="btn btn-secondary"> <input type="checkbox"
-							autocomplete="off"> Checkbox 1
-						</label> <label class="btn btn-secondary"> <input type="checkbox"
-							autocomplete="off"> Checkbox 2
-						</label>
-					</div>
-					<br>
-					<div class="btn-group" data-toggle="buttons">
-						<label class="btn btn-secondary"> <input type="checkbox"
-							autocomplete="off"> Checkbox 1
-						</label> <label class="btn btn-secondary"> <input type="checkbox"
-							autocomplete="off"> Checkbox 2
-						</label>
-					</div>
+					<c:forEach var="item" items="${items}">
+						<!-- <div class="btn-group" data-toggle="buttons"> -->
+						<c:if test="${item.category == 'Soups'}">
+							<!-- 	<label class="btn btn-secondary"> -->
+							<form action="addToCart.do" method="get">
+								<input type="hidden" name="itemId" value="${item.id}"> <input
+									type="submit" name="name" value="${item.name}">
+								<!-- 	</label> -->
+							</form>
+						</c:if>
+						<!-- 	</div>  -->
+					</c:forEach>
 				</div>
+
 				<div class="card">
 					<img class="img-fluid" src="images/drinks.png" alt="Card image cap">
 					<p class="card-text">Drinks</p>
-					<div class="btn-group" data-toggle="buttons">
-						<label class="btn btn-secondary"> <input type="checkbox"
-							autocomplete="off"> Checkbox 1
-						</label> <label class="btn btn-secondary"> <input type="checkbox"
-							autocomplete="off"> Checkbox 2
-						</label>
-					</div>
-					<br>
-					<div class="btn-group" data-toggle="buttons">
-						<label class="btn btn-secondary"> <input type="checkbox"
-							autocomplete="off"> Checkbox 1
-						</label> <label class="btn btn-secondary"> <input type="checkbox"
-							autocomplete="off"> Checkbox 2
-						</label>
-					</div>
+					<c:forEach var="item" items="${items}">
+						<!-- <div class="btn-group" data-toggle="buttons"> -->
+						<c:if test="${item.category == 'Drinks'}">
+							<!-- 	<label class="btn btn-secondary"> -->
+							<form action="addToCart.do" method="get">
+								<input type="hidden" name="itemId" value="${item.id}"> <input
+									type="submit" name="name" value="${item.name}">
+								<!-- 	</label> -->
+							</form>
+						</c:if>
+						<!-- 	</div>  -->
+					</c:forEach>
 				</div>
 
 			</div>
 		</div>
-	</div>
-	
-<a href="views/cart.jsp">Cart</a>
+	</div>  <!--Ending DIV-->
+
+	<a href="views/cart.jsp">Cart</a>
 	<footer class="text-muted">
 		<div class="container">
 			<p class="float-right">
 				<a href="#">Back to top</a>
 			</p>
-			<p>Album example is &copy; Bootstrap, but please download and
+			<!-- <p>Album example is &copy; Bootstrap, but please download and
 				customize it for yourself!</p>
 			<p>
 				New to Bootstrap? <a href="../../">Visit the homepage</a> or read
 				our <a href="../../getting-started/">getting started guide</a>.
-			</p>
+			</p> -->
 		</div>
 	</footer>
 
@@ -305,6 +299,7 @@
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
 		integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
 		crossorigin="anonymous"></script>
+
 	<script>
 		window.jQuery
 				|| document.write('<script src="js/jquery.min.js"><\/script>')

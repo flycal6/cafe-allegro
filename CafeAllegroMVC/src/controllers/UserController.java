@@ -49,8 +49,10 @@ public class UserController {
 	}
 	
 	@RequestMapping(path="CreateUser.do", method=RequestMethod.POST)
-	public String signUpNewUser(User user, Model model) {
-		model.addAttribute("newUser", userDao.createNewUser(user));
+	public String signUpNewUser(User user, Model model, HttpSession session) {
+		User u = userDao.createNewUser(user);
+		model.addAttribute("newUser", u);
+		session.setAttribute("user", u);
 		return "views/profile.jsp";
 	}
 	

@@ -2,6 +2,7 @@ package entities;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -38,12 +39,12 @@ public class User {
 	private int phoneNumber;
 
 	// ADD USER_ROLE_ID RELATIONSHIP
-	@OneToOne
+	@ManyToOne(cascade=CascadeType.PERSIST)
 	@JoinColumn(name = "user_role_id")
 	private UserRole userRole;
 
 	// ADD REWARDS_ID RELATIONSHIP
-	@ManyToOne
+	@ManyToOne(cascade=CascadeType.PERSIST)
 	@JoinColumn(name = "rewards_id")
 	private Rewards rewards;
 
