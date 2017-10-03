@@ -1,5 +1,6 @@
 package data;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.stereotype.Repository;
@@ -42,9 +43,12 @@ public class CartDAOImpl implements CartDAO {
 
 	@Override
 	public Cart addMenuItemToCart(Cart cart, MenuItem menuItem) {
-		List<MenuItem> userCart = cart.getCart();
+		List<MenuItem> userCart = cart.getItemsInCart();
+		if (cart.getItemsInCart() == null) {
+			userCart = new ArrayList<>();
+		}
 		userCart.add(menuItem);
-		cart.setCart(userCart);
+		cart.setItemsInCart(userCart);
 		return cart;
 	}
 

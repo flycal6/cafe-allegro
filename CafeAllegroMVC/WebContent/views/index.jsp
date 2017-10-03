@@ -91,9 +91,12 @@
 						<!-- <div class="btn-group" data-toggle="buttons"> -->
 						<c:if test="${item.category == 'Breakfast'}">
 							<!-- 	<label class="btn btn-secondary"> -->
-							<form action="addToCart.do" method="get">
-								<input type="hidden" name="itemId" value="${item.id}"> <input
-									type="submit" name="name" value="${item.name}">
+							<form action="addToCart.do" method="POST">
+								<%-- <input type="hidden" name="id" value="${item.id}"> --%>
+								<input type="text" name="name" value="${item.name}"> <input
+									type="text" name="price" value="${item.price}"> <input
+									type="text" name="description" value="${item.description}">
+									<input type="submit" value="Add to Cart">
 								<!-- 	</label> -->
 							</form>
 						</c:if>
@@ -101,7 +104,7 @@
 					</c:forEach>
 				</div>
 
-				<div class="card">
+				<%-- <div class="card">
 					<img class="img-fluid" src="images/sandwich.png"
 						alt="Card image cap">
 					<p class="card-text">
@@ -261,7 +264,8 @@
 
 			</div>
 		</div>
-	</div>  <!--Ending DIV-->
+	</div>
+	<!--Ending DIV-->
 
 	<a href="views/cart.jsp">Cart</a>
 	<footer class="text-muted">
@@ -275,35 +279,36 @@
 				New to Bootstrap? <a href="../../">Visit the homepage</a> or read
 				our <a href="../../getting-started/">getting started guide</a>.
 			</p> -->
-		</div>
-	</footer>
+		</div> --%>
+				</footer>
 
-	<!-- Bootstrap core JavaScript
+				<!-- Bootstrap core JavaScript
     ================================================== -->
-	<!-- Placed at the end of the document so the pages load faster -->
-	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-		integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-		crossorigin="anonymous"></script>
+				<!-- Placed at the end of the document so the pages load faster -->
+				<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+					integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+					crossorigin="anonymous"></script>
 
-	<script>
-		window.jQuery
-				|| document.write('<script src="js/jquery.min.js"><\/script>')
-	</script>
-	<script src="js/holder.js"></script>
-	<script src="js/popper.min.js"></script>
-	<script>
-		$(function() {
-			Holder.addTheme("thumb", {
-				background : "#55595c",
-				foreground : "#eceeef",
-				text : "Thumbnail"
-			});
-		});
-	</script>
-	<script src="js/bootstrap.min.js"></script>
-	<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-	<script>
-		$().button('toggle')
-	</script>
+				<script>
+					window.jQuery
+							|| document
+									.write('<script src="js/jquery.min.js"><\/script>')
+				</script>
+				<script src="js/holder.js"></script>
+				<script src="js/popper.min.js"></script>
+				<script>
+					$(function() {
+						Holder.addTheme("thumb", {
+							background : "#55595c",
+							foreground : "#eceeef",
+							text : "Thumbnail"
+						});
+					});
+				</script>
+				<script src="js/bootstrap.min.js"></script>
+				<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+				<script>
+					$().button('toggle')
+				</script>
 </body>
 </html>

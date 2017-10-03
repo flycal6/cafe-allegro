@@ -26,8 +26,8 @@ public class CartController {
 		return "views/cart.jsp";
 	}
 	
-	@RequestMapping(path="addToCart.do", method=RequestMethod.GET) //Coming from the INDEX.JSP
-	public String addItemById(@RequestParam("item") MenuItem item, HttpSession session){ //index.jsp
+	@RequestMapping(path="addToCart.do", method=RequestMethod.POST) //Coming from the INDEX.JSP
+	public String addItemById(MenuItem item, HttpSession session){ //index.jsp
 		Cart sessionCart = (Cart) session.getAttribute("cart");
 		if (sessionCart == null) {
 			sessionCart = cartDAO.createNewCart();

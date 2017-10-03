@@ -24,9 +24,10 @@
 				</tr>
 				<tr>
 
-					<c:forEach var="orders" items="${order.menuItems}">
+					<c:forEach var="cart" items="${cart.itemsInCart}">
 						<%-- <c:forEach var="menuItems" items="${orders}"> --%>
-						<td>${orders.name}</td>
+						<td>${cart.name}</td>
+						<td>${cart.price}</td>
 						
 						</c:forEach>
 

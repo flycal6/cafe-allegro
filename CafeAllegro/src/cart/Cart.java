@@ -10,11 +10,11 @@ public class Cart {
 	 
 	private int quantity;
 
-	public List<MenuItem> getCart() {
+	public List<MenuItem> getItemsInCart() {
 		return itemsInCart;
 	}
 
-	public void setCart(List<MenuItem> cart) {
+	public void setItemsInCart(List<MenuItem> cart) {
 		this.itemsInCart = cart;
 	}
 
