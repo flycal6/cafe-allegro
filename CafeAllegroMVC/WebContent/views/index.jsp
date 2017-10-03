@@ -86,18 +86,18 @@
 					</p>
 					<c:forEach var="item" items="${items}">
 						<c:if test="${item.category == 'Breakfast'}">
-							<%-- <form action="cart.do?itemId=${item.id}" method="GET">
+							<form action="cart.do" method="POST">
 								<div class="btn-group" data-toggle="buttons">
 									<label class="btn btn-secondary"> <input
-										type="submit" value="${item.name}"> 
+										type="hidden" name="itemId" value="${item.id}"> 
+											<input type="submit" value="test">
 									</label>
 								</div>
-								<input type="submit" value="test"/>
-							</form> --%>
-							<form action="cart.do" method="POST">
+							</form>
+							<<%-- form action="cart.do" method="POST">
 								<input type="hidden" name="itemId" value="${item.id}">
 								<input type="submit" value="test">
-							</form>
+							</form> --%>
 						</c:if>
 					</c:forEach>
 				</div>
