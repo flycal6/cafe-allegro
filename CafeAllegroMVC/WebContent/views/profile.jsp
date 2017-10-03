@@ -11,7 +11,7 @@
 <meta name="author" content="">
 <link rel="icon" href="../../../../favicon.ico">
 
-<title>${user.firstName} ${user.lastName} - Profile</title>
+<title>${user.firstName}${user.lastName} - Profile</title>
 
 <!-- Bootstrap core CSS -->
 <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -54,11 +54,11 @@
 		</div>
 	</div>
 
-	<div class="album text-muted">
-		<div class="container">
-
-			<div class="row">
-			<c:if test="${empty user}"><h3>User not found</h3></c:if>
+	<div class="container text-muted">
+		<div class="row">
+			<c:if test="${empty user}">
+				<h3>User not found</h3>
+			</c:if>
 			<c:if test="${not empty user}">
 				<form action="UpdateUser.do" method="POST">
 					<div class="form-row">
@@ -67,13 +67,13 @@
 							<input type="text" class="form-control" id="inputFirstName" name="firstName" value="${user.firstName}">
 						</div>
 						<div class="form-group col-md-6">
-							<label for="inputLastName" class="col-form-label">Last Name</label>
+							<label for="inputLastName" class="col-form-label">Last Name</label> 
 							<input type="text" class="form-control" id="inputLastName" name="lastName" value="${user.lastName}">
 						</div>
 					</div>
 					<div class="form-row">
 						<div class="form-group col-md-6">
-							<label for="inputUsername" class="col-form-label">Username</label> 
+							<label for="inputUsername" class="col-form-label">Username</label>
 							<input type="text" class="form-control" id="inputAddress" name="username" value="${user.username}">
 						</div>
 						<div class="form-group col-md-6">
@@ -81,34 +81,32 @@
 							<input type="password" class="form-control" id="inputPassword4" name="password" value="${user.password}">
 						</div>
 					</div>
-						<div class="form-group">
+					<div class="form-row">
+						<div class="form-group col-md-6">
 							<label for="inputEmail4" class="col-form-label">Email</label> 
 							<input type="email" class="form-control" id="inputEmail4" name="email" value="${user.email}">
 						</div>
-						<div class="form-group">
+						<div class="form-group col-md-6">
 							<label for="inputPhone" class="col-form-label">Phone Number</label> 
-							<input type="number" class="form-control" id="inputPhone" name="phoneNumber" value="${user.phoneNumber}">
+							<input type="number" class="form-control" id="inputPhone" name="phoneNumber" value="${user.phoneNumber}"> 
 							<input type="hidden" name="id" value="${user.id}">
 						</div>
+					</div>
 					<button type="submit" name="submit" id="submit" class="btn btn-primary">Update Profile</button>
 				</form>
-				</c:if>
-			</div>
-			<br>
-			<div class="row">
-				<c:if test="${user.userRole.permission == 'admin'}">
-					<form action="UpdateMenuItemsView.do">
-						<button type="submit" class="btn btn-primary">Update Menu Items</button>
-					</form>
-				</c:if>
-			</div>
-			<hr>
-			<div class="row">
-				<h4>You have ${user.rewards.points} Reward Points.</h4>
-			</div>
-			<!-- <div class="parent">
-				
-			</div> -->
+			</c:if>
+		</div>
+		<br>
+		<div class="row">
+			<c:if test="${user.userRole.permission == 'admin'}">
+				<form action="UpdateMenuItemsView.do">
+					<button type="submit" class="btn btn-primary">Update Menu Items</button>
+				</form>
+			</c:if>
+		</div>
+		<hr>
+		<div class="row">
+			<h4>You have ${user.rewards.points} Reward Points.</h4>
 		</div>
 	</div>
 
@@ -138,11 +136,8 @@
 	</script>
 
 	<script src="js/holder.js"></script>
-<!-- 	<script>$(document).ready(function () {
-	    $('#submit').click(function () {
-            $('.parent').append("<div class='alert alert-success alert-dismissable'><button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>Success! message sent successfully.</div>")
-	    })
-	});</script> -->
+	<script src="js/popper.min.js"></script>
+	
 	<script src="js/bootstrap.min.js"></script>
 	<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
 </body>

@@ -107,6 +107,7 @@
 	</script>
 
 	<script src="js/holder.js"></script>
+	<script src="js/popper.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 	<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
 </body>

@@ -305,8 +305,8 @@
 		window.jQuery
 				|| document.write('<script src="js/jquery.min.js"><\/script>')
 	</script>
-	<!-- <script src="https://cdnjs.com/libraries/popper.js"></script> -->
 	<script src="js/holder.js"></script>
+	<script src="js/popper.min.js"></script>
 	<script>
 		$(function() {
 			Holder.addTheme("thumb", {
