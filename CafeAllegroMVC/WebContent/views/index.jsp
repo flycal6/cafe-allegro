@@ -37,7 +37,7 @@
 					<ul class="list-unstyled">
 						<li><a href="#" class="text-white">Follow on Twitter</a></li>
 						<li><a href="#" class="text-white">Like on Facebook</a></li>
-						<li><a href="#" class="text-white">Email me</a></li>
+						<li><a href="Logout.do" class="text-white">Logout</a></li>
 					</ul>
 				</div>
 			</div>
@@ -45,7 +45,12 @@
 	</div>
 	<div class="navbar navbar-dark bg-dark">
 		<div class="container d-flex justify-content-between">
-			<a href="Login.do" class="navbar-brand">Login</a>
+			<c:if test="${not empty user.username}">
+				<a href="ViewProfile.do" class="navbar-brand"> ${user.username} </a>
+			</c:if>
+			<c:if test="${empty user.username}">
+				<a href="Login.do" class="navbar-brand">Login</a>
+			</c:if>
 			<button class="navbar-toggler" type="button" data-toggle="collapse"
 				data-target="#navbarHeader" aria-controls="navbarHeader"
 				aria-expanded="false" aria-label="Toggle navigation">
@@ -304,8 +309,8 @@
 		window.jQuery
 				|| document.write('<script src="js/jquery.min.js"><\/script>')
 	</script>
-	<!-- <script src="https://cdnjs.com/libraries/popper.js"></script> -->
 	<script src="js/holder.js"></script>
+	<script src="js/popper.min.js"></script>
 	<script>
 		$(function() {
 			Holder.addTheme("thumb", {

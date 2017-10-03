@@ -119,11 +119,8 @@
 	</script>
 
 	<script src="js/holder.js"></script>
-<!-- 	<script>$(document).ready(function () {
-	    $('#submit').click(function () {
-            $('.parent').append("<div class='alert alert-success alert-dismissable'><button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>Success! message sent successfully.</div>")
-	    })
-	});</script> -->
+	<script src="js/popper.min.js"></script>
+	
 	<script src="js/bootstrap.min.js"></script>
 	<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
 </body>
