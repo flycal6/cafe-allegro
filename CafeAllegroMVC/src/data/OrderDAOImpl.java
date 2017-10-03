@@ -15,6 +15,7 @@ import org.springframework.transaction.annotation.Transactional;
 @Repository
 @Transactional
 public class OrderDAOImpl implements OrderDAO {
+	
 	@PersistenceContext
 	EntityManager em;
 
@@ -45,8 +46,17 @@ public class OrderDAOImpl implements OrderDAO {
 	}
 
 	@Override
-	public MenuItem getMenuItemById(int id) {
-		return em.find(MenuItem.class, id);
+	public Order getOrderById(int id) {
+		MenuItem itemById = em.find(MenuItem.class, id);
+		List<MenuItem> items = new ArrayList<>();
+		items.add(itemById);
+		Order order = new Order();
+		order.setMenuItems(items);
+		return order;
+				
 	}
+
+	//ONCE FINALIZED CART IS ENTERED INTO ORDER
+	//GET IT OUT OF THE SESSION 
 }
 	
