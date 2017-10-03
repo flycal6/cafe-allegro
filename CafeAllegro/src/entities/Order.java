@@ -1,6 +1,7 @@
 package entities;
 
-import java.sql.Timestamp;
+
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -13,6 +14,8 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 @Entity
 @Table(name = "takeout_order")
@@ -21,8 +24,8 @@ public class Order {
 	@Id 
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	
-	private Timestamp time;
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date time;
 
 	// ADD USER_ID RELATIONSHIP
 	@ManyToOne(cascade = { CascadeType.PERSIST, CascadeType.REMOVE })
@@ -41,11 +44,11 @@ public class Order {
 		this.id = id;
 	}
 
-	public Timestamp getTime() {
+	public Date getTime() {
 		return time;
 	}
 
-	public void setTime(Timestamp time) {
+	public void setTime(Date time) {
 		this.time = time;
 	}
 
