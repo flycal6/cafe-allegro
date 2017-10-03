@@ -8,6 +8,7 @@ import javax.persistence.PersistenceContext;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import entities.Rewards;
 import entities.User;
 import entities.UserRole;
 
@@ -20,6 +21,11 @@ public class UserDAOImpl implements UserDAO {
 
 	@Override
 	public User createNewUser(User user) {
+		Rewards r = new Rewards();
+		r.setPoints(10);
+		user.setRewards(r);
+		UserRole ur = em.find(UserRole.class, 2);
+		user.setUserRole(ur);
 		
 		em.persist(user);
 		em.flush();
@@ -79,8 +85,6 @@ public class UserDAOImpl implements UserDAO {
 			e.printStackTrace();
 			// HANDLE EXCEPTION MAYBE???
 			return false;
-		} finally {
-
 		}
 
 		return false;
