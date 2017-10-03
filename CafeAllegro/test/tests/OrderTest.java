@@ -30,8 +30,8 @@ public class OrderTest {
 		 @Test
 		  public void test_order_mappings() {
 		    Order order = em.find(Order.class, 1);
-		    assertEquals(1, order.getUser().getId());
-		    assertEquals("Brian", order.getUser().getFirstName());
+		    assertEquals(1, order.getUser().getOrders().size());
+		   // assertEquals("Brian", order.getUser().getFirstName());
 		    
 		  
 		    

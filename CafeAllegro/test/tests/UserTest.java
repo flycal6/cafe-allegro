@@ -31,7 +31,8 @@ public class UserTest {
 	 @Test
 	  public void test_user_mappings() {
 	    User user = em.find(User.class, 1);
-	    assertEquals("Brian", user.getFirstName());
+	    //assertEquals("Brian", user.getFirstName());
+	    assertEquals("Brian", user.getOrders().get(0));
 	  
 	    
 	  }

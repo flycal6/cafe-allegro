@@ -23,7 +23,7 @@
             </tr>
             <tr>
             <c:forEach var="item" items="${items}">
-                <td>${item.menuItems}</td>
+                <td>${item.name}</td>
                 </c:forEach>
                 <td>1</td>
                 <td>1</td>
