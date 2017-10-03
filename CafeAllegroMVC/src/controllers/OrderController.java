@@ -34,6 +34,7 @@ public class OrderController {
 	}
 	@RequestMapping(path="finalizedOrder.do", method=RequestMethod.GET)
 	public String finalizedOrder(RedirectAttributes redir, HttpSession session) {
+		session.removeAttribute("cart");
 		return "views/checkout.jsp";
 	}
 	

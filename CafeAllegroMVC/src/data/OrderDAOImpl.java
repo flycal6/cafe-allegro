@@ -26,6 +26,7 @@ public class OrderDAOImpl implements OrderDAO {
 	public Order archiveCart(User user, Cart cart) {
 		List<MenuItem> compileOrder = cart.getItemsInCart();
 		Order order = new Order();
+		order.setUser(em.find(User.class, user.getId()));
 		order.setMenuItems(compileOrder);
 		if (user.getOrders() == null) {
 			List<Order> orderList = new ArrayList<>();
@@ -34,6 +35,9 @@ public class OrderDAOImpl implements OrderDAO {
 		List<Order> orders = user.getOrders();
 		orders.add(order);
 		user.setOrders(orders);
+		em.persist(order);
+		em.flush();
+
 		return order;
 	}
 

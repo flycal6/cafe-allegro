@@ -1,6 +1,6 @@
 package entities;
 
-import java.sql.Date;
+import java.sql.Timestamp;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -18,14 +18,14 @@ import javax.persistence.Table;
 @Table(name = "takeout_order")
 public class Order {
 
-	@Id
+	@Id 
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-
-	private Date time;
+	
+	private Timestamp time;
 
 	// ADD USER_ID RELATIONSHIP
-	@ManyToOne
+	@ManyToOne(cascade = { CascadeType.PERSIST, CascadeType.REMOVE })
 	@JoinColumn(name = "user_id")
 	private User user;
 
@@ -41,11 +41,11 @@ public class Order {
 		this.id = id;
 	}
 
-	public Date getTime() {
+	public Timestamp getTime() {
 		return time;
 	}
 
-	public void setTime(Date time) {
+	public void setTime(Timestamp time) {
 		this.time = time;
 	}
 
