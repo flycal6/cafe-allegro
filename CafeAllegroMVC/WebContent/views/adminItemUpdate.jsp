@@ -77,7 +77,7 @@
 					<input type="hidden" name="id" value="${item.id}">
 					<button type="submit" name="submit" id="submit" class="btn btn-primary">Update</button>
 				</form>
-					<form action="RemoveItem.do" method="post">
+				<form action="RemoveItem.do" method="post">
 					<input type="hidden" name="id" value="${item.id}">
 					<button type="submit" name="submit" class="btn btn-danger">Delete</button>
 				</form>

@@ -51,7 +51,12 @@ public class UserController {
 	@RequestMapping(path="CreateUser.do", method=RequestMethod.POST)
 	public String signUpNewUser(User user, Model model) {
 		model.addAttribute("newUser", userDao.createNewUser(user));
-		
 		return "views/profile.jsp";
+	}
+	
+	@RequestMapping(path="Logout.do")
+	public String logoutUser(HttpSession session) {
+		session.removeAttribute("user");
+		return "views/index.jsp";
 	}
 }
