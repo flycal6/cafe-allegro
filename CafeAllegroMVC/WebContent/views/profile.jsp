@@ -94,16 +94,15 @@
 						</div>
 					</div>
 					<button type="submit" name="submit" id="submit" class="btn btn-primary">Update Profile</button>
+					<c:if test="${user.userRole.permission == 'admin'}">
+						<a href="UpdateMenuItemsView.do" class="btn btn-secondary">Update Menu Items</a>
+					</c:if>
 				</form>
 			</c:if>
 		</div>
 		<br>
 		<div class="container text-muted">
-			<c:if test="${user.userRole.permission == 'admin'}">
-				<form action="UpdateMenuItemsView.do">
-						<button type="submit" class="btn btn-primary">Update Menu Items</button>
-				</form>
-			</c:if>
+			
 		<hr>
 			<div >
 				<h4>You have ${user.rewards.points} Reward Points.</h4>
