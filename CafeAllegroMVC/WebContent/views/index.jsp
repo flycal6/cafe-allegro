@@ -90,7 +90,7 @@
 					<c:forEach var="item" items="${items}">
 						<!-- <div class="btn-group" data-toggle="buttons"> -->
 						<c:if test="${item.category == 'Breakfast'}">
-<<<<<<< HEAD
+
 							<form action="cart.do" method="POST">
 								<div class="btn-group" data-toggle="buttons">
 									<label class="btn btn-secondary"> <input
@@ -103,7 +103,6 @@
 								<input type="hidden" name="itemId" value="${item.id}">
 								<input type="submit" value="test">
 							</form> --%>
-=======
 							<!-- 	<label class="btn btn-secondary"> -->
 							<form action="addToCart.do" method="POST">
 								<%-- <input type="hidden" name="id" value="${item.id}"> --%>
@@ -113,7 +112,6 @@
 									<input type="submit" value="Add to Cart">
 								<!-- 	</label> -->
 							</form>
->>>>>>> 7116ebad934045bfb02df4fb1a54f7fd967c33dc
 						</c:if>
 						<!-- 	</div>  -->
 					</c:forEach>
@@ -280,9 +278,9 @@
 			</div>
 		</div>
 	</div>
+	<a href="views/cart.jsp">Cart</a>
 	<!--Ending DIV-->
 
-	<a href="views/cart.jsp">Cart</a>
 	<footer class="text-muted">
 		<div class="container">
 			<p class="float-right">

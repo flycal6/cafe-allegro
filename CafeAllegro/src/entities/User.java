@@ -1,7 +1,7 @@
 package entities;
 
 import java.util.List;
-
+import javax.persistence.*;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -13,6 +13,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
+import cart.Cart;
 
 @Entity
 @Table(name = "User")
@@ -37,6 +39,17 @@ public class User {
 
 	@Column(name = "phone_number")
 	private int phoneNumber;
+	
+	@Transient 
+	private Cart usercart;
+
+	public Cart getUsercart() {
+		return usercart;
+	}
+
+	public void setUsercart(Cart usercart) {
+		this.usercart = usercart;
+	}
 
 	// ADD USER_ROLE_ID RELATIONSHIP
 	@ManyToOne(cascade=CascadeType.PERSIST)
@@ -131,6 +144,14 @@ public class User {
 
 	public void setOrders(List<Order> orders) {
 		this.orders = orders;
+	}
+
+	public Cart getUserCart() {
+		return usercart;
+	}
+
+	public void setUserCart(Cart usercart) {
+		this.usercart = usercart;
 	}
 
 	@Override

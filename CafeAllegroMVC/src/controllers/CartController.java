@@ -1,6 +1,7 @@
 package controllers;
 
 import javax.servlet.http.HttpSession;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,6 +13,7 @@ import cart.Cart;
 import data.CartDAO;
 import data.OrderDAO;
 import entities.MenuItem;
+import entities.User;
 
 @Controller
 public class CartController {
@@ -19,23 +21,28 @@ public class CartController {
 	@Autowired
 	private CartDAO cartDAO;
 
-	
-	@RequestMapping(path="showCart", method=RequestMethod.GET)
-	public String showCart(Cart cart, HttpSession session) {
-		session.setAttribute("cart", cart);
+	@RequestMapping(path = "showCart", method = RequestMethod.GET)
+	public String showCart(HttpSession session) {
+		User user = (User) session.getAttribute("user");
+		session.setAttribute("cart", user.getUserCart());
+		
 		return "views/cart.jsp";
 	}
-	
-	@RequestMapping(path="addToCart.do", method=RequestMethod.POST) //Coming from the INDEX.JSP
-	public String addItemById(MenuItem item, HttpSession session){ //index.jsp
+
+	@RequestMapping(path = "addToCart.do", method = RequestMethod.POST) // Coming from the INDEX.JSP
+	public String addItemById(RedirectAttributes redir, MenuItem item, HttpSession session) { // index.jsp
 		Cart sessionCart = (Cart) session.getAttribute("cart");
 		if (sessionCart == null) {
 			sessionCart = cartDAO.createNewCart();
 		}
+		redir.addFlashAttribute("cart", sessionCart);
 		session.setAttribute("cart", cartDAO.addMenuItemToCart(sessionCart, item));
-		return "views/cart.jsp";
+		return "redirect:AddedToCart.do";
 	}
 	
-	
-}
+	@RequestMapping(path = "AddedToCart.do", method = RequestMethod.GET) // Coming from the INDEX.JSP
+	public String addedItemById(RedirectAttributes redir, MenuItem item, HttpSession session) { // index.jsp
+		return "views/cart.jsp";
+	}
 
+}
