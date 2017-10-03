@@ -39,7 +39,7 @@ public class User {
 	private int phoneNumber;
 
 	// ADD USER_ROLE_ID RELATIONSHIP
-	@OneToOne
+	@ManyToOne(cascade=CascadeType.PERSIST)
 	@JoinColumn(name = "user_role_id")
 	private UserRole userRole;
 

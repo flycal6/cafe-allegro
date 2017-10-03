@@ -22,7 +22,10 @@ public class UserDAOImpl implements UserDAO {
 	@Override
 	public User createNewUser(User user) {
 		Rewards r = new Rewards();
+		r.setPoints(10);
 		user.setRewards(r);
+		UserRole ur = em.find(UserRole.class, 2);
+		user.setUserRole(ur);
 		
 		em.persist(user);
 		em.flush();
