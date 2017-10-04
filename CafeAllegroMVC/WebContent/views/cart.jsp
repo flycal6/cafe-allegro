@@ -56,7 +56,7 @@
 	</div>
 	<div class="container">
 
-		<h1>Shopping Cart</h1>
+		<h1><b>Shopping Cart</b></h1>
 		<hr>
 		<table class="table table-striped table-hover table-bordered">
 			

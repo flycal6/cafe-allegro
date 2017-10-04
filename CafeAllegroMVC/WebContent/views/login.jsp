@@ -57,8 +57,8 @@
 
       <form class="form-signin" action ="LoginUser.do" method="post">
         <h2 class="form-signin-heading">Please Sign In</h2>
-        <label for="username" class="sr-only">Email address</label>
-        <input type="text" id="username" name="username" class="form-control" placeholder="Email address" required autofocus>
+        <label for="username" class="sr-only">Username</label>
+        <input type="text" id="username" name="username" class="form-control" placeholder="Username" required autofocus>
         <label for="password" class="sr-only">Password</label>
         <input type="password" id="password" name="password" class="form-control" placeholder="Password" required>
         <div class="checkbox">

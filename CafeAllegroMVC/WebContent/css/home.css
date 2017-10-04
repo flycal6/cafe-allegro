@@ -61,3 +61,12 @@ footer p {
 	max-height: 40px;
 	padding: 0;
 }
+.crop {
+ height: 300px;
+ width: 600px;
+ overflow: hidden;
+}
+.crop img {
+ height: 350px;
+ width: 400px;
+}
