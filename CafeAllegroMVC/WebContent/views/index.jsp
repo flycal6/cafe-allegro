@@ -74,7 +74,7 @@
 		</div>
 	</section>
 
-
+<h3>	<a href="showCart.do">Show Cart</a></h3>
 	<div class="album text-muted">
 		<div class="container">
 			<div class="row">
@@ -230,8 +230,7 @@
 			</div>
 		</div>
 	</div>
-	<button style="background:blue", "views/cart.jsp">Cart</button>
-	<a href="views/cart.jsp">Cart</a>
+
 
 	<footer class="text-muted">
 		<div class="container">
