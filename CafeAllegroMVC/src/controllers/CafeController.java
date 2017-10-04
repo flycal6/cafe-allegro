@@ -8,8 +8,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import data.MenuItemDAO;
-import data.UserDAO;
-import entities.User;
 
 @Controller
 public class CafeController {

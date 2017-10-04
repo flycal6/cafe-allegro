@@ -224,6 +224,7 @@
 			</div>
 		</div>
 	</div>
+	<button style="background:blue", "views/cart.jsp">Cart</button>
 	<a href="views/cart.jsp">Cart</a>
 	<!--Ending DIV-->
 
