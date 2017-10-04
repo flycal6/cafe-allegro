@@ -9,7 +9,7 @@
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="description" content="">
 <meta name="author" content="">
-<link rel="icon" href="../../../../favicon.ico">
+<link rel="icon" href="images/colorado-mountain-icon.png">
 
 <title>Adding New Menu Item</title>
 
@@ -45,7 +45,7 @@
 	</div>
 	<div class="navbar navbar-dark bg-dark">
 		<div class="container d-flex justify-content-between">
-			<a href="Cafe.do" class="navbar-brand">Home</a>
+			<a href="Cafe.do" class="navbar-brand"><img class="img-fluid" id="nav-brand" src="images/colorado-mountain-icon.png"></a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse"
 				data-target="#navbarHeader" aria-controls="navbarHeader"
 				aria-expanded="false" aria-label="Toggle navigation">

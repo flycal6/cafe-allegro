@@ -62,10 +62,10 @@
 				sweet, but not too short so folks don't simply skip over it
 				entirely.</p>
 			<p>
+			<c:if test="${not empty user.username}">
 			<c:if test="${cart.quantity > 0}">
 				<a href="showCart.do" class="btn btn-secondary">${cart.quantity} items in cart</a>
 			</c:if>
-			<c:if test="${not empty user.username}">
 				<a href="ViewProfile.do" class="btn btn-primary">Order History</a> 
 			</c:if>
 			<c:if test="${empty user.username}">
