@@ -22,7 +22,7 @@ public class CafeController {
 	@Autowired
 	private CartDAO cartDAO;
 
-	@RequestMapping(path = "Cafe.do", method = RequestMethod.GET)
+	@RequestMapping(path = "Cafe.do")
 	public String showHomePage(Model model) {
 		model.addAttribute("items", menuItemDao.getAllItemsforIndexPage());
 		return "views/index.jsp";

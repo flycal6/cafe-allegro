@@ -34,6 +34,9 @@ public class OrderController {
 	public String finalizeOrder(RedirectAttributes redir, HttpSession session) {
 		User user = (User) session.getAttribute("user");
 		Cart finalCart = (Cart) session.getAttribute("cart");
+		if (finalCart == null) {
+			return "Cafe.do";
+		}
 		session.setAttribute("order", orderDAO.archiveCart(user, finalCart));//TAKE IN USER, RETURN ORDER
 		
 		return "redirect:finalizedOrder.do";
@@ -41,6 +44,9 @@ public class OrderController {
 	@RequestMapping(path="finalizedOrder.do", method=RequestMethod.GET)
 	public String finalizedOrder(RedirectAttributes redir, HttpSession session) {
 		Cart sessionCart = (Cart) session.getAttribute("cart");
+		if (sessionCart == null) {
+			return "Cafe.do";
+		}
 		List<MenuItem> mi = sessionCart.getItemsInCart();
 		
 		
@@ -57,6 +63,8 @@ public class OrderController {
 		session.setAttribute("orderBeforeTax", stringTotalBeforeTax);
 		session.setAttribute("orderTax", stringTotalTax);
 		session.setAttribute("orderAfterTax", totalAfterTax);
+		
+		session.removeAttribute("cart");
 		return "views/checkout.jsp";
 	}
 	
@@ -70,7 +78,6 @@ public class OrderController {
 //	public String confirmedOrderPage(HttpSession session) {
 //		String orderConfirm = "Thank You.";
 //		session.setAttribute("thanks", orderConfirm);
-//		session.removeAttribute("cart");
 //		return "views/checkout.jsp";
 //	}
 	
