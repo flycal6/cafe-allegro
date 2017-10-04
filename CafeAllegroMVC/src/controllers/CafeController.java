@@ -23,8 +23,11 @@ public class CafeController {
 	private CartDAO cartDAO;
 
 	@RequestMapping(path = "Cafe.do")
-	public String showHomePage(Model model) {
+	public String showHomePage(Model model, HttpSession session) {
 		model.addAttribute("items", menuItemDao.getAllItemsforIndexPage());
+		if(session.getAttribute("user") == null) {
+			session.removeAttribute("cart");
+		}
 		return "views/index.jsp";
 	}
 
