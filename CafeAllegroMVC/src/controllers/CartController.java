@@ -48,7 +48,7 @@ public class CartController {
 		String totalAfterTax = cartDAO.addTotalCartPriceWithTax(mi);
 		double reducedTotal = Double.parseDouble(totalAfterTax);
 		double reduction = 0;
-//		session.setAttribute("userRewards", user.getRewards().getPoints());
+
 		session.setAttribute("userRewards", rewardsDao.showUpdatedRewardPoints(user));
 		if(session.getAttribute("priceReduction") != null) {
 			reduction = (double)session.getAttribute("priceReduction");
@@ -56,15 +56,9 @@ public class CartController {
 		
 		reducedTotal = reducedTotal - reduction;
 		
-		model.addAttribute("cartBeforeTax", totalBeforeTax);
-		model.addAttribute("cartTax", totalTax);
-//		model.addAttribute("cartAfterTax", totalAfterTax);
+		model.addAttribute("cartBeforeTax", stringTotalBeforeTax);
+		model.addAttribute("cartTax", stringTotalTax);
 		model.addAttribute("cartAfterTax", reducedTotal);
-
-
-//		model.addAttribute("cartBeforeTax", stringTotalBeforeTax);
-//		model.addAttribute("cartTax", stringTotalTax);
-//		model.addAttribute("cartAfterTax", totalAfterTax);
 
 		return "views/cart.jsp";
 	}
