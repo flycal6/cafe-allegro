@@ -16,6 +16,7 @@
 		<hr>
 		<table class="table table-striped table-hover table-bordered">
 			
+			    <tr>
 
 					<c:forEach var="cart" items="${cart.itemsInCart}">
 						<td>${cart.name}</td><td>${cart.price}</td>
@@ -23,18 +24,19 @@
 				</tr>
 				<tr>
 					<th colspan="3"><span class="pull-right">Sub Total</span></th>
-					<th>Total</th>
-					<td>${cartPrice}</td>
+					<th>${cartBeforeTax}</th>
 				</tr>
 				<tr>
 				
 				<tr>
 					<th colspan="3"><span class="pull-right">Tax 20%</span></th>
 					<th>Tax</th>
+					<th>${cartTax}</th>
 				</tr>
 				<tr>
 					<th colspan="3"><span class="pull-right">Total</span></th>
 					<th>Total</th>
+					<th>${cartAfterTax}</th>
 				</tr>
 				<tr>
 		
