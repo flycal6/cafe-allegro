@@ -37,6 +37,9 @@ public class RewardsDAOImpl implements RewardsDAO {
 		
 		Rewards r = u.getRewards();
 		r.setPoints((int)(r.getPoints() - pointsToRemove));
+		if(r.getPoints() < 0) {
+			r.setPoints(0);
+		}
 		return u;
 	}
 	
