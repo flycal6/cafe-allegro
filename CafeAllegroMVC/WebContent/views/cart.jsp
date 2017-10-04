@@ -15,14 +15,7 @@
 		<h1>Shopping Cart</h1>
 		<hr>
 		<table class="table table-striped table-hover table-bordered">
-			<tbody>
-				<tr>
-					<th>Item</th>
-					<th>Quantity</th>
-				<!--	<th>Unit Price</th>
-					<th>Total Price</th> -->
-				</tr>
-				<tr>
+			
 
 					<c:forEach var="cart" items="${cart.itemsInCart}">
 						<td>${cart.name}</td>
