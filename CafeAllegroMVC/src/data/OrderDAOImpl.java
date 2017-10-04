@@ -1,10 +1,7 @@
 package data;
 
-import entities.MenuItem;
-import entities.Order;
-import entities.User;
-
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -14,6 +11,9 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import cart.Cart;
+import entities.MenuItem;
+import entities.Order;
+import entities.User;
 
 @Repository
 @Transactional
@@ -26,6 +26,7 @@ public class OrderDAOImpl implements OrderDAO {
 	public Order archiveCart(User user, Cart cart) {
 		List<MenuItem> compileOrder = cart.getItemsInCart();
 		Order order = new Order();
+		order.setTime(new Date());
 		order.setUser(em.find(User.class, user.getId()));
 		order.setMenuItems(compileOrder);
 		if (user.getOrders() == null) {

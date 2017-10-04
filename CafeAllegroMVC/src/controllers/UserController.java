@@ -28,7 +28,7 @@ public class UserController {
 		User u = userDao.customerLogin(user);
 		model.addAttribute("user", u);
 		session.setAttribute("user", u);
-		return "views/profile.jsp";
+		return "views/index.jsp";
 	}
 	
 	@RequestMapping(path="ViewProfile.do", method= RequestMethod.GET)
