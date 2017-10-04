@@ -60,18 +60,18 @@ public class OrderController {
 		return "views/checkout.jsp";
 	}
 	
-	@RequestMapping(path="confirmation.do", method=RequestMethod.POST)
-	public String goToConfirmationPage(RedirectAttributes redir, HttpSession session) {
-		session.getAttribute("order");
-		return "redirect:confirmedOrder.do";
-	}
-	
-	@RequestMapping(path="confirmedOrder.do", method=RequestMethod.GET)
-	public String confirmedOrderPage(HttpSession session) {
-		String orderConfirm = "Thank You.";
-		session.setAttribute("thanks", orderConfirm);
-		session.removeAttribute("cart");
-		return "views/checkout.jsp";
-	}
+//	@RequestMapping(path="confirmation.do", method=RequestMethod.POST)
+//	public String goToConfirmationPage(RedirectAttributes redir, HttpSession session) {
+//		session.getAttribute("order");
+//		return "redirect:confirmedOrder.do";
+//	}
+//	
+//	@RequestMapping(path="confirmedOrder.do", method=RequestMethod.GET)
+//	public String confirmedOrderPage(HttpSession session) {
+//		String orderConfirm = "Thank You.";
+//		session.setAttribute("thanks", orderConfirm);
+//		session.removeAttribute("cart");
+//		return "views/checkout.jsp";
+//	}
 	
 }

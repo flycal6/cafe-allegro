@@ -293,7 +293,7 @@
 						<form action ="confirmation.do" method=POST>
 							<button type="submit" class="btn btn-primary btn-submit-fix">
 							Place Order</button>
-								</form>
+						</form>
 						</div>
 					</div>
 				</div>
