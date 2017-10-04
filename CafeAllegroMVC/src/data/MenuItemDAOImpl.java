@@ -40,4 +40,11 @@ public class MenuItemDAOImpl implements MenuItemDAO {
 		return items;
 	}
 
+	@Override
+	public void sendToCart(MenuItem item) {
+		// TODO Auto-generated method stub
+		
+	}
+	
+
 }

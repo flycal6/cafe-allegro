@@ -58,6 +58,7 @@ public class UserController {
 	
 	@RequestMapping(path="Logout.do")
 	public String logoutUser(HttpSession session) {
+		session.removeAttribute("cart");
 		session.removeAttribute("user");
 		return "views/index.jsp";
 	}
