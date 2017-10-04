@@ -315,3 +315,7 @@ hr{
         overflow-x: hidden;
     }
 }*/
+#nav-brand {
+	max-height: 40px;
+	padding: 0;
+}

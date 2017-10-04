@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="description" content="">
 <meta name="author" content="">
-<link rel="icon" href="../../../../favicon.ico">
+<link rel="icon" href="images/colorado-mountain-icon.png">
 
 <title>Cafe Allegro</title>
 
@@ -45,13 +45,7 @@
 	</div>
 	<div class="navbar navbar-dark bg-dark">
 		<div class="container d-flex justify-content-between">
-			<c:if test="${not empty user.username}">
-				<a href="ViewProfile.do" class="navbar-brand"> ${user.username}
-				</a>
-			</c:if>
-			<c:if test="${empty user.username}">
-				<a href="Login.do" class="navbar-brand">Login</a>
-			</c:if>
+			<a href="Cafe.do" class="navbar-brand"><img class="img-fluid" id="nav-brand" src="images/colorado-mountain-icon.png"></a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse"
 				data-target="#navbarHeader" aria-controls="navbarHeader"
 				aria-expanded="false" aria-label="Toggle navigation">
@@ -259,33 +253,22 @@
 		</div>
 	</footer>
 
-				<!-- Bootstrap core JavaScript
+	<!-- Bootstrap core JavaScript
     ================================================== -->
-				<!-- Placed at the end of the document so the pages load faster -->
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-	integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-	crossorigin="anonymous"></script>
+	<!-- Placed at the end of the document so the pages load faster -->
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+		integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+		crossorigin="anonymous"></script>
+	<script>
+		window.jQuery
+				|| document.write('<script src="js/jquery.min.js"><\/script>')
+	</script>
 
-<script>
-	window.jQuery
-			|| document
-					.write('<script src="js/jquery.min.js"><\/script>')
-</script>
-<script src="js/holder.js"></script>
-<script src="js/popper.min.js"></script>
-<script>
-	$(function() {
-		Holder.addTheme("thumb", {
-			background : "#55595c",
-			foreground : "#eceeef",
-			text : "Thumbnail"
-		});
-	});
-</script>
-<script src="js/bootstrap.min.js"></script>
-<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-<script>
-	$().button('toggle')
-</script>
+	<script src="js/holder.js"></script>
+	<script src="js/popper.min.js"></script>
+	
+	<script src="js/bootstrap.min.js"></script>
+	<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+	<script src="js/ie-viewport-workaround.js"></script>
 </body>
 </html>
