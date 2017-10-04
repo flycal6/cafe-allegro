@@ -36,7 +36,7 @@
 				</tr>
 				<tr>
 		
-					<form action="addMoreFood.do" method="GET">
+					<form action="Cafe.do" method="GET">
 					<button class="btn btn-lg btn-primary btn-block" type="submit">Add More Food</button>
 					</form>
 					<form action="finalizeOrder.do" method="POST">

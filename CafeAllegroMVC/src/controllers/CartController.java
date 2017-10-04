@@ -2,17 +2,14 @@ package controllers;
 
 import javax.servlet.http.HttpSession;
 
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import cart.Cart;
 import data.CartDAO;
-import data.OrderDAO;
 import entities.MenuItem;
 import entities.User;
 
@@ -22,11 +19,11 @@ public class CartController {
 	@Autowired
 	private CartDAO cartDAO;
 
-	@RequestMapping(path = "showCart", method = RequestMethod.GET)
+	@RequestMapping(path = "showCart.do", method = RequestMethod.GET)
 	public String showCart(HttpSession session) {
 		User user = (User) session.getAttribute("user");
 		session.setAttribute("cart", user.getUserCart());
-		
+
 		return "views/cart.jsp";
 	}
 
@@ -40,7 +37,7 @@ public class CartController {
 		session.setAttribute("cart", cartDAO.addMenuItemToCart(sessionCart, item));
 		return "redirect:AddedToCart.do";
 	}
-	
+
 	@RequestMapping(path = "AddedToCart.do", method = RequestMethod.GET) // Coming from the INDEX.JSP
 	public String addedItemById(MenuItem item, HttpSession session) { // index.jsp
 		return "views/cart.jsp";
