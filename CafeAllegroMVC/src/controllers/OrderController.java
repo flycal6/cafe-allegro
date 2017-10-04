@@ -20,6 +20,7 @@ import entities.MenuItem;
 import entities.User;
 import data.CartDAO;
 import data.OrderDAO;
+import data.RewardsDAO;
 
 @Controller
 public class OrderController {
@@ -30,6 +31,9 @@ public class OrderController {
 	@Autowired
 	private CartDAO cartDAO;
 	
+	@Autowired
+	private RewardsDAO rewardsDao;
+	
 	@RequestMapping(path="finalizeOrder.do", method=RequestMethod.POST)
 	public String finalizeOrder(RedirectAttributes redir, HttpSession session) {
 		User user = (User) session.getAttribute("user");
@@ -37,6 +41,10 @@ public class OrderController {
 		if (finalCart == null) {
 			return "Cafe.do";
 		}
+		Double tot = (Double)session.getAttribute("orderAfterTax");
+		int rewardsToAdd = tot.intValue();
+		rewardsDao.increaseRewardPoints(user, rewardsToAdd);
+		
 		session.setAttribute("order", orderDAO.archiveCart(user, finalCart));//TAKE IN USER, RETURN ORDER
 		
 		return "redirect:finalizedOrder.do";
