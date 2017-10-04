@@ -17,26 +17,34 @@ public class RewardsDAOImpl implements RewardsDAO {
 	EntityManager em;
 
 	@Override
-	public User increaseRewardPoints(User u, int pointsToAdd) {
+	public User increaseRewardPoints(User u, double pointsToAdd) {
 		if (pointsToAdd < 10) {
 			pointsToAdd = 10;
 		}
 
 		Rewards r = u.getRewards();
-		r.setPoints(r.getPoints() + pointsToAdd);
+		r.setPoints((int)(r.getPoints() + pointsToAdd));
 
 		return u;
 	}
 
 	@Override
-	public User decreaseRewardPoints(User u, int pointsToRemove) {
+	public User decreaseRewardPoints(User u, double pointsToRemove) {
 		if (pointsToRemove < 1) {
 			pointsToRemove = 1;
 		}
-
+		u = em.find(User.class, u.getId());
+		
 		Rewards r = u.getRewards();
-		r.setPoints(r.getPoints() - pointsToRemove);
+		r.setPoints((int)(r.getPoints() - pointsToRemove));
 		return u;
+	}
+	
+	@Override
+	public int showUpdatedRewardPoints(User u) {
+		u = em.find(User.class, u.getId());
+		int points = u.getRewards().getPoints();
+		return points;
 	}
 
 }

@@ -81,6 +81,12 @@
 					<th>${cartAfterTax}</th>
 				</tr>
 				<tr>
+					<th>You have ${userRewards} Reward Points.</th>
+					<c:if test="${userRewards > 9}">
+					<th><a href="RedeemPoints.do" class="btn btn-success" type="submit">Redeem Points Now</a></th>
+					</c:if>
+				</tr>
+				<tr>
 		
 					<form action="Cafe.do" method="GET">
 					<button class="btn btn-lg btn-primary btn-block" type="submit">Add More Food</button>

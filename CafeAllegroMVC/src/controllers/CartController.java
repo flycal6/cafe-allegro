@@ -13,6 +13,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import cart.Cart;
 import data.CartDAO;
+import data.RewardsDAO;
 import entities.MenuItem;
 import entities.User;
 
@@ -21,10 +22,13 @@ public class CartController {
 
 	@Autowired
 	private CartDAO cartDAO;
+	
+	@Autowired
+	private RewardsDAO rewardsDao;
 
 	@RequestMapping(path = "showCart.do", method = RequestMethod.GET)
 	public String showCart(HttpSession session, Model model) {
-//		User user = (User) session.getAttribute("user");
+		User user = (User) session.getAttribute("user");
 		session.getAttribute("cart");
 		
 		Cart sessionCart = (Cart) session.getAttribute("cart");
@@ -32,10 +36,20 @@ public class CartController {
 		double totalBeforeTax = cartDAO.addCartPrice(mi);
 		double totalTax = cartDAO.calculateTax(mi);
 		String totalAfterTax = cartDAO.addTotalCartPriceWithTax(mi);
-
+		double reducedTotal = Double.parseDouble(totalAfterTax);
+		double reduction = 0;
+//		session.setAttribute("userRewards", user.getRewards().getPoints());
+		session.setAttribute("userRewards", rewardsDao.showUpdatedRewardPoints(user));
+		if(session.getAttribute("priceReduction") != null) {
+			reduction = (double)session.getAttribute("priceReduction");
+		}
+		
+		reducedTotal = reducedTotal - reduction;
+		
 		model.addAttribute("cartBeforeTax", totalBeforeTax);
 		model.addAttribute("cartTax", totalTax);
-		model.addAttribute("cartAfterTax", totalAfterTax);
+//		model.addAttribute("cartAfterTax", totalAfterTax);
+		model.addAttribute("cartAfterTax", reducedTotal);
 
 		return "views/cart.jsp";
 	}
@@ -56,6 +70,17 @@ public class CartController {
 		return "views/cart.jsp";
 	}
 	
-	
+	@RequestMapping(path="RedeemPoints.do")
+	public String redeemPoints(HttpSession session) {
+		Cart cart = (Cart) session.getAttribute("cart");
+		User user = (User) session.getAttribute("user");
+//		int up = user.getRewards().getPoints();
+		double price = cartDAO.addCartPrice(cart.getItemsInCart());
+		double rewardPointReduction = price;
+		double priceReduction = rewardPointReduction/10.00;
+		session.setAttribute("priceReduction", priceReduction);
+		rewardsDao.decreaseRewardPoints(user, rewardPointReduction);
+		return "redirect:showCart.do";
+	}
 
 }
