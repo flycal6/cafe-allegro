@@ -9,5 +9,7 @@ public interface MenuItemDAO {
 	public List<MenuItem> getAllItemsforIndexPage();
 
 	public void adminDeleteMenuItem(int id);
+
+	public void sendToCart(MenuItem item);
 	
 }

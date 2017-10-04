@@ -21,6 +21,7 @@ public class Cart {
 	}
 
 	public int getQuantity() {
+		quantity = this.getItemsInCart().size();
 		return quantity;
 	}
 

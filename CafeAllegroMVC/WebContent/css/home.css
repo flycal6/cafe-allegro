@@ -56,8 +56,8 @@ footer {
 footer p {
   margin-bottom: .25rem;
 }
-.img-fluid{
-    height: 50vh;
-    width: 50vh;
-}
 
+#nav-brand {
+	max-height: 40px;
+	padding: 0;
+}

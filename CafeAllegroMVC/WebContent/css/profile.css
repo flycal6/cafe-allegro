@@ -57,6 +57,7 @@ footer p {
   margin-bottom: .25rem;
 }
 
-/* .alert{
-    display: none;
-} */
+#nav-brand {
+	max-height: 40px;
+	padding: 0;
+}

@@ -24,7 +24,7 @@ public class CartController {
 
 	@RequestMapping(path = "showCart.do", method = RequestMethod.GET)
 	public String showCart(HttpSession session) {
-		User user = (User) session.getAttribute("user");
+//		User user = (User) session.getAttribute("user");
 		session.getAttribute("cart");
 
 		return "views/cart.jsp";

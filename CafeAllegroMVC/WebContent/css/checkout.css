@@ -1,5 +1,5 @@
 html,body,.wrapper{
-    background: #f7f7f7;
+
 }
 
 .img-responsive{
@@ -315,3 +315,7 @@ hr{
         overflow-x: hidden;
     }
 }*/
+#nav-brand {
+	max-height: 40px;
+	padding: 0;
+}

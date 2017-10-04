@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="description" content="">
 <meta name="author" content="">
-<link rel="icon" href="../../../../favicon.ico">
+<link rel="icon" href="images/colorado-mountain-icon.png">
 
 <title>Cafe Allegro</title>
 
@@ -45,13 +45,7 @@
 	</div>
 	<div class="navbar navbar-dark bg-dark">
 		<div class="container d-flex justify-content-between">
-			<c:if test="${not empty user.username}">
-				<a href="ViewProfile.do" class="navbar-brand"> ${user.username}
-				</a>
-			</c:if>
-			<c:if test="${empty user.username}">
-				<a href="Login.do" class="navbar-brand">Login</a>
-			</c:if>
+			<a href="Cafe.do" class="navbar-brand"><img class="img-fluid" id="nav-brand" src="images/colorado-mountain-icon.png"></a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse"
 				data-target="#navbarHeader" aria-controls="navbarHeader"
 				aria-expanded="false" aria-label="Toggle navigation">
@@ -68,13 +62,22 @@
 				sweet, but not too short so folks don't simply skip over it
 				entirely.</p>
 			<p>
-				<a href="#" class="btn btn-primary">Main call to action</a> <a
-					href="#" class="btn btn-secondary">Secondary action</a>
+			<c:if test="${cart.quantity > 0}">
+				<a href="showCart.do" class="btn btn-secondary">${cart.quantity} items in cart</a>
+			</c:if>
+			<c:if test="${not empty user.username}">
+				<a href="ViewProfile.do" class="btn btn-primary">Order History</a> 
+			</c:if>
+			<c:if test="${empty user.username}">
+				<a href="Login.do" class="btn btn-secondary">Login</a>
+				</c:if>
 			</p>
 		</div>
 	</section>
 
-<h3>	<a href="showCart.do">Show Cart</a></h3>
+<%-- <c:if test="${cart.quantity == 0}"><button class="btn btn-secondary">Empty cart</button></c:if> --%>
+
+
 	<div class="album text-muted">
 		<div class="container">
 			<div class="row">
@@ -89,7 +92,8 @@
 					</p>
 					<c:forEach var="item" items="${items}">
 						<c:if test="${item.category == 'Breakfast'}">
-							<form action="addToCart.do" method="POST">
+							<!-- <form action="addToCart.do" method="POST"> -->
+							<form action="SendItemToCart.do" method="POST">
 								<ul>
 									<li>${item.name}</li>
 									<li>${item.price}</li>
@@ -99,12 +103,21 @@
 								<input type="hidden" name="price" value="${item.price}">
 								<input type="hidden" name="description" value="${item.description}">
 								
-								<input class="btn btn-secondary" type="submit" name="submit" value="Add to Cart">
+								<input  id="buyButton" class="btn btn-secondary" type="submit" name="submit" value="Add to Cart">
 							</form>
 						</c:if>
 						<br>
 					</c:forEach>
+					
 				</div>
+				
+				<!-- <script>
+				function change()
+					{
+					    document.getElementById("buyButton").value="Remove From Cart";
+					    /* document.getElementById("buyButton").style.display="none"; */
+					}
+				</script> -->
 <%-- 
 				<div class="card">
 					<img class="img-fluid" src="images/sandwich.png" alt="Card image cap">
@@ -240,33 +253,22 @@
 		</div>
 	</footer>
 
-				<!-- Bootstrap core JavaScript
+	<!-- Bootstrap core JavaScript
     ================================================== -->
-				<!-- Placed at the end of the document so the pages load faster -->
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-	integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-	crossorigin="anonymous"></script>
+	<!-- Placed at the end of the document so the pages load faster -->
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+		integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+		crossorigin="anonymous"></script>
+	<script>
+		window.jQuery
+				|| document.write('<script src="js/jquery.min.js"><\/script>')
+	</script>
 
-<script>
-	window.jQuery
-			|| document
-					.write('<script src="js/jquery.min.js"><\/script>')
-</script>
-<script src="js/holder.js"></script>
-<script src="js/popper.min.js"></script>
-<script>
-	$(function() {
-		Holder.addTheme("thumb", {
-			background : "#55595c",
-			foreground : "#eceeef",
-			text : "Thumbnail"
-		});
-	});
-</script>
-<script src="js/bootstrap.min.js"></script>
-<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-<script>
-	$().button('toggle')
-</script>
+	<script src="js/holder.js"></script>
+	<script src="js/popper.min.js"></script>
+	
+	<script src="js/bootstrap.min.js"></script>
+	<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+	<script src="js/ie-viewport-workaround.js"></script>
 </body>
 </html>
