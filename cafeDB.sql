@@ -311,7 +311,6 @@ START TRANSACTION;
 USE `cafe`;
 INSERT INTO `rewards` (`id`, `points`) VALUES (1, 10);
 INSERT INTO `rewards` (`id`, `points`) VALUES (2, 10);
-INSERT INTO `rewards` (`id`, `points`) VALUES (3, 10);
 
 COMMIT;
 
@@ -321,8 +320,8 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `cafe`;
-INSERT INTO `user` (`id`, `first_name`, `last_name`, `username`, `password`, `user_role_id`, `rewards_id`, `email_address`, `phone_number`) VALUES (1, 'Brian', 'Thomas', 'admin', 'admin', 1, NULL, 'brianthomas@gmail.com', 1234567891);
-INSERT INTO `user` (`id`, `first_name`, `last_name`, `username`, `password`, `user_role_id`, `rewards_id`, `email_address`, `phone_number`) VALUES (2, 'Stan', 'V', 'customer', 'customer', 2, NULL, 'stanv@gmail.com', 1123456789);
+INSERT INTO `user` (`id`, `first_name`, `last_name`, `username`, `password`, `user_role_id`, `rewards_id`, `email_address`, `phone_number`) VALUES (1, 'Brian', 'Thomas', 'admin', 'admin', 1, 1, 'brianthomas@gmail.com', 1234567891);
+INSERT INTO `user` (`id`, `first_name`, `last_name`, `username`, `password`, `user_role_id`, `rewards_id`, `email_address`, `phone_number`) VALUES (2, 'Stan', 'V', 'customer', 'customer', 2, 2, 'stanv@gmail.com', 1123456789);
 
 COMMIT;
 
