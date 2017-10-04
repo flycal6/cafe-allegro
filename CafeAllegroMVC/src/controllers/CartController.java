@@ -58,7 +58,8 @@ public class CartController {
 		
 		model.addAttribute("cartBeforeTax", stringTotalBeforeTax);
 		model.addAttribute("cartTax", stringTotalTax);
-		model.addAttribute("cartAfterTax", reducedTotal);
+//		model.addAttribute("cartAfterTax", reducedTotal);
+		session.setAttribute("orderAfterTax", reducedTotal);
 
 		return "views/cart.jsp";
 	}
@@ -83,9 +84,8 @@ public class CartController {
 	public String redeemPoints(HttpSession session) {
 		Cart cart = (Cart) session.getAttribute("cart");
 		User user = (User) session.getAttribute("user");
-//		int up = user.getRewards().getPoints();
-		double price = cartDAO.addCartPrice(cart.getItemsInCart());
-		double rewardPointReduction = price;
+		double rewardPointReduction = user.getRewards().getPoints();
+		
 		double priceReduction = rewardPointReduction/10.00;
 		session.setAttribute("priceReduction", priceReduction);
 		rewardsDao.decreaseRewardPoints(user, rewardPointReduction);

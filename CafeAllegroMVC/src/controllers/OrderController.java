@@ -58,11 +58,11 @@ public class OrderController {
 		NumberFormat tax = new DecimalFormat("#0.00");
 		String stringTotalTax = tax.format(totalTax);
 		
-		String totalAfterTax = cartDAO.addTotalCartPriceWithTax(mi);
+//		String totalAfterTax = cartDAO.addTotalCartPriceWithTax(mi);
 		
 		session.setAttribute("orderBeforeTax", stringTotalBeforeTax);
 		session.setAttribute("orderTax", stringTotalTax);
-		session.setAttribute("orderAfterTax", totalAfterTax);
+//		session.setAttribute("orderAfterTax", totalAfterTax);
 		
 		session.removeAttribute("cart");
 		return "views/checkout.jsp";
