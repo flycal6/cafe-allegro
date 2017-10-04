@@ -102,10 +102,22 @@
 		</div>
 		<br>
 		<div class="container text-muted">
-			
 		<hr>
 			<div >
 				<h4>You have ${user.rewards.points} Reward Points.</h4>
+			</div>
+			
+			<div>
+				<h4>Order History</h4>
+				<c:forEach var="order" items="${user.orders}">
+				<h6>${order.time}</h6>
+					<ul>
+						<c:forEach var="item" items="${order.menuItems}">
+							<li>${item.name} $${item.price} - ${item.description}</li>
+						</c:forEach>
+					</ul>
+					<hr>
+				</c:forEach>
 			</div>
 		</div>
 
