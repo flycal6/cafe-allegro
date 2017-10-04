@@ -1,5 +1,7 @@
 package data;
 
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -53,11 +55,14 @@ public class CartDAOImpl implements CartDAO {
 	}
 
 	@Override
-	public double addTotalCartPriceWithTax(List<MenuItem> cart) {
+	public String addTotalCartPriceWithTax(List<MenuItem> cart) {
 		CartDAOImpl userCart = new CartDAOImpl();
-
+		NumberFormat money = new DecimalFormat("#0.00");    
+		
 		double cartTotal = userCart.addCartPrice(cart) + userCart.calculateTax(cart);
-		return cartTotal;
+		String convertDoubleToString = money.format(cartTotal);
+
+		return convertDoubleToString;
 	}
 
 	@Override

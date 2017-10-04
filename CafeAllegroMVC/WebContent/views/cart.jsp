@@ -15,14 +15,7 @@
 		<h1>Shopping Cart</h1>
 		<hr>
 		<table class="table table-striped table-hover table-bordered">
-			<tbody>
-				<tr>
-					<th>Item</th>
-					<th>Quantity</th>
-				<!--	<th>Unit Price</th>
-					<th>Total Price</th> -->
-				</tr>
-				<tr>
+			
 
 					<c:forEach var="cart" items="${cart.itemsInCart}">
 						<td>${cart.name}</td><td>${cart.price}</td>
@@ -45,7 +38,7 @@
 				</tr>
 				<tr>
 		
-					<form action="addMoreFood.do" method="GET">
+					<form action="Cafe.do" method="GET">
 					<button class="btn btn-lg btn-primary btn-block" type="submit">Add More Food</button>
 					</form>
 					<form action="finalizeOrder.do" method="POST">

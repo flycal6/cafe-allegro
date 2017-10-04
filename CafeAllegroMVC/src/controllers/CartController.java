@@ -21,10 +21,10 @@ public class CartController {
 	@Autowired
 	private CartDAO cartDAO;
 
-	@RequestMapping(path = "showCart", method = RequestMethod.GET)
+	@RequestMapping(path = "showCart.do", method = RequestMethod.GET)
 	public String showCart(HttpSession session) {
 		User user = (User) session.getAttribute("user");
-		session.setAttribute("cart", user.getUserCart());
+		session.getAttribute("cart");
 
 		return "views/cart.jsp";
 	}

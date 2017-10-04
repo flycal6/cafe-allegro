@@ -11,7 +11,7 @@ public interface CartDAO {
 	
 	public double calculateTax(List<MenuItem> cart);
 	
-	public double addTotalCartPriceWithTax(List<MenuItem> cart);
+	public String addTotalCartPriceWithTax(List<MenuItem> cart);
 	
 	public Cart addMenuItemToCart(Cart cart, MenuItem menuItem);
 	
