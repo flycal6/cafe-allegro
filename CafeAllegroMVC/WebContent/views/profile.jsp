@@ -104,7 +104,7 @@
 		<div class="container text-muted">
 		<hr>
 			<div >
-				<h4>You have ${user.rewards.points} Reward Points.</h4>
+				<h4>You have ${userRewards} Reward Points.</h4>
 			</div>
 			
 			<div>
