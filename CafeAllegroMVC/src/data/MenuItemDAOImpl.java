@@ -19,17 +19,12 @@ public class MenuItemDAOImpl implements MenuItemDAO {
 	@PersistenceContext
 	EntityManager em;
 
-	@Override
-	public MenuItem adminCreateMenuItem(MenuItem menuItem) {
-		return null;
-	}
-
 
 	@Override
 	public void adminDeleteMenuItem(int id) {
 		MenuItem item = null;
 		for (MenuItem menuItem : menuItems) {
-			if (item.getId() == id) {
+			if (menuItem.getId() == id) {
 				item = menuItem;
 				break;
 			}

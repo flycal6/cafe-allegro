@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import data.UserDAO;
 import entities.User;
@@ -24,11 +25,10 @@ public class UserController {
 	}
 
 	@RequestMapping(path = "LoginUser.do", method = RequestMethod.POST)
-	public String loginUser(User user, Model model, HttpSession session) {
+	public String loginUser(User user, Model model, HttpSession session, RedirectAttributes redir) {
 		User u = userDao.customerLogin(user);
-		model.addAttribute("user", u);
 		session.setAttribute("user", u);
-		return "views/index.jsp";
+		return "redirect:Cafe.do";
 	}
 	
 	@RequestMapping(path="ViewProfile.do", method= RequestMethod.GET)

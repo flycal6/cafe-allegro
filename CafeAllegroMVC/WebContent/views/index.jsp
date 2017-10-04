@@ -1,12 +1,10 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport"
-	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="description" content="">
 <meta name="author" content="">
 <link rel="icon" href="../../../../favicon.ico">
@@ -92,15 +90,22 @@
 					<c:forEach var="item" items="${items}">
 						<c:if test="${item.category == 'Breakfast'}">
 							<form action="addToCart.do" method="POST">
-								<input type="text" name="name" value="${item.name}"> <input
-									type="text" name="price" value="${item.price}"> <input
-									type="text" name="description" value="${item.description}">
-									<input type="submit" value="Add to Cart"><br>
+								<ul>
+									<li>${item.name}</li>
+									<li>${item.price}</li>
+									<li>${item.description}</li>
+								</ul>
+								<input type="hidden" name="name" value="${item.name}">
+								<input type="hidden" name="price" value="${item.price}">
+								<input type="hidden" name="description" value="${item.description}">
+								
+								<input class="btn btn-secondary" type="submit" name="submit" value="Add to Cart">
 							</form>
 						</c:if>
+						<br>
 					</c:forEach>
 				</div>
-
+<%-- 
 				<div class="card">
 					<img class="img-fluid" src="images/sandwich.png" alt="Card image cap">
 					<p class="card-text">
@@ -221,54 +226,48 @@
 						</c:if>
 					</c:forEach>
 				</div>
+			 --%>
 			</div>
 		</div>
 	</div>
 	<button style="background:blue", "views/cart.jsp">Cart</button>
 	<a href="views/cart.jsp">Cart</a>
-	<!--Ending DIV-->
 
 	<footer class="text-muted">
 		<div class="container">
 			<p class="float-right">
 				<a href="#">Back to top</a>
 			</p>
-			<!-- <p>Album example is &copy; Bootstrap, but please download and
-				customize it for yourself!</p>
-			<p>
-				New to Bootstrap? <a href="../../">Visit the homepage</a> or read
-				our <a href="../../getting-started/">getting started guide</a>.
-			</p> -->
 		</div>
-				</footer>
+	</footer>
 
 				<!-- Bootstrap core JavaScript
     ================================================== -->
 				<!-- Placed at the end of the document so the pages load faster -->
-				<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-					integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-					crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+	integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+	crossorigin="anonymous"></script>
 
-				<script>
-					window.jQuery
-							|| document
-									.write('<script src="js/jquery.min.js"><\/script>')
-				</script>
-				<script src="js/holder.js"></script>
-				<script src="js/popper.min.js"></script>
-				<script>
-					$(function() {
-						Holder.addTheme("thumb", {
-							background : "#55595c",
-							foreground : "#eceeef",
-							text : "Thumbnail"
-						});
-					});
-				</script>
-				<script src="js/bootstrap.min.js"></script>
-				<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-				<script>
-					$().button('toggle')
-				</script>
+<script>
+	window.jQuery
+			|| document
+					.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+<script src="js/holder.js"></script>
+<script src="js/popper.min.js"></script>
+<script>
+	$(function() {
+		Holder.addTheme("thumb", {
+			background : "#55595c",
+			foreground : "#eceeef",
+			text : "Thumbnail"
+		});
+	});
+</script>
+<script src="js/bootstrap.min.js"></script>
+<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+<script>
+	$().button('toggle')
+</script>
 </body>
 </html>
