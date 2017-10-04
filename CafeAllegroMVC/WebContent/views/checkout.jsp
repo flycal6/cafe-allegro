@@ -17,7 +17,7 @@
 	<h1>Checkout Page</h1>
 	<p>${order.time}</p>
 
-
+	<p>${thanks}</p>
 	<div class="container wrapper">
 		<div class="row cart-head">
 			<div class="container">
@@ -93,9 +93,20 @@
 						</div>
 						<div class="form-group">
 							<div class="col-xs-12">
+								<strong>Total</strong>
+								<div class="pull-right">
+									<span>$</span><span>${orderBeforeTax}</span>
+								</div>
+							</div>
+							<div class="col-xs-12">
+								<strong>Tax</strong>
+								<div class="pull-right">
+									<span>$</span><span>${orderTax}</span>
+								</div>
+							</div>
+							<div class="col-xs-12">
 								<strong>Order Total</strong>
 								<div class="pull-right">
-								
 									<span>$</span><span>${orderAfterTax}</span>
 								</div>
 							</div>
@@ -106,7 +117,7 @@
 		</div>
 		<div
 			class="col-lg-6 col-md-6 col-sm-6 col-xs-12 col-md-pull-6 col-sm-pull-6">
-			<!--SHIPPING METHOD-->
+			<!-- <!-- SHIPPING METHOD
 			<div class="panel panel-info">
 				<div class="panel-heading">Address</div>
 				<div class="panel-body">
@@ -186,7 +197,8 @@
 					</div>
 				</div>
 			</div>
-			<!--SHIPPING METHOD END-->
+			<--!SHIPPING METHOD END -->
+			
 			<!--CREDIT CART PAYMENT-->
 			<div class="panel panel-info">
 				<div class="panel-heading">
@@ -249,8 +261,6 @@
 						<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 							<select class="form-control" name="">
 								<option value="">Year</option>
-								<option value="2015">2015</option>
-								<option value="2016">2016</option>
 								<option value="2017">2017</option>
 								<option value="2018">2018</option>
 								<option value="2019">2019</option>
@@ -260,6 +270,8 @@
 								<option value="2023">2023</option>
 								<option value="2024">2024</option>
 								<option value="2025">2025</option>
+								<option value="2026">2024</option>
+								<option value="2027">2025</option>
 							</select>
 						</div>
 					</div>
@@ -278,8 +290,10 @@
 					</div>
 					<div class="form-group">
 						<div class="col-md-6 col-sm-6 col-xs-12">
-							<button type="submit" class="btn btn-primary btn-submit-fix">Place
-								Order</button>
+						<form action ="confirmation.do" method=POST>
+							<button type="submit" class="btn btn-primary btn-submit-fix">
+							Place Order</button>
+								</form>
 						</div>
 					</div>
 				</div>
