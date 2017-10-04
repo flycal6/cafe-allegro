@@ -1,5 +1,7 @@
 package controllers;
 
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -29,12 +31,20 @@ public class CartController {
 		
 		Cart sessionCart = (Cart) session.getAttribute("cart");
 		List<MenuItem> mi = sessionCart.getItemsInCart();
+		
+		
 		double totalBeforeTax = cartDAO.addCartPrice(mi);
+		NumberFormat money = new DecimalFormat("#0.00"); 
+		String stringTotalBeforeTax = money.format(totalBeforeTax); 
+		
 		double totalTax = cartDAO.calculateTax(mi);
+		NumberFormat tax = new DecimalFormat("#0.00");
+		String stringTotalTax = tax.format(totalTax);
+		
 		String totalAfterTax = cartDAO.addTotalCartPriceWithTax(mi);
 
-		model.addAttribute("cartBeforeTax", totalBeforeTax);
-		model.addAttribute("cartTax", totalTax);
+		model.addAttribute("cartBeforeTax", stringTotalBeforeTax);
+		model.addAttribute("cartTax", stringTotalTax);
 		model.addAttribute("cartAfterTax", totalAfterTax);
 
 		return "views/cart.jsp";

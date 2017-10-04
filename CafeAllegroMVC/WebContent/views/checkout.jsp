@@ -68,6 +68,7 @@
 			<div class="container">
 				<div class="row">
 					<h2>Thank You!</h2>
+					<br>
 					<h2>Your Order Is Being Processed.</h2>
 				</div>
 
