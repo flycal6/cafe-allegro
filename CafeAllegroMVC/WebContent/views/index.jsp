@@ -68,13 +68,22 @@
 				sweet, but not too short so folks don't simply skip over it
 				entirely.</p>
 			<p>
-				<a href="#" class="btn btn-primary">Main call to action</a> <a
-					href="#" class="btn btn-secondary">Secondary action</a>
+			<c:if test="${cart.quantity > 0}">
+				<a href="showCart.do" class="btn btn-secondary">${cart.quantity} items in cart</a>
+			</c:if>
+			<c:if test="${not empty user.username}">
+				<a href="ViewProfile.do" class="btn btn-primary">Order History</a> 
+			</c:if>
+			<c:if test="${empty user.username}">
+				<a href="Login.do" class="btn btn-secondary">Login</a>
+				</c:if>
 			</p>
 		</div>
 	</section>
 
-<h3>	<a href="showCart.do">Show Cart</a></h3>
+<%-- <c:if test="${cart.quantity == 0}"><button class="btn btn-secondary">Empty cart</button></c:if> --%>
+
+
 	<div class="album text-muted">
 		<div class="container">
 			<div class="row">
@@ -89,7 +98,8 @@
 					</p>
 					<c:forEach var="item" items="${items}">
 						<c:if test="${item.category == 'Breakfast'}">
-							<form action="addToCart.do" method="POST">
+							<!-- <form action="addToCart.do" method="POST"> -->
+							<form action="SendItemToCart.do" method="POST">
 								<ul>
 									<li>${item.name}</li>
 									<li>${item.price}</li>
@@ -99,12 +109,21 @@
 								<input type="hidden" name="price" value="${item.price}">
 								<input type="hidden" name="description" value="${item.description}">
 								
-								<input class="btn btn-secondary" type="submit" name="submit" value="Add to Cart">
+								<input  id="buyButton" class="btn btn-secondary" type="submit" name="submit" value="Add to Cart">
 							</form>
 						</c:if>
 						<br>
 					</c:forEach>
+					
 				</div>
+				
+				<!-- <script>
+				function change()
+					{
+					    document.getElementById("buyButton").value="Remove From Cart";
+					    /* document.getElementById("buyButton").style.display="none"; */
+					}
+				</script> -->
 <%-- 
 				<div class="card">
 					<img class="img-fluid" src="images/sandwich.png" alt="Card image cap">
