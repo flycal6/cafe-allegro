@@ -23,9 +23,19 @@ public class CartController {
 	private CartDAO cartDAO;
 
 	@RequestMapping(path = "showCart.do", method = RequestMethod.GET)
-	public String showCart(HttpSession session) {
+	public String showCart(HttpSession session, Model model) {
 //		User user = (User) session.getAttribute("user");
 		session.getAttribute("cart");
+		
+		Cart sessionCart = (Cart) session.getAttribute("cart");
+		List<MenuItem> mi = sessionCart.getItemsInCart();
+		double totalBeforeTax = cartDAO.addCartPrice(mi);
+		double totalTax = cartDAO.calculateTax(mi);
+		String totalAfterTax = cartDAO.addTotalCartPriceWithTax(mi);
+
+		model.addAttribute("cartBeforeTax", totalBeforeTax);
+		model.addAttribute("cartTax", totalTax);
+		model.addAttribute("cartAfterTax", totalAfterTax);
 
 		return "views/cart.jsp";
 	}
@@ -46,25 +56,6 @@ public class CartController {
 		return "views/cart.jsp";
 	}
 	
-	@RequestMapping(path = "addCartPrice.do", method = RequestMethod.GET) // Coming from the cart.JSP
-	public String addTotalCartPrice(HttpSession session, Model model) { // cart.jsp
-		Cart sessionCart = (Cart) session.getAttribute("cart");
-		List<MenuItem> mi = sessionCart.getItemsInCart();
-		double totalBeforeTax = cartDAO.addCartPrice(mi);
-		double totalTax = cartDAO.calculateTax(mi);
-		String totalAfterTax = cartDAO.addTotalCartPriceWithTax(mi);
-		
-		model.addAttribute("cartBeforeTax", totalBeforeTax);
-//		session.setAttribute("cartBeforeTax", totalBeforeTax);
-		session.setAttribute("cartTax", totalTax);
-		session.setAttribute("cartAfterTax", totalAfterTax);
-		
-		
-		return "views/cart.jsp";
-		
-		//pull cart price from session
-		//use method to add prices
-	}
 	
 
 }

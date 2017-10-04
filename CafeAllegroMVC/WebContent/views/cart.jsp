@@ -74,12 +74,10 @@
 				
 				<tr>
 					<th colspan="3"><span class="pull-right">Tax 20%</span></th>
-					<th>Tax</th>
 					<th>${cartTax}</th>
 				</tr>
 				<tr>
 					<th colspan="3"><span class="pull-right">Total</span></th>
-					<th>Total</th>
 					<th>${cartAfterTax}</th>
 				</tr>
 				<tr>
