@@ -10,6 +10,8 @@ public class Cart {
 	 
 	private int quantity;
 
+	
+	//gets and sets
 	public List<MenuItem> getItemsInCart() {
 		return itemsInCart;
 	}

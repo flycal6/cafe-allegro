@@ -60,6 +60,6 @@ public class UserController {
 	public String logoutUser(HttpSession session) {
 		session.removeAttribute("cart");
 		session.removeAttribute("user");
-		return "views/index.jsp";
+		return "Cafe.do";
 	}
 }

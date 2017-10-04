@@ -11,7 +11,7 @@
 <meta name="author" content="">
 <link rel="icon" href="images/colorado-mountain-icon.png">
 
-<title>${user.firstName} ${user.lastName} - Profile</title>
+<title>Updating Menu Items</title>
 
 <!-- Bootstrap core CSS -->
 <link href="css/bootstrap.min.css" rel="stylesheet">
