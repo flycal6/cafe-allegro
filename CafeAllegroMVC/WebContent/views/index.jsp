@@ -24,11 +24,7 @@
 			<div class="row">
 				<div class="col-sm-8 py-4">
 					<h4 class="text-white">About</h4>
-					<p class="text-muted">Add some information about the album
-						below, the author, or any other background context. Make it a few
-						sentences long so folks can pick up some informative tidbits.
-						Then, link them off to some social networking sites or contact
-						information.</p>
+					<p class="text-muted">We are a family owned cafe and have been a part of the community for over 10 years.</p>
 				</div>
 				<div class="col-sm-4 py-4">
 					<h4 class="text-white">Contact</h4>
@@ -57,10 +53,7 @@
 	<section class="jumbotron text-center">
 		<div class="container">
 			<h1 class="jumbotron-heading">Cafe Allegro</h1>
-			<p class="lead text-muted">Something short and leading about the
-				collection below—its contents, the creator, etc. Make it short and
-				sweet, but not too short so folks don't simply skip over it
-				entirely.</p>
+			<p class="lead text-muted">Welcome to our site. Our food is ALWAYS freshly made to order and delivered with a smile. Please order below and we hope to see you soon!</p>
 			<p>
 			<c:if test="${not empty user.username}">
 			<c:if test="${cart.quantity > 0}">

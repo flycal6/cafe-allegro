@@ -114,14 +114,15 @@
 			<p></p>
 		</div>
 
-		<h3>Total Paid:</h3>
+		<h3>Total Due:</h3>
 		<div class="col-sm-3 col-xs-3 text-right">
 			<h4>
-				<span>$</span>${orderAfterTax}
+				<span>$</span>${orderAfterTax} 
 			</h4>
+			
 		</div>
 	</div>
-
+		<p>Pick up in 15 min please.</p>
 	<!-- 
 		<div class="form-group">
 			<hr />
