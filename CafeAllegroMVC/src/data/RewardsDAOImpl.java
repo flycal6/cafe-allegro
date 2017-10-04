@@ -21,7 +21,8 @@ public class RewardsDAOImpl implements RewardsDAO {
 		if (pointsToAdd < 10) {
 			pointsToAdd = 10;
 		}
-
+		u = em.find(User.class, u.getId());
+		
 		Rewards r = u.getRewards();
 		r.setPoints((int)(r.getPoints() + pointsToAdd));
 
@@ -37,6 +38,9 @@ public class RewardsDAOImpl implements RewardsDAO {
 		
 		Rewards r = u.getRewards();
 		r.setPoints((int)(r.getPoints() - pointsToRemove));
+		if(r.getPoints() <= 0) {
+			r.setPoints(0);
+		}
 		return u;
 	}
 	
@@ -44,6 +48,10 @@ public class RewardsDAOImpl implements RewardsDAO {
 	public int showUpdatedRewardPoints(User u) {
 		u = em.find(User.class, u.getId());
 		int points = u.getRewards().getPoints();
+		
+		if(points <= 0) {
+			u.getRewards().setPoints(0);
+		}
 		return points;
 	}
 

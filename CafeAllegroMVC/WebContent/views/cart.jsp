@@ -78,7 +78,7 @@
 				</tr>
 				<tr>
 					<th colspan="3"><span class="pull-right">Total</span></th>
-					<th>${cartAfterTax}</th>
+					<th>${orderAfterTax}</th>
 				</tr>
 				<tr>
 					<th>You have ${userRewards} Reward Points.</th>
