@@ -1,5 +1,7 @@
 package controllers;
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,5 +44,16 @@ public class CartController {
 	public String addedItemById(MenuItem item, HttpSession session) { // index.jsp
 		return "views/cart.jsp";
 	}
+	
+	@RequestMapping(path = "addCartPrice.do", method = RequestMethod.GET) // Coming from the cart.JSP
+	public String addCartPrice(HttpSession session) { // cart.jsp
+		User user = (User) session.getAttribute("user");
+		session.setAttribute("cartPrice", cartDAO.addMenuItemToCart(sessionCart, item));
+		return "views/cart.jsp";
+		
+		//pull cart price from session
+		//use method to add prices
+	}
+	
 
 }

@@ -25,14 +25,16 @@
 				<tr>
 
 					<c:forEach var="cart" items="${cart.itemsInCart}">
-						<td>${cart.name}</td>
-						<td>${cart.price}</td>
+						<td>${cart.name}</td><td>${cart.price}</td>
 					</c:forEach>
 				</tr>
 				<tr>
 					<th colspan="3"><span class="pull-right">Sub Total</span></th>
 					<th>Total</th>
+					<td>${cartPrice}</td>
 				</tr>
+				<tr>
+				
 				<tr>
 					<th colspan="3"><span class="pull-right">Tax 20%</span></th>
 					<th>Tax</th>
