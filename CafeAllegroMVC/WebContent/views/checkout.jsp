@@ -19,10 +19,9 @@
 <!-- Custom styles for this template -->
 <link href="css/checkout.css" rel="stylesheet">
 
-<title>Checkout</title>
-
-
+<title>Confirmation Page</title>
 </head>
+
 <body>
 	<div class="collapse bg-dark" id="navbarHeader">
 		<div class="container">
@@ -59,17 +58,31 @@
 			</button>
 		</div>
 	</div>
-	<h1>Confirmation Page</h1>
-	<p>${order.time}</p>
-
 
 	<div class="container wrapper">
 		<div class="row cart-head">
 			<div class="container">
+			
 				<div class="row">
-					<h2>Thank You!</h2>
-					<br>
-					<h2>Your Order Is Being Processed.</h2>
+					<h2></h2>
+				</div>
+				<div class="row">
+					<h2></h2>
+				</div>
+				
+				<div class="row">
+					<h2>Confirmation Page</h2>
+				</div>
+
+				<div class="row">
+					<p>${order.time}</p>
+				</div>
+				
+				<div class="row">
+					<h3>Thank You!</h3>
+				</div>
+				<div class="row">
+					<h3>Your Order Is Being Processed.</h3>
 				</div>
 
 				<div class="row">
@@ -80,7 +93,7 @@
 		<!-- end of container wrapper -->
 
 
-	<!-- 	<div class="row cart-body">
+		<!-- 	<div class="row cart-body">
 			<form class="form-horizontal" method="post" action="">
 		</div> -->
 
@@ -97,20 +110,23 @@
 					</div>
 					<hr>
 		</c:forEach>
-					
-					<h3>Total Paid: </h3>
-					<div class="col-sm-3 col-xs-3 text-right">
-						<h4>
-							<span>$</span>${orderAfterTax}
-						</h4>
-					</div>
-				</div>
+		<div class="row">
+			<p></p>
+		</div>
 
-<!-- 
+		<h3>Total Paid:</h3>
+		<div class="col-sm-3 col-xs-3 text-right">
+			<h4>
+				<span>$</span>${orderAfterTax}
+			</h4>
+		</div>
+	</div>
+
+	<!-- 
 		<div class="form-group">
 			<hr />
 		</div> -->
-		<%-- <div class="form-group">
+	<%-- <div class="form-group">
 			<div class="col-xs-12">
 				<strong>Order Total</strong>
 				<div class="pull-right">
@@ -118,27 +134,22 @@
 				</div>
 			</div>
 		</div> --%>
-	</div>
-	</div>
 	<!--REVIEW ORDER END-->
-	</div>
-<!-- 	<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 col-md-pull-6 col-sm-pull-6">
+	<!-- 	<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 col-md-pull-6 col-sm-pull-6">
 		<div class="form-group"> -->
-		
-			<div class="col-md-6 col-sm-6 col-xs-12">
-				<form action="Cafe.do">
-					<button type="submit" class="btn btn-primary btn-submit-fix">
-						Back to Homepage</button>
-				</form>
-			</div>
-		</div>
+
+	<div class="row">
+		<p></p>
 	</div>
 
+	
+		<form action="Cafe.do">
+			<input id="buyButton" class="btn btn-primary" type="submit" value="Back to Homepage">
+		</form>
 
 
-	</div>
 	<div class="row cart-footer"></div>
-	</div>
+
 
 
 	<!-- Bootstrap core JavaScript
