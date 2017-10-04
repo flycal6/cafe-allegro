@@ -2,6 +2,10 @@ body {
   min-height: 75rem; /* Can be removed; just added for demo purposes */
 }
 
+li {
+	list-style-type:none;
+}
+
 .navbar {
   margin-bottom: 0;
 }
