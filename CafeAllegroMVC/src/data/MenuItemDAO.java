@@ -8,8 +8,6 @@ public interface MenuItemDAO {
 	
 	public List<MenuItem> getAllItemsforIndexPage();
 
-	public MenuItem adminCreateMenuItem(MenuItem menuItem);
-	
 	public void adminDeleteMenuItem(int id);
 	
 }
