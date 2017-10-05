@@ -73,7 +73,7 @@ footer nav ul{
 }
 
 footer nav ul li {
-  display: inline-block;
+  display: block;
   margin-left: 20px;
   list-style: none;
 }

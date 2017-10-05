@@ -379,17 +379,19 @@
 
 	<footer class="text-muted">
 		<div class="container">
-			<nav>
-			<ul>
-				<li><a href="login.jsp">Login</a></li><br><br><br>
-				<li>Cafe Allegro</li>
-				<li>7400 E Orchard Rd.</li>
-				<li>Greenwood Village, CO 80111</li>
-			</ul>
-			
-			</nav>
 			<p class="float-right">
 				<a href="#">Back to top</a>
+				<nav>
+					<ul>
+						<li><a href="login.jsp">Login</a></li>
+						<br>
+						<br>
+						<br>
+						<li>Cafe Allegro</li>
+						<li>7400 E Orchard Rd.</li>
+						<li>Greenwood Village, CO 80111</li>
+					</ul>
+				</nav>
 			</p>
 		</div>
 	</footer>
