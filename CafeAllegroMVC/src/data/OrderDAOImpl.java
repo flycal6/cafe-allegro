@@ -42,6 +42,4 @@ public class OrderDAOImpl implements OrderDAO {
 		return order;
 	}
 
-	// ONCE FINALIZED CART IS ENTERED INTO ORDER
-	// GET IT OUT OF THE SESSION
 }

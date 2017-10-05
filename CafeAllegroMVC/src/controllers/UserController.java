@@ -39,7 +39,7 @@ public class UserController {
 	}
 	
 	@RequestMapping(path="ViewProfile.do", method= RequestMethod.GET)
-	public String viewProfile(HttpSession session) {
+	public String viewProfile(HttpSession session, Model model) {
 		User u = (User) session.getAttribute("user");
 		if(session.getAttribute("userRewards") != null) {
 			if(u != null) {
@@ -47,6 +47,7 @@ public class UserController {
 			}
 		}
 		session.setAttribute("userRewards", rewardsDao.showUpdatedRewardPoints(u));
+		model.addAttribute("totalSpent", userDao.getTotalMoneySpent(u));
 		return "views/profile.jsp";
 	}
 	

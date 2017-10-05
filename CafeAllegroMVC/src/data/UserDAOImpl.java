@@ -1,5 +1,8 @@
 package data;
 
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -8,6 +11,8 @@ import javax.persistence.PersistenceContext;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import entities.MenuItem;
+import entities.Order;
 import entities.Rewards;
 import entities.User;
 import entities.UserRole;
@@ -72,13 +77,9 @@ public class UserDAOImpl implements UserDAO {
 	@Override
 	public boolean customerDeleteProfile(int id) {
 		try {
-
 			User user = em.find(User.class, id);
-
 			em.remove(user);
-
 			if (em.find(User.class, id) == null) {
-
 				return true;
 			}
 		} catch (Exception e) {
@@ -86,9 +87,30 @@ public class UserDAOImpl implements UserDAO {
 			// HANDLE EXCEPTION MAYBE???
 			return false;
 		}
-
 		return false;
-
 	}
+	
+	@Override
+	public String getTotalMoneySpent(User u) {
+		int id = u.getId();
+		u = em.find(User.class, u.getId());
 
+		String q = "SELECT o FROM Order o JOIN FETCH o.menuItems WHERE o.user.id = :id";
+		
+		List<Order> orders = em.createQuery(q, Order.class).setParameter("id", id).getResultList();
+		System.out.println("# of orders: " + orders.size());
+		double total = 0;
+		List<MenuItem> mi = new ArrayList<>();
+		for (Order order : orders) {
+			System.out.println(order);
+			mi = order.getMenuItems();
+			total = total + order.getMenuItems().get(0).getPrice();
+			
+		}
+		NumberFormat nf = new DecimalFormat("#0.00");    
+		String sTotal = nf.format(total);
+		
+		return sTotal;
+	}
+	
 }
