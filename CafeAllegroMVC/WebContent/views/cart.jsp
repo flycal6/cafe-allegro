@@ -28,11 +28,8 @@
 			<div class="row">
 				<div class="col-sm-8 py-4">
 					<h4 class="text-white">About</h4>
-					<p class="text-muted">Add some information about the album
-						below, the author, or any other background context. Make it a few
-						sentences long so folks can pick up some informative tidbits.
-						Then, link them off to some social networking sites or contact
-						information.</p>
+					<p class="text-muted">We are a family owned cafe and have been
+						a part of the community for over 10 years.</p>
 				</div>
 				<div class="col-sm-4 py-4">
 					<h4 class="text-white">Contact</h4>
@@ -84,11 +81,6 @@
 		</form></li>
 		</ul>
 		
-		
-		
-		
-					
-
 	</div>
 
 	<!-- Bootstrap core JavaScript

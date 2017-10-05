@@ -37,6 +37,7 @@
 						<li><font color="white">Cafe Allegro</font></li>
 						<li><font color="white">7400 E Orchard Rd</font></li>
 						<li><font color="white">Greenwood Village, CO 80111</font></li>
+						<br>
 						<c:if test="${not empty user.username}">
 							<li><a href="Logout.do" class="text-white">Logout</a></li>
 						</c:if>
@@ -61,14 +62,14 @@
 		<div class="container">
 			<h1 class="jumbotron-heading">Cafe Allegro</h1>
 			<p class="lead text-muted">Welcome to our site. Our food is
-				ALWAYS freshly made to order and delivered with a smile. Please
+				ALWAYS freshly made and delivered with a smile. Please
 				order below and we hope to see you soon!</p>
 
 			<p>
 				<c:if test="${not empty user.username}">
 					<c:if test="${cart.quantity > 0}">
 						<a href="showCart.do" class="btn btn-secondary">${cart.quantity}
-							items in cart</a>
+							Items in Cart</a>
 					</c:if>
 					<a href="ViewProfile.do" class="btn btn-primary">Order History</a>
 				</c:if>
@@ -349,7 +350,7 @@
 	<footer class="text-muted">
 		<div class="container">
 			<p class="float-right">
-				<a href="#">Back to top</a>
+				<a href="#">Back to Top</a>
 			</p>
 		</div>
 	</footer>
