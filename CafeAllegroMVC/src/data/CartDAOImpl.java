@@ -29,7 +29,6 @@ public class CartDAOImpl implements CartDAO {
 				cart.remove(id);
 			}
 		}
-
 		return cart;
 	}
 

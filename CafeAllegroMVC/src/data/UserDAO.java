@@ -13,7 +13,6 @@ public interface UserDAO {
 
 	public User customerLogin(User loginUser);
 
-	double getTotalMoneySpent(User u);
-
+	public String getTotalMoneySpent(User u);
 
 }

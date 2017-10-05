@@ -1,5 +1,7 @@
 package data;
 
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -75,13 +77,9 @@ public class UserDAOImpl implements UserDAO {
 	@Override
 	public boolean customerDeleteProfile(int id) {
 		try {
-
 			User user = em.find(User.class, id);
-
 			em.remove(user);
-
 			if (em.find(User.class, id) == null) {
-
 				return true;
 			}
 		} catch (Exception e) {
@@ -89,18 +87,14 @@ public class UserDAOImpl implements UserDAO {
 			// HANDLE EXCEPTION MAYBE???
 			return false;
 		}
-
 		return false;
-
 	}
 	
 	@Override
-	public double getTotalMoneySpent(User u) {
+	public String getTotalMoneySpent(User u) {
 		int id = u.getId();
 		u = em.find(User.class, u.getId());
-//		String q = "SELECT price FROM menu_item m JOIN order_item  o ON m.id = o.menu_item_id JOIN takeout_order tko ON tko.id = o.id JOIN User u ON u.id = tko.user_id WHERE u.id = 1;";
-//		String q = "SELECT m FROM MenuItem m JOIN FETCH u.orders.menuItems WHERE User.id = :id";
-//		String q = "SELECT u FROM User u JOIN FETCH u.orders.menuItems WHERE u.id = :id";
+
 		String q = "SELECT o FROM Order o JOIN FETCH o.menuItems WHERE o.user.id = :id";
 		
 		List<Order> orders = em.createQuery(q, Order.class).setParameter("id", id).getResultList();
@@ -113,8 +107,10 @@ public class UserDAOImpl implements UserDAO {
 			total = total + order.getMenuItems().get(0).getPrice();
 			
 		}
+		NumberFormat nf = new DecimalFormat("#0.00");    
+		String sTotal = nf.format(total);
 		
-		return total;
+		return sTotal;
 	}
-
+	
 }
