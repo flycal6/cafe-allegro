@@ -33,11 +33,11 @@
 						a part of the community for over 10 years.</p>
 				</div>
 				<div class="col-sm-4 py-4">
-					<h4 class="text-white">Contact</h4>
+					<h4 class="text-white">Contact</h4><br>
 					<ul class="list-unstyled">
-						<li>Cafe Allegro</li>
-						<li>7400 E Orchard Rd</li>
-						<li>Greenwood Village, CO 80111</li>
+						<li><font color="white">Cafe Allegro</font></li>
+						<li><font color="white">7400 E Orchard Rd</font></li>
+						<li><font color="white">Greenwood Village, CO 80111</font></li>
 						<c:if test="${not empty user.username}">
 							<li><a href="Logout.do" class="text-white">Logout</a></li>
 						</c:if>
