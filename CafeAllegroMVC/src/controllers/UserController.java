@@ -23,7 +23,7 @@ public class UserController {
 	private RewardsDAO rewardsDao;
 	
 	@RequestMapping(path = "Login.do", method = RequestMethod.GET)
-	public String showLoginPage(User user, Model model, HttpSession session) {
+	public String showLoginPage(User user, HttpSession session) {
 		session.setAttribute("user", user);
 		return "views/login.jsp";
 	}
@@ -39,7 +39,7 @@ public class UserController {
 	}
 	
 	@RequestMapping(path="ViewProfile.do", method= RequestMethod.GET)
-	public String viewProfile(HttpSession session, Model model) {
+	public String viewProfile(HttpSession session) {
 		User u = (User) session.getAttribute("user");
 		if(session.getAttribute("userRewards") != null) {
 			if(u != null) {
@@ -47,15 +47,18 @@ public class UserController {
 			}
 		}
 		session.setAttribute("userRewards", rewardsDao.showUpdatedRewardPoints(u));
-		model.addAttribute("totalSpent", userDao.getTotalMoneySpent(u));
+		session.setAttribute("totalSpent", userDao.getTotalMoneySpent(u));
 		return "views/profile.jsp";
 	}
 	
 	@RequestMapping(path="UpdateUser.do", method = RequestMethod.POST)
-	public String updateUser(User user, Model model) {
-		model.addAttribute("user", userDao.updateUserProfile(user));
+	public String updateUser(User user, HttpSession session) {
+		session.setAttribute("userRewards", rewardsDao.showUpdatedRewardPoints(user));
+		session.setAttribute("totalSpent", userDao.getTotalMoneySpent(user));
+		session.removeAttribute("user");
+		session.setAttribute("user", userDao.updateUserProfile(user));
 		
-		return"views/profile.jsp";
+		return"redirect:ViewProfile.do";
 	}
 	
 	@RequestMapping(path="SignUpPage.do", method=RequestMethod.GET)
@@ -64,9 +67,8 @@ public class UserController {
 	}
 	
 	@RequestMapping(path="CreateUser.do", method=RequestMethod.POST)
-	public String signUpNewUser(User user, Model model, HttpSession session) {
+	public String signUpNewUser(User user, HttpSession session) {
 		User u = userDao.createNewUser(user);
-		model.addAttribute("newUser", u);
 		session.setAttribute("user", u);
 		session.setAttribute("userRewards", rewardsDao.showUpdatedRewardPoints(u));
 		return "views/profile.jsp";
@@ -77,6 +79,8 @@ public class UserController {
 		session.removeAttribute("cart");
 		session.removeAttribute("user");
 		session.removeAttribute("priceReduction");
+		session.removeAttribute("totalSpent");
+		session.removeAttribute("userRewards");
 		return "Cafe.do";
 	}
 }

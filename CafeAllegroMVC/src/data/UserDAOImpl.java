@@ -59,18 +59,19 @@ public class UserDAOImpl implements UserDAO {
 	@Override
 	public User updateUserProfile(User user) {
 		
-//		String q = "SELECT u FROM User u WHERE u.id = :id";
+		String q = "SELECT u FROM User u WHERE u.id = :id";
+		user = em.createQuery(q, User.class).setParameter("id", user.getId()).getResultList().get(0);
+//		user = em.find(User.class, user.getId());
 		
-		User managedUser = em.find(User.class, user.getId());
+		user.setFirstName(user.getFirstName());
+		user.setLastName(user.getLastName());
+		user.setEmail(user.getEmail());
+		user.setPhoneNumber(user.getPhoneNumber());
+		user.setUsername(user.getUsername());
+		user.setPassword(user.getPassword());
+		user.setUserRole(user.getUserRole());
 		
-		managedUser.setFirstName(user.getFirstName());
-		managedUser.setLastName(user.getLastName());
-		managedUser.setEmail(user.getEmail());
-		managedUser.setPhoneNumber(user.getPhoneNumber());
-		managedUser.setUsername(user.getUsername());
-		managedUser.setPassword(user.getPassword());
-		
-		return managedUser;
+		return user;
 	}
 	
 
