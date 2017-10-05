@@ -37,6 +37,7 @@
 					<ul class="list-unstyled">
 						<li><a href="#" class="text-white">Follow on Twitter</a></li>
 						<li><a href="#" class="text-white">Like on Facebook</a></li>
+						<br>
 						<c:if test="${not empty user.username}">
 							<li><a href="Logout.do" class="text-white">Logout</a></li>
 						</c:if>
@@ -128,14 +129,8 @@
 	<footer class="text-muted">
 		<div class="container">
 			<p class="float-right">
-				<a href="#">Back to top</a>
-			</p>
-			<p>Album example is &copy; Bootstrap, but please download and
-				customize it for yourself!</p>
-			<p>
-				New to Bootstrap? <a href="../../">Visit the homepage</a> or read
-				our <a href="../../getting-started/">getting started guide</a>.
-			</p>
+				<a href="#">Back to Top</a>
+			
 		</div>
 	</footer>
 

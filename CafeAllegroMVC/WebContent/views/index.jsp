@@ -69,7 +69,7 @@
 				<c:if test="${not empty user.username}">
 					<c:if test="${cart.quantity > 0}">
 						<a href="showCart.do" class="btn btn-secondary">${cart.quantity}
-							items in cart</a>
+							Items in Cart</a>
 					</c:if>
 					<a href="ViewProfile.do" class="btn btn-primary">Order History</a>
 				</c:if>
@@ -350,7 +350,7 @@
 	<footer class="text-muted">
 		<div class="container">
 			<p class="float-right">
-				<a href="#">Back to top</a>
+				<a href="#">Back to Top</a>
 			</p>
 		</div>
 	</footer>
