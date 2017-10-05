@@ -28,11 +28,8 @@
 			<div class="row">
 				<div class="col-sm-8 py-4">
 					<h4 class="text-white">About</h4>
-					<p class="text-muted">Add some information about the album
-						below, the author, or any other background context. Make it a few
-						sentences long so folks can pick up some informative tidbits.
-						Then, link them off to some social networking sites or contact
-						information.</p>
+					<p class="text-muted">We are a family owned cafe and have been
+						a part of the community for over 10 years.</p>
 				</div>
 				<div class="col-sm-4 py-4">
 					<h4 class="text-white">Contact</h4>
@@ -40,6 +37,7 @@
 						<li><font color="white">Cafe Allegro</font></li>
 						<li><font color="white">7400 E Orchard Rd</font></li>
 						<li><font color="white">Greenwood Village, CO 80111</font></li>
+						<br>
 						<c:if test="${not empty user.username}">
 							<li><a href="Logout.do" class="text-white">Logout</a></li>
 						</c:if>
@@ -97,12 +95,7 @@
 			<p class="float-right">
 				<a href="#">Back to top</a>
 			</p>
-			<p>Album example is &copy; Bootstrap, but please download and
-				customize it for yourself!</p>
-			<p>
-				New to Bootstrap? <a href="../../">Visit the homepage</a> or read
-				our <a href="../../getting-started/">getting started guide</a>.
-			</p>
+
 		</div>
 	</footer>
 

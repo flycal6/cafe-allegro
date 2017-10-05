@@ -5,22 +5,19 @@ import java.text.NumberFormat;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-
-import cart.Cart;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import data.UserDAO;
-import entities.MenuItem;
-import entities.User;
+import cart.Cart;
 import data.CartDAO;
 import data.OrderDAO;
 import data.RewardsDAO;
+import entities.MenuItem;
+import entities.User;
 
 @Controller
 public class OrderController {
@@ -75,18 +72,5 @@ public class OrderController {
 		session.removeAttribute("cart");
 		return "views/checkout.jsp";
 	}
-	
-//	@RequestMapping(path="confirmation.do", method=RequestMethod.POST)
-//	public String goToConfirmationPage(RedirectAttributes redir, HttpSession session) {
-//		session.getAttribute("order");
-//		return "redirect:confirmedOrder.do";
-//	}
-//	
-//	@RequestMapping(path="confirmedOrder.do", method=RequestMethod.GET)
-//	public String confirmedOrderPage(HttpSession session) {
-//		String orderConfirm = "Thank You.";
-//		session.setAttribute("thanks", orderConfirm);
-//		return "views/checkout.jsp";
-//	}
 	
 }
