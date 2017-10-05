@@ -61,7 +61,7 @@
 		<div class="container">
 			<h1 class="jumbotron-heading">Cafe Allegro</h1>
 			<p class="lead text-muted">Welcome to our site. Our food is
-				ALWAYS freshly made to order and delivered with a smile. Please
+				ALWAYS freshly made and delivered with a smile. Please
 				order below and we hope to see you soon!</p>
 
 			<p>
