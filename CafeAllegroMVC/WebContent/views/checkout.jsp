@@ -56,9 +56,9 @@
 			</button>
 		</div>
 	</div>
-
+	<br>
+	<br>
 	<div class="container" id="mainspot">
-				
 		<div>
 			<h1>Order Confirmation</h1>
 			<hr>
