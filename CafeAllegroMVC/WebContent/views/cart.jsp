@@ -17,6 +17,9 @@
 <!-- Custom styles for this template -->
 <link rel="stylesheet" href="css/cart.css">
 
+<!-- Font -->
+<link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet">
+
 <title>Cart</title>
 </head>
 <body>
@@ -55,48 +58,35 @@
 		</div>
 	</div>
 	<div class="container">
-
+		<div class="row">
 		<h1><b>Shopping Cart</b></h1>
+		</div>
 		<hr>
-		<table class="table table-striped table-hover table-bordered">
-			
-			    <tr>
-
-					<c:forEach var="cart" items="${cart.itemsInCart}">
-						<td>${cart.name}</td><td>${cart.price}</td>
-					</c:forEach>
-				</tr>
-				<tr>
-					<th colspan="3"><span class="pull-right">Sub Total</span></th>
-					<th>${cartBeforeTax}</th>
-				</tr>
-				<tr>
-				
-				<tr>
-					<th colspan="3"><span class="pull-right">Tax 20%</span></th>
-					<th>${cartTax}</th>
-				</tr>
-				<tr>
-					<th colspan="3"><span class="pull-right">Total</span></th>
-					<th>${orderAfterTax}</th>
-				</tr>
-				<tr>
-					<th>You have ${userRewards} Reward Points.</th>
-					<c:if test="${userRewards > 9}">
-					<th><a href="RedeemPoints.do" class="btn btn-success" type="submit">Redeem Points Now</a></th>
-					</c:if>
-				</tr>
-				<tr>
+		<ul class="list-group">
+			<c:forEach var="cart" items="${cart.itemsInCart}">
+				<li class="list-group-item list-group-item-primary">${cart.name}<span class="float-sm-right">$${cart.price}</span></li>
+			</c:forEach>
+		  
+		  <li class="list-group-item list-group-item-primary">Sub Total: <span class="float-sm-right">$${cartBeforeTax}</span></li>
+		  <li class="list-group-item list-group-item-secondary">Tax 7% <span class="float-sm-right">${cartTax}</span></li>
+		  <li class="list-group-item list-group-item-info">Total <span class="float-sm-right">${orderAfterTax}</span></li>
+		  <li class="list-group-item list-group-item-light">You have ${userRewards} Reward Points.
+		  <c:if test="${userRewards > 9}"><span class="float-sm-right">
+				<a href="RedeemPoints.do" class="btn btn-secondary" type="submit">Redeem Points Now</a></span>
+			</c:if></li>
+		  <!-- <li class="list-group-item list-group-item-dark"></li> -->
+		  <li class="list-group-item list-group-item-light"><form action="Cafe.do" method="GET">
+		<button class="btn btn-secondary btn-block" type="submit">Add More Food</button>
+		</form>
+		<form action="finalizeOrder.do" method="POST">
+		<button class="btn btn-primary btn-block" type="submit">Confirm Order</button>
+		</form></li>
+		</ul>
 		
-					<form action="Cafe.do" method="GET">
-					<button class="btn btn-lg btn-primary btn-block" type="submit">Add More Food</button>
-					</form>
-					<form action="finalizeOrder.do" method="POST">
-					<button class="btn btn-lg btn-primary btn-block" type="submit">Checkout</button>
-					</form>			
-				</tr>
-			</tbody>
-		</table>
+		
+		
+		
+					
 
 	</div>
 
