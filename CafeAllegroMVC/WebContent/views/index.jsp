@@ -73,7 +73,7 @@
 					<a href="ViewProfile.do" class="btn btn-primary">Order History</a>
 				</c:if>
 				<c:if test="${empty user.username}">
-					<a href="Login.do" class="btn btn-secondary">Login</a>
+					<a href="Login.do" class="btn btn-secondary">Login to Order</a>
 				</c:if>
 			</p>
 		</div>
@@ -127,9 +127,13 @@
 					<input type="hidden" name="name" value="${item.name}">
 					<input type="hidden" name="price" value="${item.price}">
 					<input type="hidden" name="description"
-						value="${item.description}"> <input id="buyButton"
+						value="${item.description}"> 
+						
+						<c:if test="${not empty user.username}">
+						<input id="buyButton"
 						class="btn btn-secondary" type="submit" name="submit"
 						value="Add to Cart">
+						</c:if>
 				</form>
 			</c:if>
 		</c:forEach>
@@ -147,9 +151,13 @@
 					<input type="hidden" name="name" value="${item.name}">
 					<input type="hidden" name="price" value="${item.price}">
 					<input type="hidden" name="description"
-						value="${item.description}"> <input id="buyButton"
+						value="${item.description}">
+						
+						<c:if test="${not empty user.username}">
+						<input id="buyButton"
 						class="btn btn-secondary" type="submit" name="submit"
 						value="Add to Cart">
+						</c:if>
 				</form>
 			</c:if>
 		</c:forEach>
@@ -166,9 +174,14 @@
 					<input type="hidden" name="name" value="${item.name}">
 					<input type="hidden" name="price" value="${item.price}">
 					<input type="hidden" name="description"
-						value="${item.description}"> <input id="buyButton"
+						value="${item.description}"> 
+						
+						<c:if test="${not empty user.username}">
+						<input id="buyButton"
 						class="btn btn-secondary" type="submit" name="submit"
 						value="Add to Cart">
+						</c:if>
+
 				</form>
 			</c:if>
 		</c:forEach>
@@ -185,9 +198,13 @@
 					<input type="hidden" name="name" value="${item.name}">
 					<input type="hidden" name="price" value="${item.price}">
 					<input type="hidden" name="description"
-						value="${item.description}"> <input id="buyButton"
+						value="${item.description}"> 
+						
+						<c:if test="${not empty user.username}">
+						<input id="buyButton"
 						class="btn btn-secondary" type="submit" name="submit"
 						value="Add to Cart">
+						</c:if>
 				</form>
 			</c:if>
 		</c:forEach>
@@ -203,9 +220,12 @@
 					<input type="hidden" name="name" value="${item.name}">
 					<input type="hidden" name="price" value="${item.price}">
 					<input type="hidden" name="description"
-						value="${item.description}"> <input id="buyButton"
+						value="${item.description}"> 
+						<c:if test="${not empty user.username}">
+						<input id="buyButton"
 						class="btn btn-secondary" type="submit" name="submit"
 						value="Add to Cart">
+						</c:if>
 				</form>
 			</c:if>
 		</c:forEach>
@@ -221,9 +241,12 @@
 					<input type="hidden" name="name" value="${item.name}">
 					<input type="hidden" name="price" value="${item.price}">
 					<input type="hidden" name="description"
-						value="${item.description}"> <input id="buyButton"
+						value="${item.description}"> 
+						<c:if test="${not empty user.username}">
+						<input id="buyButton"
 						class="btn btn-secondary" type="submit" name="submit"
 						value="Add to Cart">
+						</c:if>
 				</form>
 			</c:if>
 		</c:forEach>
@@ -239,9 +262,12 @@
 					<input type="hidden" name="name" value="${item.name}">
 					<input type="hidden" name="price" value="${item.price}">
 					<input type="hidden" name="description"
-						value="${item.description}"> <input id="buyButton"
+						value="${item.description}"> 
+						<c:if test="${not empty user.username}">
+						<input id="buyButton"
 						class="btn btn-secondary" type="submit" name="submit"
 						value="Add to Cart">
+						</c:if>
 				</form>
 			</c:if>
 		</c:forEach>
@@ -257,9 +283,12 @@
 					<input type="hidden" name="name" value="${item.name}">
 					<input type="hidden" name="price" value="${item.price}">
 					<input type="hidden" name="description"
-						value="${item.description}"> <input id="buyButton"
+						value="${item.description}"> 
+						<c:if test="${not empty user.username}">
+						<input id="buyButton"
 						class="btn btn-secondary" type="submit" name="submit"
 						value="Add to Cart">
+						</c:if>
 				</form>
 			</c:if>
 		</c:forEach>
@@ -275,9 +304,12 @@
 					<input type="hidden" name="name" value="${item.name}">
 					<input type="hidden" name="price" value="${item.price}">
 					<input type="hidden" name="description"
-						value="${item.description}"> <input id="buyButton"
+						value="${item.description}"> 
+						<c:if test="${not empty user.username}">
+						<input id="buyButton"
 						class="btn btn-secondary" type="submit" name="submit"
 						value="Add to Cart">
+						</c:if>
 				</form>
 			</c:if>
 		</c:forEach>
@@ -293,9 +325,12 @@
 					<input type="hidden" name="name" value="${item.name}">
 					<input type="hidden" name="price" value="${item.price}">
 					<input type="hidden" name="description"
-						value="${item.description}"> <input id="buyButton"
+						value="${item.description}"> 
+						<c:if test="${not empty user.username}">
+						<input id="buyButton"
 						class="btn btn-secondary" type="submit" name="submit"
 						value="Add to Cart">
+						</c:if>
 				</form>
 			</c:if>
 		</c:forEach>
