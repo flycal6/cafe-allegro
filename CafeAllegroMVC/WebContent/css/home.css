@@ -10,6 +10,9 @@ li {
 .navbar {
   margin-bottom: 0;
 }
+.container {
+	max-width: 90%;
+}
 
 .jumbotron {
   padding-top: 6rem;
