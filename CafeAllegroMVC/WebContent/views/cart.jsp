@@ -34,8 +34,9 @@
 				<div class="col-sm-4 py-4">
 					<h4 class="text-white">Contact</h4>
 					<ul class="list-unstyled">
-						<li><a href="#" class="text-white">Follow on Twitter</a></li>
-						<li><a href="#" class="text-white">Like on Facebook</a></li>
+						<li><font color="white">Cafe Allegro</font></li>
+						<li><font color="white">7400 E Orchard Rd</font></li>
+						<li><font color="white">Greenwood Village, CO 80111</font></li>
 						<c:if test="${not empty user.username}">
 							<li><a href="Logout.do" class="text-white">Logout</a></li>
 						</c:if>
