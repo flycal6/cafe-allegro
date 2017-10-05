@@ -18,6 +18,8 @@
 
 <!-- Custom styles for this template -->
 <link href="css/profile.css" rel="stylesheet">
+<!-- Font -->
+<link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet">
 </head>
 
 <body>
@@ -75,6 +77,12 @@
 							<input type="text" class="form-control" id="inputDesc" name="description" placeholder="item description">
 						</div>
 					</div>
+					<div class="form-row">
+						<div class="form-group col-md-12">
+							<label for="inputCategory" class="col-form-label">Description</label> 
+							<input type="text" class="form-control" id="inputCategory" name="category" placeholder="item category">
+						</div>
+					</div>
 					<%-- <input type="hidden" name="id" value="${item.id}"> --%>
 					<button type="submit" name="submit" id="submit" class="btn btn-primary">Create Item</button>
 				</form>
@@ -87,12 +95,6 @@
 		<div class="container">
 			<p class="float-right">
 				<a href="#">Back to top</a>
-			</p>
-			<p>Album example is &copy; Bootstrap, but please download and
-				customize it for yourself!</p>
-			<p>
-				New to Bootstrap? <a href="../../">Visit the homepage</a> or read
-				our <a href="../../getting-started/">getting started guide</a>.
 			</p>
 		</div>
 	</footer>

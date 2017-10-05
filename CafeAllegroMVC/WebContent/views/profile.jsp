@@ -18,6 +18,9 @@
 
 <!-- Custom styles for this template -->
 <link href="css/profile.css" rel="stylesheet">
+
+<!-- Font -->
+<link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet">
 </head>
 
 <body>
