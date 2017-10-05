@@ -18,8 +18,8 @@ public class RewardsDAOImpl implements RewardsDAO {
 
 	@Override
 	public User increaseRewardPoints(User u, double pointsToAdd) {
-		if (pointsToAdd < 10) {
-			pointsToAdd = 10;
+		if (pointsToAdd < 0) {
+			pointsToAdd = 0;
 		}
 		u = em.find(User.class, u.getId());
 		
