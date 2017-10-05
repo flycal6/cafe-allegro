@@ -4,6 +4,7 @@ body {
 
 li {
 	list-style-type:none;
+	font-family: 'Comfortaa', cursive;
 }
 
 .navbar {
@@ -23,6 +24,7 @@ li {
 
 .jumbotron-heading {
   font-weight: 300;
+  font-family: 'Comfortaa', cursive;
 }
 
 .jumbotron .container {
@@ -38,15 +40,16 @@ li {
 
 .card {
   float: left;
-  width: 33.333%;
+  width: 98%;
   padding: .75rem;
   margin-bottom: 2rem;
   border: 0;
+  flex-direction: row;
 }
 
-.card > img {
+/* .card > img {
   margin-bottom: .75rem;
-}
+} */
 
 .card-text {
   font-size: 85%;
@@ -65,12 +68,8 @@ footer p {
 	max-height: 40px;
 	padding: 0;
 }
-.crop {
- height: 300px;
- width: 600px;
- overflow: hidden;
+
+.list-header-images {
+	max-height:50px;
 }
-.crop img {
- height: 350px;
- width: 400px;
-}
+

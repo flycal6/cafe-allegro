@@ -103,6 +103,8 @@
 		<br>
 		<div class="container text-muted">
 		<hr>
+		<div>
+		<h4>$${totalSpent} total spent</h4></div>
 			<div >
 				<h4>You have ${userRewards} Reward Points.</h4>
 			</div>

@@ -18,6 +18,9 @@
 
 <!-- Custom styles for this template -->
 <link href="css/home.css" rel="stylesheet">
+
+<!-- Font -->
+<link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet">
 </head>
 
 <body>
@@ -80,585 +83,231 @@
 	<%-- <c:if test="${cart.quantity == 0}"><button class="btn btn-secondary">Empty cart</button></c:if> --%>
 
 
-	<div class="container">
-		<h2>Menu</h2>
-	</div>
-
 	<div class="album text-muted">
-		<div class="container">
-			<div class="row">
+<div class="container">
+
+<div class="row">
 				<div class="card">
-					<div class="crop">
-						<img class="img-fluid" src="images/Breakfast.png"
-							alt="Card image cap">
-					</div>
-					<p class="card-text">
-						<b> Breakfast is served 8am - 11am </b> <br> Choice of Meat:
-						Ham, Sausage, or Bacon
-					</p>
+  <div class="col-4">
+    <div class="list-group" id="list-tab" role="tablist">
+      <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home">
+      <img class="img-fluid list-header-images" src="images/Breakfast.png" alt="Card image cap"> Breakfast</a>
+      <a class="list-group-item list-group-item-action" id="list-profile-list" data-toggle="list" href="#list-profile" role="tab" aria-controls="profile">
+      <img class="img-fluid list-header-images" src="images/burger.png" alt="Card image cap"> Burgers</a>
+      <a class="list-group-item list-group-item-action" id="list-messages-list" data-toggle="list" href="#list-messages" role="tab" aria-controls="messages">
+      <img class="img-fluid list-header-images" src="images/HotSub.png" alt="Card image cap"> Hot Subs</a>
+      <a class="list-group-item list-group-item-action" id="list-settings-list" data-toggle="list" href="#list-settings" role="tab" aria-controls="settings">
+      <img class="img-fluid list-header-images" src="images/sandwich.png" alt="Card image cap"> Sandwiches</a>
+      
+      <a class="list-group-item list-group-item-action" id="list-salad-list" data-toggle="list" href="#list-salad" role="tab" aria-controls="home">
+      <img class="img-fluid list-header-images" src="images/salad.png" alt="Card image cap"> Salads</a>
+      <a class="list-group-item list-group-item-action" id="list-wrap-list" data-toggle="list" href="#list-wrap" role="tab" aria-controls="profile">
+      <img class="img-fluid list-header-images" src="images/wrap.png" alt="Card image cap"> Wraps</a>
+      <a class="list-group-item list-group-item-action" id="list-mexican-list" data-toggle="list" href="#list-mexican" role="tab" aria-controls="messages">
+      <img class="img-fluid list-header-images" src="images/Taco.png" alt="Card image cap"> Mexican</a>
+      <a class="list-group-item list-group-item-action" id="list-rice-list" data-toggle="list" href="#list-rice" role="tab" aria-controls="settings">
+      <img class="img-fluid list-header-images" src="images/riceBowl.png" alt="Card image cap"> Rice Bowls</a>
+      <a class="list-group-item list-group-item-action" id="list-soup-list" data-toggle="list" href="#list-soup" role="tab" aria-controls="settings">
+      <img class="img-fluid list-header-images" src="images/soup.png" alt="Card image cap"> Soups</a>
+      <a class="list-group-item list-group-item-action" id="list-drink-list" data-toggle="list" href="#list-drink" role="tab" aria-controls="settings">
+      <img class="img-fluid list-header-images" src="images/Drinks.jpeg" alt="Card image cap"> Drinks</a>
+    </div>
+  </div>
+  <div class="col-8">
+    <div class="tab-content" id="nav-tabContent">
 
-					<div class="dropdown">
-						<button class="btn btn-primary dropdown-toggle" type="button"
-							data-toggle="dropdown">
-							Breakfast <span class="caret"></span>
-						</button>
-						<ul class="dropdown-menu">
-							<c:forEach var="item" items="${items}">
-								<c:if test="${item.category == 'Breakfast'}">
-									<!-- <form action="addToCart.do" method="POST"> -->
-									<form action="SendItemToCart.do" method="POST">
-										<ul>
-											<li>${item.name}</li>
-											<li>$${item.price}</li>
-											<li>${item.description}</li>
-										</ul>
-										<input type="hidden" name="name" value="${item.name}">
-										<input type="hidden" name="price" value="${item.price}">
-										<input type="hidden" name="description"
-											value="${item.description}"> <input id="buyButton"
-											class="btn btn-secondary" type="submit" name="submit"
-											value="Add to Cart">
-									</form>
-								</c:if>
-							</c:forEach>
-						</ul>
-					</div>
-					<%-- 	
-					
-					<c:forEach var="item" items="${items}">
-						<c:if test="${item.category == 'Breakfast'}">
-							<!-- <form action="addToCart.do" method="POST"> -->
-							<form action="SendItemToCart.do" method="POST">
-								<ul>
-									<li>${item.name}</li>
-									<li>$${item.price}</li>
-									<li>${item.description}</li>
-								</ul>
-								<input type="hidden" name="name" value="${item.name}">
-								<input type="hidden" name="price" value="${item.price}">
-								<input type="hidden" name="description" value="${item.description}">
-								
-								<input  id="buyButton" class="btn btn-secondary" type="submit" name="submit" value="Add to Cart">
-							</form>
-						</c:if>
-					</c:forEach> --%>
-
-				</div>
-
-				<!-- <script>
-				function change()
-					{
-					    document.getElementById("buyButton").value="Remove From Cart";
-					    /* document.getElementById("buyButton").style.display="none"; */
-					}
-				</script> -->
-
-				<div class="card">
-					<div class="crop">
-						<img class="img-fluid" src="images/sandwich.png"
-							alt="Card image cap">
-					</div>
-					<p class="card-text">
-						<b> House Special Sandwiches </b><br> Choice of bread with
-						chips (1 oz.)
-					</p>
-					<%-- 					<c:forEach var="item" items="${items}">
-						<c:if test="${item.category == 'Sandwich'}">
-							<!-- <form action="addToCart.do" method="POST"> -->
-							<form action="SendItemToCart.do" method="POST">
-								<ul>
-									<li>${item.name}</li>
-									<li>$${item.price}</li>
-									<li>${item.description}</li>
-								</ul>
-								<input type="hidden" name="name" value="${item.name}"> <input
-									type="hidden" name="price" value="${item.price}"> <input
-									type="hidden" name="description" value="${item.description}">
-
-								<input id="buyButton" class="btn btn-secondary" type="submit"
-									name="submit" value="Add to Cart">
-							</form>
-						</c:if>
-					</c:forEach> --%>
-
-					<div class="dropdown">
-						<button class="btn btn-primary dropdown-toggle" type="button"
-							data-toggle="dropdown">
-							Sandwich <span class="caret"></span>
-						</button>
-						<ul class="dropdown-menu">
-							<c:forEach var="item" items="${items}">
-								<c:if test="${item.category == 'Sandwich'}">
-									<!-- <form action="addToCart.do" method="POST"> -->
-									<form action="SendItemToCart.do" method="POST">
-										<ul>
-											<li>${item.name}</li>
-											<li>$${item.price}</li>
-											<li>${item.description}</li>
-										</ul>
-										<input type="hidden" name="name" value="${item.name}">
-										<input type="hidden" name="price" value="${item.price}">
-										<input type="hidden" name="description"
-											value="${item.description}"> <input id="buyButton"
-											class="btn btn-secondary" type="submit" name="submit"
-											value="Add to Cart">
-									</form>
-								</c:if>
-							</c:forEach>
-						</ul>
-					</div>
-
-
-				</div>
-
-				<div class="card">
-					<div class="crop">
-						<img class="img-fluid" src="images/wrap.png" alt="Card image cap">
-					</div>
-					<p class="card-text">
-						<b>Wraps</b>
-					</p>
-					<%-- <c:forEach var="item" items="${items}">
-						<c:if test="${item.category == 'Wrap'}">
-							<!-- <form action="addToCart.do" method="POST"> -->
-							<form action="SendItemToCart.do" method="POST">
-								<ul>
-									<li>${item.name}</li>
-									<li>$${item.price}</li>
-									<li>${item.description}</li>
-								</ul>
-								<input type="hidden" name="name" value="${item.name}"> <input
-									type="hidden" name="price" value="${item.price}"> <input
-									type="hidden" name="description" value="${item.description}">
-
-								<input id="buyButton" class="btn btn-secondary" type="submit"
-									name="submit" value="Add to Cart">
-							</form>
-						</c:if>
-					</c:forEach>
- --%>
-
-
-					<div class="dropdown">
-						<button class="btn btn-primary dropdown-toggle" type="button"
-							data-toggle="dropdown">
-							Wrap <span class="caret"></span>
-						</button>
-						<ul class="dropdown-menu">
-							<c:forEach var="item" items="${items}">
-								<c:if test="${item.category == 'Wrap'}">
-									<!-- <form action="addToCart.do" method="POST"> -->
-									<form action="SendItemToCart.do" method="POST">
-										<ul>
-											<li>${item.name}</li>
-											<li>$${item.price}</li>
-											<li>${item.description}</li>
-										</ul>
-										<input type="hidden" name="name" value="${item.name}">
-										<input type="hidden" name="price" value="${item.price}">
-										<input type="hidden" name="description"
-											value="${item.description}"> <input id="buyButton"
-											class="btn btn-secondary" type="submit" name="submit"
-											value="Add to Cart">
-									</form>
-								</c:if>
-							</c:forEach>
-						</ul>
-					</div>
-				</div>
-
-				<div class="card">
-					<div class="crop">
-						<img class="img-fluid" src="images/HotSub.png"
-							alt="Card image cap">
-					</div>
-					<p class="card-text">
-						<b>Hot Subs</b>
-					</p>
-					<%-- <c:forEach var="item" items="${items}">
-						<c:if test="${item.category == 'Hot Subs'}">
-							<!-- <form action="addToCart.do" method="POST"> -->
-							<form action="SendItemToCart.do" method="POST">
-								<ul>
-									<li>${item.name}</li>
-									<li>$${item.price}</li>
-									<li>${item.description}</li>
-								</ul>
-								<input type="hidden" name="name" value="${item.name}"> <input
-									type="hidden" name="price" value="${item.price}"> <input
-									type="hidden" name="description" value="${item.description}">
-
-								<input id="buyButton" class="btn btn-secondary" type="submit"
-									name="submit" value="Add to Cart">
-							</form>
-						</c:if>
-					</c:forEach> --%>
-
-					<div class="dropdown">
-						<button class="btn btn-primary dropdown-toggle" type="button"
-							data-toggle="dropdown">
-							Hot Subs <span class="caret"></span>
-						</button>
-						<ul class="dropdown-menu">
-							<c:forEach var="item" items="${items}">
-								<c:if test="${item.category == 'Hot Subs'}">
-									<!-- <form action="addToCart.do" method="POST"> -->
-									<form action="SendItemToCart.do" method="POST">
-										<ul>
-											<li>${item.name}</li>
-											<li>$${item.price}</li>
-											<li>${item.description}</li>
-										</ul>
-										<input type="hidden" name="name" value="${item.name}">
-										<input type="hidden" name="price" value="${item.price}">
-										<input type="hidden" name="description"
-											value="${item.description}"> <input id="buyButton"
-											class="btn btn-secondary" type="submit" name="submit"
-											value="Add to Cart">
-									</form>
-								</c:if>
-							</c:forEach>
-						</ul>
-					</div>
-
-				</div>
-
-				<div class="card">
-					<div class="crop">
-						<img class="img-fluid" src="images/Taco.png" alt="Card image cap">
-					</div>
-					<p class="card-text">
-						<b>Mexican Food</b>
-					</p>
-					<%-- <c:forEach var="item" items="${items}">
-						<c:if test="${item.category == 'Mexican'}">
-							<!-- <form action="addToCart.do" method="POST"> -->
-							<form action="SendItemToCart.do" method="POST">
-								<ul>
-									<li>${item.name}</li>
-									<li>$${item.price}</li>
-									<li>${item.description}</li>
-								</ul>
-								<input type="hidden" name="name" value="${item.name}"> <input
-									type="hidden" name="price" value="${item.price}"> <input
-									type="hidden" name="description" value="${item.description}">
-
-								<input id="buyButton" class="btn btn-secondary" type="submit"
-									name="submit" value="Add to Cart">
-							</form>
-						</c:if>
-					</c:forEach> --%>
-
-					<div class="dropdown">
-						<button class="btn btn-primary dropdown-toggle" type="button"
-							data-toggle="dropdown">
-							Mexican <span class="caret"></span>
-						</button>
-						<ul class="dropdown-menu">
-							<c:forEach var="item" items="${items}">
-								<c:if test="${item.category == 'Mexican'}">
-									<!-- <form action="addToCart.do" method="POST"> -->
-									<form action="SendItemToCart.do" method="POST">
-										<ul>
-											<li>${item.name}</li>
-											<li>$${item.price}</li>
-											<li>${item.description}</li>
-										</ul>
-										<input type="hidden" name="name" value="${item.name}">
-										<input type="hidden" name="price" value="${item.price}">
-										<input type="hidden" name="description"
-											value="${item.description}"> <input id="buyButton"
-											class="btn btn-secondary" type="submit" name="submit"
-											value="Add to Cart">
-									</form>
-								</c:if>
-							</c:forEach>
-						</ul>
-					</div>
+      <div class="tab-pane fade show active" id="list-home" role="tabpanel" aria-labelledby="list-home-list">
+      <c:forEach var="item" items="${items}">
+			<c:if test="${item.category == 'Breakfast'}">
+				<form action="SendItemToCart.do" method="POST">
+					<ul>
+						<li>${item.name} $${item.price}</li>
+						<li>${item.description}</li>
+					</ul>
+					<input type="hidden" name="name" value="${item.name}">
+					<input type="hidden" name="price" value="${item.price}">
+					<input type="hidden" name="description"
+						value="${item.description}"> <input id="buyButton"
+						class="btn btn-secondary" type="submit" name="submit"
+						value="Add to Cart">
+				</form>
+			</c:if>
+		</c:forEach>
+      </div>
+      
+      <div class="tab-pane fade" id="list-profile" role="tabpanel" aria-labelledby="list-profile-list">
+      <c:forEach var="item" items="${items}">
+			<c:if test="${item.category == 'Burgers'}">
+				<form action="SendItemToCart.do" method="POST">
+					<ul>
+						<li>${item.name}</li>
+						<li>$${item.price}</li>
+						<li>${item.description}</li>
+					</ul>
+					<input type="hidden" name="name" value="${item.name}">
+					<input type="hidden" name="price" value="${item.price}">
+					<input type="hidden" name="description"
+						value="${item.description}"> <input id="buyButton"
+						class="btn btn-secondary" type="submit" name="submit"
+						value="Add to Cart">
+				</form>
+			</c:if>
+		</c:forEach>
+      </div>
+      <div class="tab-pane fade" id="list-messages" role="tabpanel" aria-labelledby="list-messages-list">
+      <c:forEach var="item" items="${items}">
+			<c:if test="${item.category == 'Hot Subs'}">
+				<form action="SendItemToCart.do" method="POST">
+					<ul>
+						<li>${item.name}</li>
+						<li>$${item.price}</li>
+						<li>${item.description}</li>
+					</ul>
+					<input type="hidden" name="name" value="${item.name}">
+					<input type="hidden" name="price" value="${item.price}">
+					<input type="hidden" name="description"
+						value="${item.description}"> <input id="buyButton"
+						class="btn btn-secondary" type="submit" name="submit"
+						value="Add to Cart">
+				</form>
+			</c:if>
+		</c:forEach>
+      </div>
+      <div class="tab-pane fade" id="list-settings" role="tabpanel" aria-labelledby="list-settings-list">
+      <c:forEach var="item" items="${items}">
+			<c:if test="${item.category == 'Sandwich'}">
+				<form action="SendItemToCart.do" method="POST">
+					<ul>
+						<li>${item.name}</li>
+						<li>$${item.price}</li>
+						<li>${item.description}</li>
+					</ul>
+					<input type="hidden" name="name" value="${item.name}">
+					<input type="hidden" name="price" value="${item.price}">
+					<input type="hidden" name="description"
+						value="${item.description}"> <input id="buyButton"
+						class="btn btn-secondary" type="submit" name="submit"
+						value="Add to Cart">
+				</form>
+			</c:if>
+		</c:forEach>
+      </div>
+      <div class="tab-pane fade" id="list-salad" role="tabpanel" aria-labelledby="list-salad-list">
+      <c:forEach var="item" items="${items}">
+			<c:if test="${item.category == 'Salad'}">
+				<form action="SendItemToCart.do" method="POST">
+					<ul>
+						<li>${item.name} $${item.price}</li>
+						<li>${item.description}</li>
+					</ul>
+					<input type="hidden" name="name" value="${item.name}">
+					<input type="hidden" name="price" value="${item.price}">
+					<input type="hidden" name="description"
+						value="${item.description}"> <input id="buyButton"
+						class="btn btn-secondary" type="submit" name="submit"
+						value="Add to Cart">
+				</form>
+			</c:if>
+		</c:forEach>
+      </div>
+      <div class="tab-pane fade" id="list-wrap" role="tabpanel" aria-labelledby="list-wrap-list">
+      <c:forEach var="item" items="${items}">
+			<c:if test="${item.category == 'Wrap'}">
+				<form action="SendItemToCart.do" method="POST">
+					<ul>
+						<li>${item.name} $${item.price}</li>
+						<li>${item.description}</li>
+					</ul>
+					<input type="hidden" name="name" value="${item.name}">
+					<input type="hidden" name="price" value="${item.price}">
+					<input type="hidden" name="description"
+						value="${item.description}"> <input id="buyButton"
+						class="btn btn-secondary" type="submit" name="submit"
+						value="Add to Cart">
+				</form>
+			</c:if>
+		</c:forEach>
+      </div>
+      <div class="tab-pane fade" id="list-mexican" role="tabpanel" aria-labelledby="list-mexican-list">
+      <c:forEach var="item" items="${items}">
+			<c:if test="${item.category == 'Mexican'}">
+				<form action="SendItemToCart.do" method="POST">
+					<ul>
+						<li>${item.name} $${item.price}</li>
+						<li>${item.description}</li>
+					</ul>
+					<input type="hidden" name="name" value="${item.name}">
+					<input type="hidden" name="price" value="${item.price}">
+					<input type="hidden" name="description"
+						value="${item.description}"> <input id="buyButton"
+						class="btn btn-secondary" type="submit" name="submit"
+						value="Add to Cart">
+				</form>
+			</c:if>
+		</c:forEach>
+      </div>
+      <div class="tab-pane fade" id="list-rice" role="tabpanel" aria-labelledby="list-rice-list">
+      <c:forEach var="item" items="${items}">
+			<c:if test="${item.category == 'Rice Bowl'}">
+				<form action="SendItemToCart.do" method="POST">
+					<ul>
+						<li>${item.name} $${item.price}</li>
+						<li>${item.description}</li>
+					</ul>
+					<input type="hidden" name="name" value="${item.name}">
+					<input type="hidden" name="price" value="${item.price}">
+					<input type="hidden" name="description"
+						value="${item.description}"> <input id="buyButton"
+						class="btn btn-secondary" type="submit" name="submit"
+						value="Add to Cart">
+				</form>
+			</c:if>
+		</c:forEach>
+      </div>
+      <div class="tab-pane fade" id="list-soup" role="tabpanel" aria-labelledby="list-soup-list">
+      <c:forEach var="item" items="${items}">
+			<c:if test="${item.category == 'Soups'}">
+				<form action="SendItemToCart.do" method="POST">
+					<ul>
+						<li>${item.name} $${item.price}</li>
+						<li>${item.description}</li>
+					</ul>
+					<input type="hidden" name="name" value="${item.name}">
+					<input type="hidden" name="price" value="${item.price}">
+					<input type="hidden" name="description"
+						value="${item.description}"> <input id="buyButton"
+						class="btn btn-secondary" type="submit" name="submit"
+						value="Add to Cart">
+				</form>
+			</c:if>
+		</c:forEach>
+      </div>
+      <div class="tab-pane fade" id="list-drink" role="tabpanel" aria-labelledby="list-drink-list">
+      <c:forEach var="item" items="${items}">
+			<c:if test="${item.category == 'Drinks'}">
+				<form action="SendItemToCart.do" method="POST">
+					<ul>
+						<li>${item.name} $${item.price}</li>
+						<li>${item.description}</li>
+					</ul>
+					<input type="hidden" name="name" value="${item.name}">
+					<input type="hidden" name="price" value="${item.price}">
+					<input type="hidden" name="description"
+						value="${item.description}"> <input id="buyButton"
+						class="btn btn-secondary" type="submit" name="submit"
+						value="Add to Cart">
+				</form>
+			</c:if>
+		</c:forEach>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</div>
 
 
-				</div>
 
-				<div class="card">
-					<div class="crop">
-						<img class="img-fluid" src="images/riceBowl.png"
-							alt="Card image cap">
-					</div>
-					<p class="card-text">
-						<b>Rice Bowls</b>
-					</p>
-					<%-- 				<c:forEach var="item" items="${items}">
-						<c:if test="${item.category == 'Rice Bowl'}">
-							<!-- <form action="addToCart.do" method="POST"> -->
-							<form action="SendItemToCart.do" method="POST">
-								<ul>
-									<li>${item.name}</li>
-									<li>$${item.price}</li>
-									<li>${item.description}</li>
-								</ul>
-								<input type="hidden" name="name" value="${item.name}"> <input
-									type="hidden" name="price" value="${item.price}"> <input
-									type="hidden" name="description" value="${item.description}">
-
-								<input id="buyButton" class="btn btn-secondary" type="submit"
-									name="submit" value="Add to Cart">
-							</form>
-						</c:if>
-					</c:forEach> --%>
-
-					<div class="dropdown">
-						<button class="btn btn-primary dropdown-toggle" type="button"
-							data-toggle="dropdown">
-							Rice Bowl <span class="caret"></span>
-						</button>
-						<ul class="dropdown-menu">
-							<c:forEach var="item" items="${items}">
-								<c:if test="${item.category == 'Rice Bowl'}">
-									<!-- <form action="addToCart.do" method="POST"> -->
-									<form action="SendItemToCart.do" method="POST">
-										<ul>
-											<li>${item.name}</li>
-											<li>$${item.price}</li>
-											<li>${item.description}</li>
-										</ul>
-										<input type="hidden" name="name" value="${item.name}">
-										<input type="hidden" name="price" value="${item.price}">
-										<input type="hidden" name="description"
-											value="${item.description}"> <input id="buyButton"
-											class="btn btn-secondary" type="submit" name="submit"
-											value="Add to Cart">
-									</form>
-								</c:if>
-							</c:forEach>
-						</ul>
-					</div>
-
-				</div>
-
-				<div class="card">
-					<div class="crop">
-						<img class="img-fluid" src="images/salad.png" alt="Card image cap">
-					</div>
-					<p class="card-text">
-						<b>Salad</b>
-					</p>
-					<%-- <c:forEach var="item" items="${items}">
-						<c:if test="${item.category == 'Salad'}">
-							<!-- <form action="addToCart.do" method="POST"> -->
-							<form action="SendItemToCart.do" method="POST">
-								<ul>
-									<li>${item.name}</li>
-									<li>$${item.price}</li>
-									<li>${item.description}</li>
-								</ul>
-								<input type="hidden" name="name" value="${item.name}"> <input
-									type="hidden" name="price" value="${item.price}"> <input
-									type="hidden" name="description" value="${item.description}">
-
-								<input id="buyButton" class="btn btn-secondary" type="submit"
-									name="submit" value="Add to Cart">
-							</form>
-						</c:if>
-					</c:forEach>
- --%>
-
-					<div class="dropdown">
-						<button class="btn btn-primary dropdown-toggle" type="button"
-							data-toggle="dropdown">
-							Salad <span class="caret"></span>
-						</button>
-						<ul class="dropdown-menu">
-							<c:forEach var="item" items="${items}">
-								<c:if test="${item.category == 'Salad'}">
-									<!-- <form action="addToCart.do" method="POST"> -->
-									<form action="SendItemToCart.do" method="POST">
-										<ul>
-											<li>${item.name}</li>
-											<li>$${item.price}</li>
-											<li>${item.description}</li>
-										</ul>
-										<input type="hidden" name="name" value="${item.name}">
-										<input type="hidden" name="price" value="${item.price}">
-										<input type="hidden" name="description"
-											value="${item.description}"> <input id="buyButton"
-											class="btn btn-secondary" type="submit" name="submit"
-											value="Add to Cart">
-									</form>
-								</c:if>
-							</c:forEach>
-						</ul>
-					</div>
-				</div>
-
-				<div class="card">
-					<div class="crop">
-						<img class="img-fluid" src="images/burger.png"
-							alt="Card image cap">
-					</div>
-					<p class="card-text">
-						<b>Burgers</b>
-					</p>
-					<%-- <c:forEach var="item" items="${items}">
-						<c:if test="${item.category == 'Burgers'}">
-							<!-- <form action="addToCart.do" method="POST"> -->
-							<form action="SendItemToCart.do" method="POST">
-								<ul>
-									<li>${item.name}</li>
-									<li>$${item.price}</li>
-									<li>${item.description}</li>
-								</ul>
-								<input type="hidden" name="name" value="${item.name}"> <input
-									type="hidden" name="price" value="${item.price}"> <input
-									type="hidden" name="description" value="${item.description}">
-
-								<input id="buyButton" class="btn btn-secondary" type="submit"
-									name="submit" value="Add to Cart">
-							</form>
-						</c:if>
-					</c:forEach> --%>
-
-					<div class="dropdown">
-						<button class="btn btn-primary dropdown-toggle" type="button"
-							data-toggle="dropdown">
-							Burgers <span class="caret"></span>
-						</button>
-						<ul class="dropdown-menu">
-							<c:forEach var="item" items="${items}">
-								<c:if test="${item.category == 'Burgers'}">
-									<!-- <form action="addToCart.do" method="POST"> -->
-									<form action="SendItemToCart.do" method="POST">
-										<ul>
-											<li>${item.name}</li>
-											<li>$${item.price}</li>
-											<li>${item.description}</li>
-										</ul>
-										<input type="hidden" name="name" value="${item.name}">
-										<input type="hidden" name="price" value="${item.price}">
-										<input type="hidden" name="description"
-											value="${item.description}"> <input id="buyButton"
-											class="btn btn-secondary" type="submit" name="submit"
-											value="Add to Cart">
-									</form>
-								</c:if>
-							</c:forEach>
-						</ul>
-					</div>
-
-				</div>
-
-				<div class="card">
-					<div class="crop">
-						<img class="img-fluid" src="images/soup.png" alt="Card image cap">
-					</div>
-					<p class="card-text">
-						<b>Soups</b>
-					</p>
-					<%-- 					<c:forEach var="item" items="${items}">
-						<c:if test="${item.category == 'Soups'}">
-							<!-- <form action="addToCart.do" method="POST"> -->
-							<form action="SendItemToCart.do" method="POST">
-								<ul>
-									<li>${item.name}</li>
-									<li>$${item.price}</li>
-									<li>${item.description}</li>
-								</ul>
-								<input type="hidden" name="name" value="${item.name}"> <input
-									type="hidden" name="price" value="${item.price}"> <input
-									type="hidden" name="description" value="${item.description}">
-
-								<input id="buyButton" class="btn btn-secondary" type="submit"
-									name="submit" value="Add to Cart">
-							</form>
-						</c:if>
-					</c:forEach> --%>
-
-					<div class="dropdown">
-						<button class="btn btn-primary dropdown-toggle" type="button"
-							data-toggle="dropdown">
-							Soups <span class="caret"></span>
-						</button>
-						<ul class="dropdown-menu">
-							<c:forEach var="item" items="${items}">
-								<c:if test="${item.category == 'Soups'}">
-									<!-- <form action="addToCart.do" method="POST"> -->
-									<form action="SendItemToCart.do" method="POST">
-										<ul>
-											<li>${item.name}</li>
-											<li>$${item.price}</li>
-											<li>${item.description}</li>
-										</ul>
-										<input type="hidden" name="name" value="${item.name}">
-										<input type="hidden" name="price" value="${item.price}">
-										<input type="hidden" name="description"
-											value="${item.description}"> <input id="buyButton"
-											class="btn btn-secondary" type="submit" name="submit"
-											value="Add to Cart">
-									</form>
-								</c:if>
-							</c:forEach>
-						</ul>
-					</div>
-
-				</div>
-
-				<div class="card">
-					<div class="crop">
-						<img class="img-fluid" src="images/Drinks.jpeg"
-							alt="Card image cap">
-					</div>
-					<p class="card-text">
-						<b>Drinks</b>
-					</p>
-					<%-- 					<c:forEach var="item" items="${items}">
-						<c:if test="${item.category == 'Drinks'}">
-							<!-- <form action="addToCart.do" method="POST"> -->
-							<form action="SendItemToCart.do" method="POST">
-								<ul>
-									<li>${item.name}</li>
-									<li>$${item.price}</li>
-									<li>${item.description}</li>
-								</ul>
-								<input type="hidden" name="name" value="${item.name}"> <input
-									type="hidden" name="price" value="${item.price}"> <input
-									type="hidden" name="description" value="${item.description}">
-
-								<input id="buyButton" class="btn btn-secondary" type="submit"
-									name="submit" value="Add to Cart">
-							</form>
-						</c:if>
-					</c:forEach> --%>
-
-
-					<div class="dropdown">
-						<button class="btn btn-primary dropdown-toggle" type="button"
-							data-toggle="dropdown">
-							Drinks <span class="caret"></span>
-						</button>
-						<ul class="dropdown-menu">
-							<c:forEach var="item" items="${items}">
-								<c:if test="${item.category == 'Drinks'}">
-									<!-- <form action="addToCart.do" method="POST"> -->
-									<form action="SendItemToCart.do" method="POST">
-										<ul>
-											<li>${item.name}</li>
-											<li>$${item.price}</li>
-											<li>${item.description}</li>
-										</ul>
-										<input type="hidden" name="name" value="${item.name}">
-										<input type="hidden" name="price" value="${item.price}">
-										<input type="hidden" name="description"
-											value="${item.description}"> <input id="buyButton"
-											class="btn btn-secondary" type="submit" name="submit"
-											value="Add to Cart">
-									</form>
-								</c:if>
-							</c:forEach>
-						</ul>
-					</div>
-				</div>
-
-			</div>
-		</div>
 	</div>
 
 
