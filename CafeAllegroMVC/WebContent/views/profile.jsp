@@ -11,7 +11,7 @@
 <meta name="author" content="">
 <link rel="icon" href="images/colorado-mountain-icon.png">
 
-<title>${user.firstName}${user.lastName} - Profile</title>
+<title>${user.firstName} ${user.lastName} - Profile</title>
 
 <!-- Bootstrap core CSS -->
 <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -29,17 +29,15 @@
 			<div class="row">
 				<div class="col-sm-8 py-4">
 					<h4 class="text-white">About</h4>
-					<p class="text-muted">Add some information about the album
-						below, the author, or any other background context. Make it a few
-						sentences long so folks can pick up some informative tidbits.
-						Then, link them off to some social networking sites or contact
-						information.</p>
+					<p class="text-muted">We are a family owned cafe and have been
+						a part of the community for over 10 years.</p>
 				</div>
 				<div class="col-sm-4 py-4">
 					<h4 class="text-white">Contact</h4>
 					<ul class="list-unstyled">
 						<li><a href="#" class="text-white">Follow on Twitter</a></li>
 						<li><a href="#" class="text-white">Like on Facebook</a></li>
+						<br>
 						<c:if test="${not empty user.username}">
 							<li><a href="Logout.do" class="text-white">Logout</a></li>
 						</c:if>
@@ -131,14 +129,8 @@
 	<footer class="text-muted">
 		<div class="container">
 			<p class="float-right">
-				<a href="#">Back to top</a>
-			</p>
-			<p>Album example is &copy; Bootstrap, but please download and
-				customize it for yourself!</p>
-			<p>
-				New to Bootstrap? <a href="../../">Visit the homepage</a> or read
-				our <a href="../../getting-started/">getting started guide</a>.
-			</p>
+				<a href="#">Back to Top</a>
+			
 		</div>
 	</footer>
 
