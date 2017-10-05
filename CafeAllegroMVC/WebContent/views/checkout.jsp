@@ -1,17 +1,15 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/core"%>
-
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport"
-	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="description" content="">
 <meta name="author" content="">
 <link rel="icon" href="images/colorado-mountain-icon.png">
+
+<title>Confirmation Page</title>
 
 <!-- Bootstrap core CSS -->
 <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -19,7 +17,9 @@
 <!-- Custom styles for this template -->
 <link href="css/checkout.css" rel="stylesheet">
 
-<title>Confirmation Page</title>
+<!-- Font -->
+<link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet">
+
 </head>
 
 <body>
@@ -28,17 +28,15 @@
 			<div class="row">
 				<div class="col-sm-8 py-4">
 					<h4 class="text-white">About</h4>
-					<p class="text-muted">Add some information about the album
-						below, the author, or any other background context. Make it a few
-						sentences long so folks can pick up some informative tidbits.
-						Then, link them off to some social networking sites or contact
-						information.</p>
+					<p class="text-muted">We are a family owned cafe and have been
+						a part of the community for over 10 years.</p>
 				</div>
 				<div class="col-sm-4 py-4">
 					<h4 class="text-white">Contact</h4>
 					<ul class="list-unstyled">
-						<li><a href="#" class="text-white">Follow on Twitter</a></li>
-						<li><a href="#" class="text-white">Like on Facebook</a></li>
+						<li><font color="white">Cafe Allegro</font></li>
+						<li><font color="white">7400 E Orchard Rd</font></li>
+						<li><font color="white">Greenwood Village, CO 80111</font></li>
 						<c:if test="${not empty user.username}">
 							<li><a href="Logout.do" class="text-white">Logout</a></li>
 						</c:if>
@@ -59,97 +57,52 @@
 		</div>
 	</div>
 
-	<div class="container wrapper">
-		<div class="row cart-head">
-			<div class="container">
-			
-				<div class="row">
-					<h2></h2>
-				</div>
-				<div class="row">
-					<h2></h2>
-				</div>
+	<div class="container" id="mainspot">
 				
-				<div class="row">
-					<h2>Confirmation Page</h2>
-				</div>
-
-				<div class="row">
-					<p>${order.time}</p>
-				</div>
-				
-				<div class="row">
-					<h3>Thank You!</h3>
-				</div>
-				<div class="row">
-					<h3>Your Order Is Being Processed.</h3>
-				</div>
-
-				<div class="row">
-					<p></p>
-				</div>
-			</div>
-		</div>
-		<!-- end of container wrapper -->
-
-
-		<!-- 	<div class="row cart-body">
-			<form class="form-horizontal" method="post" action="">
-		</div> -->
-
-
-		<c:forEach var="userOrder" items="${order.menuItems}">
-			<div class="panel-body">
-				<div class="form-group">
-					<!-- <div class="col-sm-3 col-xs-3">
-						<img class="img-responsive" src="images/cafe.png">
-					</div> -->
-					<div class="col-sm-6 col-xs-6">
-						<div class="col-xs-12">${userOrder.name}</div>
-						<div class="col-xs-12">${userOrder.description}</div>
-					</div>
-					<hr>
-		</c:forEach>
-		<div class="row">
-			<p></p>
+		<div>
+			<h1>Order Confirmation</h1>
+			<hr>
 		</div>
 
-		<h3>Total Due:</h3>
-		<div class="col-sm-3 col-xs-3 text-right">
-			<h4>
-				<span>$</span>${orderAfterTax} 
-			</h4>
-			
+		<div>
+			<p class="lead">${order.time}</p>
 		</div>
-	</div>
-		<p>Pick up in 15 min please.</p>
-	<!-- 
-		<div class="form-group">
-			<hr />
-		</div> -->
-	<%-- <div class="form-group">
-			<div class="col-xs-12">
-				<strong>Order Total</strong>
-				<div class="pull-right">
-					<span>$</span><span>${orderAfterTax}</span>
-				</div>
-			</div>
-		</div> --%>
-	<!--REVIEW ORDER END-->
-	<!-- 	<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 col-md-pull-6 col-sm-pull-6">
-		<div class="form-group"> -->
+		
+		<div>
+			<h3>Thank You! <span class="lead">Your Order Is Being Processed.</span></h3>
+		</div>
+		
+		<div>
+			<c:forEach var="userOrder" items="${order.menuItems}">
+				<p>${userOrder.name}</p>
+				<p>${userOrder.description}</p>
+			<hr>
+			</c:forEach>
+		</div>
 
-	<div class="row">
-		<p></p>
-	</div>
-
+		<div>
+			<h3>Total Due:</h3>
+			<h4>$${orderAfterTax}</h4>
 	
-		<form action="Cafe.do">
-			<input id="buyButton" class="btn btn-primary" type="submit" value="Back to Homepage">
-		</form>
+			<p>Pick up in 15 min please.</p>
+		</div>
+	<br>
+	<hr>
+	<div>
+			<form action="Cafe.do">
+				<button id="buyButton" class="btn btn-primary" type="submit" value="Back to Homepage">
+					Back to Home Page</button>
+			</form>
+		</div>
+	</div>
 
-
-	<div class="row cart-footer"></div>
+<footer class="text-muted">
+	<div class="container">
+		<p class="float-right">
+			<a href="#">Back to top</a>
+		</p>
+	</div>
+</footer>
 
 
 

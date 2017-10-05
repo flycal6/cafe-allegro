@@ -62,7 +62,7 @@
 
 		<div class="container text-muted">
 			<c:forEach var="item" items="${items}">
-				<form action="UpdateMenuItem.do" method="POST">
+				<form class="update-form-top" action="UpdateMenuItem.do" method="POST">
 					<div class="form-row">
 						<div class="form-group col-md-9">
 							<label for="inputName" class="col-form-label">Name</label> 
@@ -82,6 +82,7 @@
 					<input type="hidden" name="id" value="${item.id}">
 					<button type="submit" name="submit" id="submit" class="btn btn-primary">Update</button>
 				</form>
+				
 				<form action="RemoveItem.do" method="post">
 					<input type="hidden" name="id" value="${item.id}">
 					<button type="submit" name="submit" class="btn btn-danger">Delete</button>
