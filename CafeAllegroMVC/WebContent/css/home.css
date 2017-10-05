@@ -59,35 +59,7 @@ li {
 }
 
 footer {
-width 100%;
-background-color: #222;
-padding: 60px 0px;
 
-}
-
-footer nav {
-  float: left;
-}
-footer nav ul{
-  margin-top: 73px;
-}
-
-footer nav ul li {
-  display: block;
-  margin-left: 20px;
-  list-style: none;
-}
-
-footer nav ul li a {
-  font-family: sans-serif;
-  font-weight: 400;
-  font-size: 14px;
-  color:#fff;
-
-}
-
-footer p {
-  margin-bottom: .25rem;
 }
 
 #nav-brand {
