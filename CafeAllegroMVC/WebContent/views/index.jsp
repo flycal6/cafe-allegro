@@ -89,7 +89,7 @@
 
 <div class="row">
 				<div class="card">
-  <div class="col-4">
+  <div class="col-md-4">
     <div class="list-group" id="list-tab" role="tablist">
       <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home">
       <img class="img-fluid list-header-images" src="images/Breakfast.png" alt="Card image cap"> Breakfast</a>
@@ -114,27 +114,23 @@
       <img class="img-fluid list-header-images" src="images/Drinks.jpeg" alt="Card image cap"> Drinks</a>
     </div>
   </div>
-  <div class="col-8">
+  <div class="col-md-8">
     <div class="tab-content" id="nav-tabContent">
 
       <div class="tab-pane fade show active" id="list-home" role="tabpanel" aria-labelledby="list-home-list">
       <c:forEach var="item" items="${items}">
 			<c:if test="${item.category == 'Breakfast'}">
 				<form action="SendItemToCart.do" method="POST">
+					<input type="hidden" name="name" value="${item.name}">
+					<input type="hidden" name="price" value="${item.price}">
+					<input type="hidden" name="description" value="${item.description}"> 
+						<c:if test="${not empty user.username}">
+							<input class="btn btn-secondary float-sm-right" type="submit" name="submit" value="Add to Cart">
+						</c:if>
 					<ul>
 						<li>${item.name} $${item.price}</li>
 						<li>${item.description}</li>
 					</ul>
-					<input type="hidden" name="name" value="${item.name}">
-					<input type="hidden" name="price" value="${item.price}">
-					<input type="hidden" name="description"
-						value="${item.description}"> 
-						
-						<c:if test="${not empty user.username}">
-						<input id="buyButton"
-						class="btn btn-secondary" type="submit" name="submit"
-						value="Add to Cart">
-						</c:if>
 				</form>
 			</c:if>
 		</c:forEach>
@@ -144,21 +140,16 @@
       <c:forEach var="item" items="${items}">
 			<c:if test="${item.category == 'Burgers'}">
 				<form action="SendItemToCart.do" method="POST">
-					<ul>
-						<li>${item.name}</li>
-						<li>$${item.price}</li>
-						<li>${item.description}</li>
-					</ul>
 					<input type="hidden" name="name" value="${item.name}">
 					<input type="hidden" name="price" value="${item.price}">
-					<input type="hidden" name="description"
-						value="${item.description}">
-						
+					<input type="hidden" name="description" value="${item.description}"> 
 						<c:if test="${not empty user.username}">
-						<input id="buyButton"
-						class="btn btn-secondary" type="submit" name="submit"
-						value="Add to Cart">
+							<input class="btn btn-secondary float-sm-right" type="submit" name="submit" value="Add to Cart">
 						</c:if>
+					<ul>
+						<li>${item.name} $${item.price}</li>
+						<li>${item.description}</li>
+					</ul>
 				</form>
 			</c:if>
 		</c:forEach>
@@ -167,22 +158,16 @@
       <c:forEach var="item" items="${items}">
 			<c:if test="${item.category == 'Hot Subs'}">
 				<form action="SendItemToCart.do" method="POST">
-					<ul>
-						<li>${item.name}</li>
-						<li>$${item.price}</li>
-						<li>${item.description}</li>
-					</ul>
 					<input type="hidden" name="name" value="${item.name}">
 					<input type="hidden" name="price" value="${item.price}">
-					<input type="hidden" name="description"
-						value="${item.description}"> 
-						
+					<input type="hidden" name="description" value="${item.description}"> 
 						<c:if test="${not empty user.username}">
-						<input id="buyButton"
-						class="btn btn-secondary" type="submit" name="submit"
-						value="Add to Cart">
+							<input class="btn btn-secondary float-sm-right" type="submit" name="submit" value="Add to Cart">
 						</c:if>
-
+					<ul>
+						<li>${item.name} $${item.price}</li>
+						<li>${item.description}</li>
+					</ul>
 				</form>
 			</c:if>
 		</c:forEach>
@@ -191,21 +176,16 @@
       <c:forEach var="item" items="${items}">
 			<c:if test="${item.category == 'Sandwich'}">
 				<form action="SendItemToCart.do" method="POST">
-					<ul>
-						<li>${item.name}</li>
-						<li>$${item.price}</li>
-						<li>${item.description}</li>
-					</ul>
 					<input type="hidden" name="name" value="${item.name}">
 					<input type="hidden" name="price" value="${item.price}">
-					<input type="hidden" name="description"
-						value="${item.description}"> 
-						
+					<input type="hidden" name="description" value="${item.description}"> 
 						<c:if test="${not empty user.username}">
-						<input id="buyButton"
-						class="btn btn-secondary" type="submit" name="submit"
-						value="Add to Cart">
+							<input class="btn btn-secondary float-sm-right" type="submit" name="submit" value="Add to Cart">
 						</c:if>
+					<ul>
+						<li>${item.name} $${item.price}</li>
+						<li>${item.description}</li>
+					</ul>
 				</form>
 			</c:if>
 		</c:forEach>
@@ -214,19 +194,16 @@
       <c:forEach var="item" items="${items}">
 			<c:if test="${item.category == 'Salad'}">
 				<form action="SendItemToCart.do" method="POST">
+					<input type="hidden" name="name" value="${item.name}">
+					<input type="hidden" name="price" value="${item.price}">
+					<input type="hidden" name="description" value="${item.description}"> 
+						<c:if test="${not empty user.username}">
+							<input class="btn btn-secondary float-sm-right" type="submit" name="submit" value="Add to Cart">
+						</c:if>
 					<ul>
 						<li>${item.name} $${item.price}</li>
 						<li>${item.description}</li>
 					</ul>
-					<input type="hidden" name="name" value="${item.name}">
-					<input type="hidden" name="price" value="${item.price}">
-					<input type="hidden" name="description"
-						value="${item.description}"> 
-						<c:if test="${not empty user.username}">
-						<input id="buyButton"
-						class="btn btn-secondary" type="submit" name="submit"
-						value="Add to Cart">
-						</c:if>
 				</form>
 			</c:if>
 		</c:forEach>
@@ -235,19 +212,16 @@
       <c:forEach var="item" items="${items}">
 			<c:if test="${item.category == 'Wrap'}">
 				<form action="SendItemToCart.do" method="POST">
+					<input type="hidden" name="name" value="${item.name}">
+					<input type="hidden" name="price" value="${item.price}">
+					<input type="hidden" name="description" value="${item.description}"> 
+						<c:if test="${not empty user.username}">
+							<input class="btn btn-secondary float-sm-right" type="submit" name="submit" value="Add to Cart">
+						</c:if>
 					<ul>
 						<li>${item.name} $${item.price}</li>
 						<li>${item.description}</li>
 					</ul>
-					<input type="hidden" name="name" value="${item.name}">
-					<input type="hidden" name="price" value="${item.price}">
-					<input type="hidden" name="description"
-						value="${item.description}"> 
-						<c:if test="${not empty user.username}">
-						<input id="buyButton"
-						class="btn btn-secondary" type="submit" name="submit"
-						value="Add to Cart">
-						</c:if>
 				</form>
 			</c:if>
 		</c:forEach>
@@ -256,19 +230,16 @@
       <c:forEach var="item" items="${items}">
 			<c:if test="${item.category == 'Mexican'}">
 				<form action="SendItemToCart.do" method="POST">
+					<input type="hidden" name="name" value="${item.name}">
+					<input type="hidden" name="price" value="${item.price}">
+					<input type="hidden" name="description" value="${item.description}"> 
+						<c:if test="${not empty user.username}">
+							<input class="btn btn-secondary float-sm-right" type="submit" name="submit" value="Add to Cart">
+						</c:if>
 					<ul>
 						<li>${item.name} $${item.price}</li>
 						<li>${item.description}</li>
 					</ul>
-					<input type="hidden" name="name" value="${item.name}">
-					<input type="hidden" name="price" value="${item.price}">
-					<input type="hidden" name="description"
-						value="${item.description}"> 
-						<c:if test="${not empty user.username}">
-						<input id="buyButton"
-						class="btn btn-secondary" type="submit" name="submit"
-						value="Add to Cart">
-						</c:if>
 				</form>
 			</c:if>
 		</c:forEach>
@@ -277,19 +248,16 @@
       <c:forEach var="item" items="${items}">
 			<c:if test="${item.category == 'Rice Bowl'}">
 				<form action="SendItemToCart.do" method="POST">
+					<input type="hidden" name="name" value="${item.name}">
+					<input type="hidden" name="price" value="${item.price}">
+					<input type="hidden" name="description" value="${item.description}"> 
+						<c:if test="${not empty user.username}">
+							<input class="btn btn-secondary float-sm-right" type="submit" name="submit" value="Add to Cart">
+						</c:if>
 					<ul>
 						<li>${item.name} $${item.price}</li>
 						<li>${item.description}</li>
 					</ul>
-					<input type="hidden" name="name" value="${item.name}">
-					<input type="hidden" name="price" value="${item.price}">
-					<input type="hidden" name="description"
-						value="${item.description}"> 
-						<c:if test="${not empty user.username}">
-						<input id="buyButton"
-						class="btn btn-secondary" type="submit" name="submit"
-						value="Add to Cart">
-						</c:if>
 				</form>
 			</c:if>
 		</c:forEach>
@@ -298,19 +266,16 @@
       <c:forEach var="item" items="${items}">
 			<c:if test="${item.category == 'Soups'}">
 				<form action="SendItemToCart.do" method="POST">
+					<input type="hidden" name="name" value="${item.name}">
+					<input type="hidden" name="price" value="${item.price}">
+					<input type="hidden" name="description" value="${item.description}"> 
+						<c:if test="${not empty user.username}">
+							<input class="btn btn-secondary float-sm-right" type="submit" name="submit" value="Add to Cart">
+						</c:if>
 					<ul>
 						<li>${item.name} $${item.price}</li>
 						<li>${item.description}</li>
 					</ul>
-					<input type="hidden" name="name" value="${item.name}">
-					<input type="hidden" name="price" value="${item.price}">
-					<input type="hidden" name="description"
-						value="${item.description}"> 
-						<c:if test="${not empty user.username}">
-						<input id="buyButton"
-						class="btn btn-secondary" type="submit" name="submit"
-						value="Add to Cart">
-						</c:if>
 				</form>
 			</c:if>
 		</c:forEach>
@@ -319,19 +284,16 @@
       <c:forEach var="item" items="${items}">
 			<c:if test="${item.category == 'Drinks'}">
 				<form action="SendItemToCart.do" method="POST">
+					<input type="hidden" name="name" value="${item.name}">
+					<input type="hidden" name="price" value="${item.price}">
+					<input type="hidden" name="description" value="${item.description}"> 
+						<c:if test="${not empty user.username}">
+							<input class="btn btn-secondary float-sm-right" type="submit" name="submit" value="Add to Cart">
+						</c:if>
 					<ul>
 						<li>${item.name} $${item.price}</li>
 						<li>${item.description}</li>
 					</ul>
-					<input type="hidden" name="name" value="${item.name}">
-					<input type="hidden" name="price" value="${item.price}">
-					<input type="hidden" name="description"
-						value="${item.description}"> 
-						<c:if test="${not empty user.username}">
-						<input id="buyButton"
-						class="btn btn-secondary" type="submit" name="submit"
-						value="Add to Cart">
-						</c:if>
 				</form>
 			</c:if>
 		</c:forEach>
